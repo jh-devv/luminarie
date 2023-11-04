@@ -56,6 +56,7 @@
     wine
     imagemagick
     steam
+    cava
     yubikey-manager-qt
   ];
 
