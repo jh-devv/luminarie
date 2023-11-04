@@ -16,7 +16,7 @@ in {
       };
       theme = {
         name = "Catppuccin-Mocha-Standard-Lavender-Dark";
-        package = pkgs.unstable.catppuccin-gtk.override {
+        package = pkgs.catppuccin-gtk.override {
           accents = ["lavender"];
           variant = "mocha";
         };

@@ -18,7 +18,6 @@
   nixpkgs = {
     # You can add overlays here
     overlays = [
-      outputs.overlays.unstable-packages
       # If you want to use overlays exported from other flakes:
       # Or define it inline, for example:
       # (final: prev: {
@@ -52,7 +51,7 @@
     firefox-wayland
     just
     popsicle
-    unstable.vscode
+    vscode
     gradience
     wine
     imagemagick

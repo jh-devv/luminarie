@@ -28,7 +28,7 @@ in {
       xorg.xhost
       
 
-      unstable.waybar
+      waybar
     ];
 
     # Hardware and Environment Configuration
@@ -94,7 +94,7 @@ in {
     };
 
     # Fonts Configuration
-    fonts.fonts = with pkgs; [
+    fonts.packages = with pkgs; [
       (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono"]; })
       # Add more fonts here if needed
     ];
