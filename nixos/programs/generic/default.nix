@@ -15,6 +15,7 @@ in {
       jq
       meson
       mpv
+      imv
       neofetch
       ranger
       rustup

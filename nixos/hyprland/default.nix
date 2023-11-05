@@ -26,7 +26,6 @@ in {
       wl-clipboard
       xdg-utils
       xorg.xhost
-      
 
       waybar
     ];
