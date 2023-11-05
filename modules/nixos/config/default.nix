@@ -5,7 +5,6 @@
     ./boot.nix
     ./hyprland.nix
     ./services.nix
-    ./gnome-utils.nix
     ./pkgs.nix
   ];
 }
