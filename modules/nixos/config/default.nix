@@ -2,9 +2,11 @@
 # These should be stuff you would like to share with others, not your personal configurations.
 {...}:{
   imports = [ 
-    ./boot
-    ./hyprland
-    ./programs
-    ./services
+    ./boot.nix
+    ./hyprland.nix
+    ./services.nix
+    ./generic.nix
+    ./gnome-utils.nix
+    ./gaming.nix
   ];
 }
