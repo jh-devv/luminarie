@@ -27,6 +27,8 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
+      inputs.self.overlays.modifications
+      inputs.self.overlays.additions
     ];
     # Configure your nixpkgs instance
     config = {
