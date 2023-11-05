@@ -1,6 +1,6 @@
-# dotfiles
+# luminara
 
-Hey! These are my dotfiles for the my NixOS setup `luminaria` ( ˶ˆ꒳ˆ˵ )
+Hey! This is my flake for my NixOS setup `Luminara` ( ˶ˆ꒳ˆ˵ )
 
 📷 [screens](#--screens)
 📝 [info](#--info)
