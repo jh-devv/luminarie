@@ -45,18 +45,10 @@ in {
       enable = true;
       displayManager.gdm = { 
         enable = true;
-        wayland = true;
+	wayland = true;
       };
       displayManager.sessionPackages = [ pkgs.hyprland ];
       libinput.enable = true;
     };
-
-
-    services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
-    [com.ubuntu.login-screen]
-    background-repeat='no-repeat'
-    background-size='cover'
-    background-color='#777777'
-    '';
   };
 }
