@@ -3,5 +3,9 @@
 {...}:{
   imports = [ 
     ./config
+    ./boot
+    ./hyprland
+    ./programs
+    ./services
   ];
 }

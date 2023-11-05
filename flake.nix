@@ -17,9 +17,8 @@
       luminara = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
-          ./nixos
-          ./nixos/hosts/luminara
           ./modules/nixos
+          ./hosts/luminara
         ];
       };
     };
@@ -29,9 +28,8 @@
         pkgs = self.packages.x86_64-linux;
         extraSpecialArgs = {inherit inputs; };
         modules = [
-          ./home
-          ./home/users/jh-devv
           ./modules/home
+          ./users/jh-devv
         ];
       };
     };
