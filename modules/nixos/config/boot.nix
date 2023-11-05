@@ -5,5 +5,4 @@
       enable = lib.mkEnableOption "grub";
     };
   };
-  };
 }
