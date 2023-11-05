@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -25,7 +25,7 @@
 
     homeConfigurations = {
       "jh-devv@luminara" = home-manager.lib.homeManagerConfiguration {
-        pkgs = self.packages.x86_64-linux;
+        pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs; };
         modules = [
           ./modules/home
