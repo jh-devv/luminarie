@@ -2,8 +2,8 @@
 # These should be stuff you would like to share with others, not your personal configurations.
 {...}:{
   imports = [ 
-    ./gnome-utils
-    ./generic
-    ./gaming
+    ./gnome-utils.nix
+    ./generic.nix
+    ./gaming.nix
   ];
 }

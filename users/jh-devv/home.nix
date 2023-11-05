@@ -58,6 +58,8 @@
     steam
     cava
     yubikey-manager-qt
+    osu-lazer-bin
+    nitch
   ];
 
   nixpkgs.config.firefox.speechSynthesisSupport = true;
