@@ -28,6 +28,7 @@ in {
       xdg-utils
       xorg.xhost
 
+      eww-wayland
       waybar
     ];
 
