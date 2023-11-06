@@ -41,8 +41,11 @@
   };
 
   jh-devv.home = {
+    theme = {
+      gtk.enable = true;
+      qt.enable = true;
+    };
     legacy.enable = true;
-    theme.enable = true;
     rofi.enable = true;
   };
 

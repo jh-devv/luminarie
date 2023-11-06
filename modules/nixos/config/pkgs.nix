@@ -8,5 +8,5 @@
     }; gnome-utils = {
         enable = lib.mkEnableOption "gnome-utils pkgs";
     };
-  }
+  };
 }

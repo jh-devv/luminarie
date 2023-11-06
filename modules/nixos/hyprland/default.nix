@@ -21,6 +21,7 @@ in {
       swww
       swaylock-effects
       swaynotificationcenter
+      hyprpicker
       wlr-randr
       wlogout
       wl-clipboard
