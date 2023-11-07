@@ -53,6 +53,8 @@
   home.packages = with pkgs; [ 
     firefox-wayland
     just
+    lutgen
+    trash-cli
     popsicle
     vscode
     gradience
@@ -66,6 +68,11 @@
     nitch
   ];
 
+  programs.bash.enable = true;
+  home.shellAliases = {
+    rm = "trash-put";
+  };
+
   nixpkgs.config.firefox.speechSynthesisSupport = true;
   
   xdg.mimeApps.enable = true;
@@ -75,6 +82,7 @@
     "x-scheme-handler/https" = "firefox.desktop";
     "x-scheme-handler/about" = "firefox.desktop";
     "x-scheme-handler/unknown" = "firefox.desktop";
+    "application/zip" = "org.gnome.FileRoller.desktop";
   };
 
 
