@@ -54,6 +54,7 @@
     firefox-wayland
     just
     lutgen
+    inkscape
     trash-cli
     popsicle
     vscode
@@ -72,6 +73,8 @@
   home.shellAliases = {
     rm = "trash-put";
   };
+
+   xdg.dataFile."themes".source = pkgs.catppuccin-gtk.outPath;
 
   nixpkgs.config.firefox.speechSynthesisSupport = true;
   
