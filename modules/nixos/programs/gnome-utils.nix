@@ -8,6 +8,7 @@ in {
       glib
       gnome.gnome-keyring
       gnome.nautilus
+      gnome.gedit
       gnome.file-roller
       gtk3
       polkit_gnome

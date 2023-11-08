@@ -16,6 +16,7 @@ in {
       mpv
       imv
       playerctl
+      libwebp
       ranger
       tree
       unzip
