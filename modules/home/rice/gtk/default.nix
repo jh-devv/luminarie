@@ -23,8 +23,8 @@ in {
       };
     };
 
-    # For flatpaks, kinda gross but works uwuf
+    # For flatpaks, kinda gross but works uwu
     home.file.".themes".source = "${pkgs.catppuccin-gtk.override { accents = ["lavender"]; variant = "mocha"; }}/share/themes";
-    home.file.".icons/default".source = "${pkgs.catppuccin-cursors.mochaLavender}/share/icons/Catppuccin-Mocha-Lavender-Cursors";
+    home.file.".icons/default".source = "${pkgs.catppuccin-cursors.mochaLavender}/share/icons/Catppuccin-Mocha-Lavender-Cursors/";
   };
 }

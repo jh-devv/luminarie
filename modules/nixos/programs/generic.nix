@@ -18,6 +18,7 @@ in {
       playerctl
       libwebp
       ranger
+      file
       tree
       unzip
       vim
