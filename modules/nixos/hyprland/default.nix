@@ -1,4 +1,4 @@
-{ options, config, lib, pkgs, ... }:
+{ inputs, options, config, lib, pkgs, ... }:
 let
   cfg = config.jh-devv.nixos.hyprland;
 in {
@@ -6,7 +6,7 @@ in {
 
     environment.systemPackages = with pkgs; [
       cliphist
-      grim
+      #grim
       kitty
       libsecret
       libvirt
@@ -17,7 +17,7 @@ in {
       ranger
       rofi-wayland
       rustup
-      slurp
+      #slurp
       swww
       swaylock-effects
       swaynotificationcenter
@@ -30,6 +30,8 @@ in {
 
       eww-wayland
       waybar
+
+      (inputs.hyprland-contrib.packages.${system}.grimblast)
     ];
 
     # Hardware and Environment Configuration

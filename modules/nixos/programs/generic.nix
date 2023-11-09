@@ -17,6 +17,7 @@ in {
       imv
       playerctl
       ranger
+      file
       tree
       unzip
       vim
