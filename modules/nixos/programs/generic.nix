@@ -6,7 +6,6 @@ in {
     environment.systemPackages = with pkgs; [
       blueman
       brightnessctl
-      cargo
       cmake
       fzf
       gcc
@@ -16,9 +15,10 @@ in {
       meson
       mpv
       imv
-      neofetch
+      playerctl
+      libwebp
       ranger
-      rustup
+      file
       tree
       unzip
       vim

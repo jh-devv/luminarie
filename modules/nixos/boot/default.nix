@@ -41,13 +41,13 @@ in {
     #  };
     #};
 
-    services.xserver = {
+    services.xserver = lib.mkIf cfg.gdm.enable {
       enable = true;
       displayManager.gdm = { 
         enable = true;
-	wayland = true;
+	      wayland = true;
       };
-      displayManager.sessionPackages = [ pkgs.hyprland ];
+      displayManager.sessionPackages = [ cfg.gdm.windowManager ];
       libinput.enable = true;
     };
   };

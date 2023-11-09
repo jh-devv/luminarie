@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.jh-devv.home.theme;
+  cfg = config.jh-devv.home.theme.gtk;
 in {
   config = lib.mkIf cfg.enable {
     
@@ -22,5 +22,9 @@ in {
         };
       };
     };
+
+    # For flatpaks, kinda gross but works uwu
+    home.file.".themes".source = "${pkgs.catppuccin-gtk.override { accents = ["lavender"]; variant = "mocha"; }}/share/themes";
+    home.file.".icons/default".source = "${pkgs.catppuccin-cursors.mochaLavender}/share/icons/Catppuccin-Mocha-Lavender-Cursors/";
   };
 }

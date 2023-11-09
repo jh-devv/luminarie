@@ -61,8 +61,8 @@
     pkgs.gnome-utils.enable = true;
     services.enable = true;
     boot.grub.enable = true;
-    boot.greetd.enable = true;
-    boot.greetd.windowManager = "Hyprland";
+    boot.gdm.enable = true;
+    boot.gdm.windowManager = pkgs.hyprland;
   };
 
   # User Accounts Configuration

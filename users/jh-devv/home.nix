@@ -41,27 +41,53 @@
   };
 
   jh-devv.home = {
+    theme = {
+      gtk.enable = true;
+      qt.enable = true;
+    };
     legacy.enable = true;
-    theme.enable = true;
     rofi.enable = true;
   };
 
-  # Add stuff for your user as you see fit:
-  home.packages = with pkgs; [ 
-    firefox-wayland
-    just
-    popsicle
-    vscode
-    gradience
-    wine
-    imagemagick
-    steam
-    cava
-    yubikey-manager-qt
+  home.packages = with pkgs; [
+      cava
+      firefox-wayland
+      gh
+      gradience
+      gimp
+      inkscape
+      imagemagick
+      just
+      lutgen
+      nitch
+      osu-lazer-bin
+      popsicle
+      steam
+      trash-cli
+      vscode
+      wine
+      yubikey-manager-qt
   ];
+
+  programs.bash.enable = true;
+  home.shellAliases = {
+    rm = "trash-put";
+  };
 
   nixpkgs.config.firefox.speechSynthesisSupport = true;
   
+  xdg.mimeApps.enable = true;
+  xdg.mimeApps.defaultApplications = {
+    "text/html" = "firefox.desktop";
+    "x-scheme-handler/http" = "firefox.desktop";
+    "x-scheme-handler/https" = "firefox.desktop";
+    "x-scheme-handler/about" = "firefox.desktop";
+    "x-scheme-handler/unknown" = "firefox.desktop";
+    "application/zip" = "org.gnome.FileRoller.desktop";
+    "text/plain" = "org.gnome.gedit.desktop";
+  };
+
+
   # Enable home-manager
   programs.home-manager.enable = true;
 
