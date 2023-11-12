@@ -50,6 +50,7 @@
   };
 
   home.packages = with pkgs; [
+      ani-cli
       cava
       firefox-wayland
       gh

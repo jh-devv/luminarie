@@ -29,6 +29,7 @@ in {
       xorg.xhost
 
       eww-wayland
+      hyprpaper
       waybar
 
       (inputs.hyprland-contrib.packages.${system}.grimblast)

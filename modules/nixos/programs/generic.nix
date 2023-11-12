@@ -19,6 +19,7 @@ in {
       libwebp
       ranger
       file
+      ffmpeg
       tree
       unzip
       vim
