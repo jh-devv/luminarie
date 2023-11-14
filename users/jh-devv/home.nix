@@ -68,6 +68,7 @@
       vscode
       wine
       yubikey-manager-qt
+      zola
   ];
 
   programs.bash.enable = true;
