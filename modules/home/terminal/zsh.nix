@@ -3,6 +3,9 @@ let
   cfg = config.jh-devv.home.terminal.zsh;
 in {
   config = lib.mkIf cfg.enable { 
+    home.packages = with pkgs; [
+        nitch
+    ];
     programs.zsh = {
         enable = true;
         initExtra = "nitch";
@@ -10,7 +13,7 @@ in {
         enableAutosuggestions = true;
         oh-my-zsh = {
         enable = true;
-        plugins = [ "git" ];
+        plugins = [ "git" "thefuck" ];
         };
     };
 

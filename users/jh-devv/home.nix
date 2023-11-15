@@ -63,7 +63,6 @@
       imagemagick
       just
       lutgen
-      nitch
       osu-lazer-bin
       popsicle
       steam

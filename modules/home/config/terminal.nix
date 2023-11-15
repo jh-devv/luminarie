@@ -4,5 +4,8 @@
     zsh = {
       enable = lib.mkEnableOption "zsh and plugins";
     };
+    tmux = {
+      enable = lib.mkEnableOption "tmux";
+    };
   };
 }
