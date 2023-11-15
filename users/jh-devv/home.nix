@@ -71,7 +71,7 @@
       zola
   ];
 
-  programs.bash.enable = true;
+  programs.zsh.enable = true;
 
   programs.starship.enable = true;
   programs.starship.enableZshIntegration = true;

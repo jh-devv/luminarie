@@ -65,6 +65,9 @@
     boot.gdm.windowManager = pkgs.hyprland;
   };
 
+  # Shell
+  programs.zsh.enable = true;
+
   # User Accounts Configuration
   users.users.jh-devv = {
     shell = pkgs.zsh;
