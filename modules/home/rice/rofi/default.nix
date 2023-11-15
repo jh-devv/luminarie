@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.jh-devv.home.rofi;
+  cfg = config.jh-devv.home.rice.rofi;
 in {
   config = lib.mkIf cfg.enable {
     programs.rofi = {

@@ -41,12 +41,14 @@
   };
 
   jh-devv.home = {
-    theme = {
-      gtk.enable = true;
-      qt.enable = true;
+    rice = {
+      theme = {
+        gtk.enable = true;
+        qt.enable = true;
+      };
+      legacy.enable = true;
+      rofi.enable = true;
     };
-    legacy.enable = true;
-    rofi.enable = true;
   };
 
   home.packages = with pkgs; [
@@ -71,7 +73,16 @@
       zola
   ];
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    initExtra = "nitch";
+    syntaxHighlighting.enable = true;
+    enableAutosuggestions = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" ];
+    };
+  };
 
   programs.starship.enable = true;
   programs.starship.enableZshIntegration = true;

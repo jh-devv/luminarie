@@ -66,6 +66,7 @@
   };
 
   # Shell
+  environment.shells = with pkgs; [ zsh ];
   programs.zsh.enable = true;
 
   # User Accounts Configuration

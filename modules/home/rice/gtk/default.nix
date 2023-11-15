@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.jh-devv.home.theme.gtk;
+  cfg = config.jh-devv.home.rice.theme.gtk;
 in {
   config = lib.mkIf cfg.enable {
     

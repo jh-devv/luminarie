@@ -4,5 +4,6 @@
   imports = [ 
     ./config
     ./rice
+    ./terminal
   ];
 }
