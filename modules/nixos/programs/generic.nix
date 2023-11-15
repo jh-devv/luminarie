@@ -7,6 +7,7 @@ in {
       blueman
       brightnessctl
       cmake
+      gnumake
       fzf
       gcc
       git

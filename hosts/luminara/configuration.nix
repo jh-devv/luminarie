@@ -67,8 +67,9 @@
 
   # User Accounts Configuration
   users.users.jh-devv = {
+    shell = pkgs.zsh;
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "docker" ];
   };
 
   # Networking Configuration

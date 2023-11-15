@@ -16,6 +16,8 @@ in {
       enable = true;
       enableSSHSupport = true;
     };
+
+    virtualisation.docker.enable = true;
     
   };
 }

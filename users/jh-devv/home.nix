@@ -72,6 +72,17 @@
   ];
 
   programs.bash.enable = true;
+
+  programs.starship.enable = true;
+  programs.starship.enableZshIntegration = true;
+
+  programs.kitty = {
+    enable = true;
+    shellIntegration.enableZshIntegration = true;
+    font.name = "FiraCode Nerd Font Mono";
+    theme = "Catppuccin-Mocha";
+  };
+
   home.shellAliases = {
     rm = "trash-put";
   };
