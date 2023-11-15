@@ -49,7 +49,10 @@
       legacy.enable = true;
       rofi.enable = true;
     };
-    terminal.zsh.enable = true;
+    terminal = {
+      zsh.enable = true;
+      tmux.enable = true;
+    };
   };
 
   home.packages = with pkgs; [
