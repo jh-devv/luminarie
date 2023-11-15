@@ -3,6 +3,6 @@
 {...}:{
   imports = [ 
     ./rice.nix
-    ./zsh.nix
+    ./terminal.nix
   ];
 }

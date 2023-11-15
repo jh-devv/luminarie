@@ -49,6 +49,7 @@
       legacy.enable = true;
       rofi.enable = true;
     };
+    terminal.zsh.enable = true;
   };
 
   home.packages = with pkgs; [
@@ -72,31 +73,6 @@
       yubikey-manager-qt
       zola
   ];
-
-  programs.zsh = {
-    enable = true;
-    initExtra = "nitch";
-    syntaxHighlighting.enable = true;
-    enableAutosuggestions = true;
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" ];
-    };
-  };
-
-  programs.starship.enable = true;
-  programs.starship.enableZshIntegration = true;
-
-  programs.kitty = {
-    enable = true;
-    shellIntegration.enableZshIntegration = true;
-    font.name = "FiraCode Nerd Font Mono";
-    theme = "Catppuccin-Mocha";
-  };
-
-  home.shellAliases = {
-    rm = "trash-put";
-  };
 
   nixpkgs.config.firefox.speechSynthesisSupport = true;
   
