@@ -12,7 +12,7 @@ in {
       };
       iconTheme = {
         package = pkgs.catppuccin-papirus-folders;
-        name = "Papirus";
+        name = "Papirus-Dark";
       };
       theme = {
         name = "Catppuccin-Mocha-Standard-Lavender-Dark";
@@ -23,8 +23,13 @@ in {
       };
     };
 
+    home.pointerCursor = {
+        package = pkgs.catppuccin-cursors.mochaLavender;
+        name = "Catppuccin-Mocha-Lavender-Cursors";
+    };
+
     # For flatpaks, kinda gross but works uwu
-    home.file.".themes".source = "${pkgs.catppuccin-gtk.override { accents = ["lavender"]; variant = "mocha"; }}/share/themes";
-    home.file.".icons/default".source = "${pkgs.catppuccin-cursors.mochaLavender}/share/icons/Catppuccin-Mocha-Lavender-Cursors/";
+    home.file.".themes/Catppuccin-Mocha-Standard-Lavender-Dark".source = "${pkgs.catppuccin-gtk.override { accents = ["lavender"]; variant = "mocha"; }}/share/themes/Catppuccin-Mocha-Standard-Lavender-Dark";
+    home.file.".icons/Papirus-Dark".source = "${pkgs.catppuccin-papirus-folders}/share/icons/Papirus-Dark/";
   };
 }

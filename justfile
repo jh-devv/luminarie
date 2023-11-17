@@ -6,3 +6,4 @@ nixos:
 
 home-manager:
   home-manager switch  --flake .#jh-devv@luminara -b backup
+  hyprctl reload
