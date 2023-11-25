@@ -17,6 +17,7 @@ in {
       mpv
       imv
       playerctl
+      smartctl
       libwebp
       ranger
       file

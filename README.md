@@ -49,4 +49,3 @@ File Manager: Ranger
 ## ↛ 💻 usage
 
 before you use them, are you sure you are familiar with nix? ^w^
-this setup is loosely 
