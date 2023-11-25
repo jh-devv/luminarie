@@ -73,7 +73,9 @@
       vscode
       wine
       yubikey-manager-qt
+      yubioath-flutter
       zola
+      gparted
   ];
 
   nixpkgs.config.firefox.speechSynthesisSupport = true;

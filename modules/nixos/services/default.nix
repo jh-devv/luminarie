@@ -10,6 +10,7 @@ in {
       gvfs.enable = true;
       udev.packages = [ pkgs.yubikey-personalization ];
       flatpak.enable = true;
+      pcscd.enable = true;
     };
 
     programs.gnupg.agent = {

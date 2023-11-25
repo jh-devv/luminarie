@@ -13,6 +13,7 @@ in {
         devices = [ "nodev" ];
         enable = true;
         efiSupport = true;
+        # Resolutions above "1920x1080" are not supported by the UEFI driver
         gfxmodeEfi = "1920x1080";
         fontSize = 36;
       };
@@ -49,6 +50,7 @@ in {
       };
       displayManager.sessionPackages = [ cfg.gdm.windowManager ];
       libinput.enable = true;
+      excludePackages = [pkgs.xterm];
     };
   };
 }
