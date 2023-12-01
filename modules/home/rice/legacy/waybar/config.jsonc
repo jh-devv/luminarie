@@ -1,36 +1,38 @@
 {
     "margin": "8px 10px -2px 10px", 
 
-    "modules-left": ["custom/wmname", "hyprland/workspaces", "hyprland/window"],
-    "modules-center": [],
+    "modules-left": ["custom/nix", "hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
     "modules-right": ["custom/powermenu"],
 
-    // Modules configuration
-     "hyprland/workspaces": {
-         "active-only": false,
-         "on-scroll-up": "hyprctl dispatch workspace e+1",
-         "on-scroll-down": "hyprctl dispatch workspace e-1",
-         "disable-scroll": false,
-         "all-outputs": true,
-         "format": "{icon}",
-         "on-click": "activate",
-         "format-icons": {
-             "1": " ",
-             "2": " ",
-             "3": "",
-             "4": " ",
-             "5": " ",
-             "6": " ",
-             "7": " ",
-             "8": " ",
-             "9": " ",
-             "10": " "
-         }
-     },
+    "custom/nix": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "rofi -show drun -show-icons"
+    },
+    
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}"
+        //"format": "{name}: {icon}"
+        //"format-icons": {
+        //    "urgent": "",
+        //    "focused": "",
+        //    "default": ""
+        //}
+    },
+
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+	    "format": "{:%H:%M}  "
+    },
+
     "hyprland/window": {  
-    "format": "{}" 
+        "format": "{}" 
     },
     "custom/powermenu": {
-      "format": " "
+        "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu",
+        "format": " "
     }
 }

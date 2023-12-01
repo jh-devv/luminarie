@@ -1,7 +1,11 @@
+/* 
+Made in collaboration with johnk1917 :3
+https://github.com/johnk1917/hyprland-dotfiles
+*/
+
 @import "theme.css";
 
 * {
-    color: @text;
     border: none;
     border-radius: 0px;
     font-family: "JetBrainsMono Nerd Font";
@@ -20,22 +24,44 @@ window#waybar {
 #window,
 #mode,
 #custom-powermenu,
+#clock,
 #tray {
+  color: @text;
   background-color: @base;
-  padding: 0 8px;
-  margin: 2px 2px 2px 2px;
-  border-radius: 6px;
+  padding: 0 10px;
+  margin: 2px 4px 5px 4px;
+  border: 3px solid rgba(0, 0, 0, 0);
+  border-radius: 60px;
   background-clip: padding-box;
 }
 
 #workspaces button {
   padding: 0 5px;
   min-width: 20px;
-  color: @blue;
+  color: @text;
 }
 
+#workspaces button:hover {
+  background-color: rgba(31, 31, 45, 0.5)
+}
+
+#workspaces button.active {
+  color: @lavender;
+}
+
+
 #custom-powermenu {
+    background-color: @red;
+    color: @mantle;
     font-size: 15px;
     padding-right: 4px;
     padding-left: 9px;
+}
+
+#custom-nix {
+    background-color: @mantle;
+    color: @blue;
+    font-size: 25px;
+    margin: 1px;
+    padding: 0px 0px 0px 5px;
 }
