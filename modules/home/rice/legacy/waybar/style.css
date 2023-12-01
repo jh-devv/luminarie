@@ -1,4 +1,7 @@
+@import "theme.css";
+
 * {
+    color: @text;
     border: none;
     border-radius: 0px;
     font-family: "JetBrainsMono Nerd Font";
@@ -6,19 +9,11 @@
     font-size: 15px;
 }
 
-@import "themes/theme.css";
-
 window#waybar {
-  /* background-color: rgba(18, 21, 29, 0.98); */
-  background-color: #1a1b26;
-  border: 3px #7aa2f7;
-  /* background-color: rgba(0, 0, 0, 0); */
-  border-radius: 6px;
-  color: @main-fg;
-  opacity: 1;
-  transition-property: background-color;
-  transition-duration: .5s;
-  margin-bottom: -7px;
+    background-color: @mantle;
+    border: 3px @crust;
+    border-radius: 6px;
+    margin-bottom: -7px;
 }
 
 #workspaces,
@@ -26,7 +21,7 @@ window#waybar {
 #mode,
 #custom-powermenu,
 #tray {
-  background-color: #0000ff;
+  background-color: @base;
   padding: 0 8px;
   margin: 2px 2px 2px 2px;
   border-radius: 6px;
@@ -36,23 +31,10 @@ window#waybar {
 #workspaces button {
   padding: 0 5px;
   min-width: 20px;
-  color: #a9b1d6;
-}
-
-#workspaces button:hover {
-  background-color: rgba(31, 31, 45, 0.5)
-}
-
-#workspaces button.active {
-  color: #7aa2f7;
-}
-
-#workspaces button.urgent {
-  color: #e06c75;
+  color: @blue;
 }
 
 #custom-powermenu {
-    color: #1a1b26;
     font-size: 15px;
     padding-right: 4px;
     padding-left: 9px;
