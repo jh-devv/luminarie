@@ -16,6 +16,7 @@ in {
       pavucontrol
       ranger
       rofi-wayland
+      rofi-power-menu
       #rustup #/dev shells
       #slurp
       swww
@@ -23,7 +24,7 @@ in {
       swaynotificationcenter
       hyprpicker
       wlr-randr
-      wlogout
+      #wlogout
       wl-clipboard
       xdg-utils
       xorg.xhost
