@@ -76,6 +76,7 @@
       yubioath-flutter
       zola
       gparted
+      p7zip
   ];
 
   nixpkgs.config.firefox.speechSynthesisSupport = true;

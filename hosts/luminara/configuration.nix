@@ -84,8 +84,7 @@
   
   time.timeZone = "Europe/Helsinki";
 
-  i18n.defaultLocale = "en_US.UTF-8";
-  console.keyMap = "fi";
+  services.xserver.layout = "fi";
 
   # System Version
   system.stateVersion = "23.05";

@@ -7,6 +7,7 @@ in {
         gamemode
         gamescope
         mangohud
+        steamtinkerlaunch
       ];
 
   programs.steam.enable = true;

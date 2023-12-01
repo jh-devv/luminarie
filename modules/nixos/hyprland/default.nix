@@ -16,7 +16,7 @@ in {
       pavucontrol
       ranger
       rofi-wayland
-      rustup
+      #rustup #/dev shells
       #slurp
       swww
       swaylock-effects

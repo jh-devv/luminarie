@@ -8,7 +8,9 @@ in {
     ];
     programs.zsh = {
         enable = true;
-        initExtra = "nitch";
+        initExtra = ''
+          nitch
+        '';
         syntaxHighlighting.enable = true;
         enableAutosuggestions = true;
         oh-my-zsh = {
@@ -17,8 +19,17 @@ in {
         };
     };
 
-    programs.starship.enable = true;
-    programs.starship.enableZshIntegration = true;
+    programs = {
+      starship = {
+        enable = true;
+        enableZshIntegration = true;
+      };
+      direnv = {
+        enable = true;
+        enableZshIntegration = true; # see note on other shells below
+        nix-direnv.enable = true;
+      };
+    };
 
     programs.kitty = {
         enable = true;
