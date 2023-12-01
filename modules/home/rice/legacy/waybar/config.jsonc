@@ -1,9 +1,15 @@
 {
     "margin": "8px 10px -2px 10px", 
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
 
     "modules-left": ["custom/nix", "hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/powermenu"],
+    "modules-right": ["tray", "pulseaudio", "custom/powermenu"],
 
     "custom/nix": {
         "format": " ",
@@ -25,14 +31,40 @@
 
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-	    "format": "{:%H:%M}  "
+	    "format": "{:%H:%M} "
     },
 
     "hyprland/window": {  
         "format": "{}" 
     },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon}⠀ {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "󰋋",
+            "headset": "󰋎",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click-middle": "amixer set Master toggle",
+        "on-scroll-up": "amixer set Master 5%+",
+        "on-scroll-down": "amixer set Master 5%-",
+        "scroll-step": 1,
+        "on-click": "pavucontrol",
+        "ignored-sinks": ["Easy Effects Sink"]
+    },
+
+    "tray": {
+        "spacing": 10
+    },
+
     "custom/powermenu": {
         "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu",
-        "format": " "
+        "format": ""
     }
 }

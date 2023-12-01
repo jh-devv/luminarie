@@ -9,7 +9,6 @@ https://github.com/johnk1917/hyprland-dotfiles
     border: none;
     border-radius: 0px;
     font-family: "JetBrainsMono Nerd Font";
-    font-weight: bold;
     font-size: 15px;
 }
 
@@ -20,10 +19,16 @@ window#waybar {
     margin-bottom: -7px;
 }
 
+tooltip {
+  background: @mantle;
+  color: @text;
+}
+
 #workspaces,
 #window,
 #mode,
 #custom-powermenu,
+#pulseaudio,
 #clock,
 #tray {
   color: @text;
@@ -39,6 +44,7 @@ window#waybar {
   padding: 0 5px;
   min-width: 20px;
   color: @text;
+  border-radius: 60px;
 }
 
 #workspaces button:hover {
@@ -49,12 +55,15 @@ window#waybar {
   color: @lavender;
 }
 
+#clock {
+  padding-right: 1em;
+}
 
 #custom-powermenu {
     background-color: @red;
     color: @mantle;
     font-size: 15px;
-    padding-right: 4px;
+    padding-right: calc(1em - 2px);
     padding-left: 9px;
 }
 
