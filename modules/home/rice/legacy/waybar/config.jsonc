@@ -9,7 +9,7 @@
 
     "modules-left": ["custom/nix", "hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "pulseaudio", "custom/powermenu"],
+    "modules-right": ["custom/media", "pulseaudio", "tray", "custom/powermenu"],
 
     "custom/nix": {
         "format": " ",
@@ -36,6 +36,18 @@
 
     "hyprland/window": {  
         "format": "{}" 
+    },
+
+    "custom/media": {
+        "format": "⠀{}",
+        "max-length": 40,
+        "interval": 4,
+        "exec": "playerctl metadata --format '{{ artist }} - {{ title }}'",
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl stop",
+        "smooth-scrolling-threshold": 4,
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
     },
 
     "pulseaudio": {

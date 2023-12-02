@@ -19,6 +19,10 @@ window#waybar {
     margin-bottom: -7px;
 }
 
+#waybar.empty #window {
+  background: none;
+}
+
 tooltip {
   background: @mantle;
   color: @text;
@@ -28,6 +32,7 @@ tooltip {
 #window,
 #mode,
 #custom-powermenu,
+#custom-media,
 #pulseaudio,
 #clock,
 #tray {
@@ -37,7 +42,6 @@ tooltip {
   margin: 2px 4px 5px 4px;
   border: 3px solid rgba(0, 0, 0, 0);
   border-radius: 60px;
-  background-clip: padding-box;
 }
 
 #workspaces button {

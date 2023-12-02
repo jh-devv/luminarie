@@ -74,6 +74,7 @@
       wine
       yubikey-manager-qt
       yubioath-flutter
+      opentofu
       zola
       gparted
       p7zip
