@@ -4,8 +4,8 @@
     zsh = {
       enable = lib.mkEnableOption "zsh and plugins";
     };
-    rust-cli = {
-      enable = lib.mkEnableOption "rust-cli-tools";
+    better-tools = {
+      enable = lib.mkEnableOption "better replacements for basic tools (e.g. ls)";
     };
     tmux = {
       enable = lib.mkEnableOption "tmux";

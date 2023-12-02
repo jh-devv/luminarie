@@ -51,7 +51,7 @@
     };
     terminal = {
       zsh.enable = true;
-      rust-cli.enable = true;
+      better-tools.enable = true;
       tmux.enable = true;
       neovim.enable = true;
     };
