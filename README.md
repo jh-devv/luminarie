@@ -2,6 +2,8 @@
 
 Hey! This is my flake for my NixOS setup `Luminara` ( ˶ˆ꒳ˆ˵ )
 
+Managed with Nix (NixOS) and Home Manager! :3
+
 📷 [screens](#--screens)
 📝 [info](#--info)
 💻 [usage](#--usage)
@@ -10,8 +12,7 @@ Hey! This is my flake for my NixOS setup `Luminara` ( ˶ˆ꒳ˆ˵ )
 
 ## ↛ 📷 screens
 
-TODO: Add screenshot
-
+![Screenshot Showcase](assets/showcase.png)
 
 ---
 
@@ -22,9 +23,9 @@ TODO: Add screenshot
 ```text
 OS: NixOS
 Compositor: Hyprland
-GTK Theme: Rose Pine
-Icon Theme: Rose Pine Folders and Papyrus
-Font: FiraCode Nerd Font
+GTK Theme: Catppuccin GTK
+Icon Theme: Catppuccin Folders and Papyrus
+Font: Fira Code/JetBrains Mono Nerd Font
 ```
 
 ### terminal
@@ -32,7 +33,7 @@ Font: FiraCode Nerd Font
 ```text
 Terminal: Kitty
 Shell: Zsh
-Fetch: Neofetch
+Fetch: Nitch
 Prompt: Starship
 Editor: Neovim
 ```
@@ -41,7 +42,7 @@ Editor: Neovim
 
 ```text
 Browser: Firefox
-File Manager: Ranger
+File Manager: Nautlilus
 ```
 
 ---
@@ -49,3 +50,17 @@ File Manager: Ranger
 ## ↛ 💻 usage
 
 before you use them, are you sure you are familiar with nix? ^w^
+
+first, be sure to edit hosts/luminara and edit the flake.nix, do the same with home manager
+
+for nixos:
+
+```bash
+just nixos
+```
+
+for home manager:
+
+```bash
+just home-manager
+```
