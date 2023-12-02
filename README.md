@@ -52,7 +52,7 @@ File Manager: Nautlilus
 
 before you use them, are you sure you are familiar with nix? ^w^
 
-first, be sure to edit hosts/luminara and edit the flake.nix, do the same with home manager
+first, be sure to edit `hosts/<host>` and edit the `flake.nix`, do the same with home manager `users/<user>`
 
 for nixos:
 
