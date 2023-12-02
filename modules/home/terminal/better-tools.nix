@@ -9,7 +9,7 @@ in {
     ];
     home.shellAliases = {
         ls = "lsd";
-        find = "fd";
+        find = "fd --glob";
     };
     };
 }
