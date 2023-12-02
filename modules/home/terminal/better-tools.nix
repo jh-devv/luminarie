@@ -4,7 +4,7 @@ let
 in {
   config = lib.mkIf cfg.enable { 
     home.packages = with pkgs; [
-        rga
+        ripgrep-all
         fd
         lsd
     ];
