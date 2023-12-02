@@ -9,6 +9,7 @@ in {
     ];
     home.shellAliases = {
         ls = "lsd";
+        find = "fd";
     };
     };
 }
