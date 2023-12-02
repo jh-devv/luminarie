@@ -7,5 +7,8 @@
     tmux = {
       enable = lib.mkEnableOption "tmux";
     };
+    neovim = {
+      enable = lib.mkEnableOption "neovim";
+    };
   };
 }
