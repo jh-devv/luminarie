@@ -23,6 +23,7 @@ Managed with Nix (NixOS) and Home Manager! :3
 ```text
 OS: NixOS
 Compositor: Hyprland
+Bar: Waybar
 GTK Theme: Catppuccin GTK
 Icon Theme: Catppuccin Folders and Papyrus
 Font: Fira Code/JetBrains Mono Nerd Font
