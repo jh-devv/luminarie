@@ -15,11 +15,12 @@ in {
       vimdiffAlias = true;
 
       extraPackages = with pkgs; [
-        lua-language-server
+        # Language servers
+        ## Lua
+        luajitPackages.lua-lsp
+        
+        ## Nix
         rnix-lsp
-
-        xclip
-        wl-clipboard
       ];
 
       plugins = with pkgs.vimPlugins; [
@@ -35,11 +36,11 @@ in {
         }
 
         {
-          plugin = gruvbox-nvim;
-          config = "colorscheme gruvbox";
+          plugin = catppuccin-nvim;
+          config = "colorscheme catppuccin";
         }
 
-        neodev-nvim
+        neodev-nvim 
 
         nvim-cmp 
         {
@@ -72,29 +73,17 @@ in {
             p.tree-sitter-lua
             p.tree-sitter-python
             p.tree-sitter-json
+            p.tree-sitter-rust
           ]));
           config = toLuaFile ./plugin/treesitter.lua;
         }
 
         vim-nix
 
-        # {
-        #   plugin = vimPlugins.own-onedark-nvim;
-        #   config = "colorscheme onedark";
-        # }
       ];
 
       extraLuaConfig = ''
         ${builtins.readFile ./options.lua}
       '';
-
-      # extraLuaConfig = ''
-      #   ${builtins.readFile ./options.lua}
-      #   ${builtins.readFile ./plugin/lsp.lua}
-      #   ${builtins.readFile ./plugin/cmp.lua}
-      #   ${builtins.readFile ./plugin/telescope.lua}
-      #   ${builtins.readFile ./plugin/treesitter.lua}
-      #   ${builtins.readFile ./plugin/other.lua}
-      # '';
     };
 }
