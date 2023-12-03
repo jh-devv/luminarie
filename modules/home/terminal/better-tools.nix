@@ -10,7 +10,6 @@ in {
     ];
     home.shellAliases = {
         ls = "lsd";
-        find = "fd --glob";
         grep = "rga";
     };
     };

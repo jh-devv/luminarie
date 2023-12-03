@@ -15,8 +15,7 @@ https://github.com/johnk1917/hyprland-dotfiles
 window#waybar {
     background-color: @mantle;
     border: 3px @crust;
-    border-radius: 6px;
-    margin-bottom: -7px;
+    border-radius: 12px;
 }
 
 #waybar.empty #window {
@@ -39,7 +38,7 @@ tooltip {
   color: @text;
   background-color: @base;
   padding: 0 10px;
-  margin: 2px 4px 5px 4px;
+  margin: 4px 4px;
   border: 3px solid rgba(0, 0, 0, 0);
   border-radius: 60px;
 }
@@ -76,5 +75,6 @@ tooltip {
     color: @blue;
     font-size: 25px;
     margin: 1px;
-    padding: 0px 0px 0px 5px;
+    padding-left: 9px;
+    border-radius: 60px;
 }
