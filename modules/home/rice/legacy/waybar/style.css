@@ -15,7 +15,7 @@ https://github.com/johnk1917/hyprland-dotfiles
 window#waybar {
     background-color: @mantle;
     border: 3px @crust;
-    border-radius: 12px;
+    border-radius: 10px;
 }
 
 #waybar.empty #window {
