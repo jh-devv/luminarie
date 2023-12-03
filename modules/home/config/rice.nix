@@ -8,6 +8,7 @@
       enable = lib.mkEnableOption "qt theme";
     };
     rofi.enable = lib.mkEnableOption "rofi theme";
+    hyprland.enable = lib.mkEnableOption "hyprland";
     legacy.enable = lib.mkEnableOption "deployment of legacy dots";
   };
 }

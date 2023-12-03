@@ -48,6 +48,7 @@
       };
       legacy.enable = true;
       rofi.enable = true;
+      hyprland.enable = true;
     };
     terminal = {
       zsh.enable = true;
