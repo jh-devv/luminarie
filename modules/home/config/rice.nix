@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, inputs, ... }:
 {
   options.jh-devv.home.rice = {
     theme.gtk = {
@@ -10,5 +10,10 @@
     rofi.enable = lib.mkEnableOption "rofi theme";
     hyprland.enable = lib.mkEnableOption "hyprland";
     legacy.enable = lib.mkEnableOption "deployment of legacy dots";
+
+    background = lib.mkOption {
+      type = lib.types.path;
+      default = builtins.toString "${inputs.self}/assets/city.png";
+    };
   };
 }

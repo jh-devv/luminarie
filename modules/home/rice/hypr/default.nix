@@ -1,7 +1,17 @@
-# Add your reusable NixOS modules to this directory, on their own file (https://nixos.wiki/wiki/Module).
-# These should be stuff you would like to share with others, not your personal configurations.
-{...}:{
-  imports = [ 
-    ./hyprland
-  ];
+{ self, config, lib, pkgs, ... }:
+let
+  cfg = config.jh-devv.home.rice.hyprland;
+in {
+  config = lib.mkIf cfg.enable {
+    xdg.configFile."hypr/hyprpaper.conf".text = ''
+      preload = ${wallpaper}
+    '';
+    wayland.windowManager.hyprland = {
+      enable = true;
+      settings = {
+        source = builtins.toString ./theme.conf;
+      };
+      extraConfig = builtins.readFile ./hyprland.conf;
+      };
+  };
 }
