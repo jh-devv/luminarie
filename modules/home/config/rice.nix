@@ -11,7 +11,7 @@
     hyprland.enable = lib.mkEnableOption "hyprland";
     legacy.enable = lib.mkEnableOption "deployment of legacy dots";
 
-    background = lib.mkOption {
+    wallpaper = lib.mkOption {
       type = lib.types.path;
       default = builtins.toString "${inputs.self}/assets/city.png";
     };
