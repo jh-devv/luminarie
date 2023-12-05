@@ -2,16 +2,16 @@
 {
   options.jh-devv.home.terminal = {
     zsh = {
-      enable = lib.mkEnableOption "zsh and plugins";
+      enable = lib.mkEnableOption "ZSH and plugins";
     };
     better-tools = {
-      enable = lib.mkEnableOption "better replacements for basic tools (e.g. ls)";
+      enable = lib.mkEnableOption "Better replacements for basic tools (e.g. ls)";
     };
     tmux = {
-      enable = lib.mkEnableOption "tmux";
+      enable = lib.mkEnableOption "TMux";
     };
     neovim = {
-      enable = lib.mkEnableOption "neovim";
+      enable = lib.mkEnableOption "NeoVim";
     };
   };
 }

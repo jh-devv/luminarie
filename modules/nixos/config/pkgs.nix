@@ -2,11 +2,11 @@
 {
   options.jh-devv.nixos.pkgs = {
     gaming = {
-        enable = lib.mkEnableOption "gaming pkgs";
+        enable = lib.mkEnableOption "Gaming pkgs";
     }; generic = {
-        enable = lib.mkEnableOption "generic pkgs";
+        enable = lib.mkEnableOption "Generic pkgs";
     }; gnome-utils = {
-        enable = lib.mkEnableOption "gnome-utils pkgs";
+        enable = lib.mkEnableOption "Gnome Utilities";
     };
   };
 }

@@ -56,6 +56,12 @@
       tmux.enable = true;
       neovim.enable = true;
     };
+    displays = [
+      {
+        name = "DP-2";
+        workspaces = [1 2 3 4 5 6 7 8 9 10];
+      }
+    ];
   };
 
   home.packages = with pkgs; [
