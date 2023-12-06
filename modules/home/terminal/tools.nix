@@ -26,8 +26,6 @@ in {
       fd
       tree
       unzip
-      vim
-      wget
       ];
     home.shellAliases = {
         ls = "lsd";

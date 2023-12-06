@@ -14,7 +14,6 @@ in {
       wl-clipboard
       xdg-utils
       xorg.xhost
-      git
     ];
 
     # Hardware and Environment Configuration
