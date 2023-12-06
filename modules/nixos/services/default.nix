@@ -2,6 +2,9 @@
 let
   cfg = config.jh-devv.nixos.services;
 in {
+  imports = [ 
+    ./gnome.nix
+  ];
   config = lib.mkIf cfg.enable {
     services = {
       printing.enable = true;

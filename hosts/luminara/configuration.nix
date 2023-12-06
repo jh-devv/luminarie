@@ -58,8 +58,8 @@
     hyprland.enable = true;
     pkgs.generic.enable = true;
     pkgs.gaming.enable = true;
-    pkgs.gnome-utils.enable = true;
     services.enable = true;
+    servies.gnome.enable = true;
     boot.grub.enable = true;
     boot.gdm.enable = true;
     boot.gdm.windowManager = pkgs.hyprland;
