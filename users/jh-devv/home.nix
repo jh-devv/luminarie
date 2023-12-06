@@ -70,7 +70,6 @@
       ani-cli
       cava
       firefox-wayland
-      gh
       gradience
       gimp
       inkscape

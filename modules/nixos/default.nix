@@ -9,12 +9,13 @@
     ./services
   ];
 
-  # These are basically needed :3
+  # These are basically needed :3 (so you don't lock yourself out!)
   environment.systemPackages = with pkgs; [
     git
     vim
     wget
     curl
     just
+    man-pages
   ];
 }

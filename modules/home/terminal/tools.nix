@@ -8,6 +8,7 @@ in {
       brightnessctl
       cmake
       gnumake
+      gh
       fzf
       gcc
       git
@@ -17,6 +18,7 @@ in {
       mpv
       imv
       playerctl
+      yt-dlp
       libwebp
       ripgrep-all
       ranger
