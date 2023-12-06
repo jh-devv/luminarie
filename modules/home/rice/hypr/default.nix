@@ -1,8 +1,21 @@
-{ self, config, lib, pkgs, ... }:
+{ self, config, lib, pkgs, inputs, ... }:
 let
   cfg = config.jh-devv.home;
 in {
   config = lib.mkIf cfg.rice.hyprland.enable {
+    home.packages = with pkgs; [
+      networkmanagerapplet
+      pavucontrol
+      swaylock-effects
+      swaynotificationcenter
+      hyprpicker
+      wl-clipboard
+
+      hyprpaper
+      waybar
+
+      (inputs.hyprland-contrib.packages.${system}.grimblast)
+    ];
     xdg.configFile."hypr/hyprpaper.conf".text = ''
       ${lib.strings.concatLines (map
         (

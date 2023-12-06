@@ -6,34 +6,15 @@ in {
 
     environment.systemPackages = with pkgs; [
       cliphist
-      #grim
       kitty
       libsecret
       libvirt
       libnotify
-      neofetch
-      networkmanagerapplet
-      pavucontrol
-      ranger
-      rofi-wayland
-      rofi-power-menu
-      #rustup #/dev shells
-      #slurp
-      swww
-      swaylock-effects
-      swaynotificationcenter
-      hyprpicker
       wlr-randr
-      #wlogout
       wl-clipboard
       xdg-utils
       xorg.xhost
-
-      eww-wayland
-      hyprpaper
-      waybar
-
-      (inputs.hyprland-contrib.packages.${system}.grimblast)
+      git
     ];
 
     # Hardware and Environment Configuration
