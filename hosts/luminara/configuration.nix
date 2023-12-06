@@ -56,7 +56,6 @@
 
   jh-devv.nixos = {
     hyprland.enable = true;
-    pkgs.generic.enable = true;
     pkgs.gaming.enable = true;
     services.enable = true;
     services.gnome.enable = true;

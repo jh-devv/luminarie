@@ -1,9 +1,9 @@
-{ options, config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
-  cfg = config.jh-devv.nixos.pkgs.generic;
+  cfg = config.jh-devv.home.terminal.tools;
 in {
-  config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
+  config = lib.mkIf cfg.enable { 
+    home.packages = with pkgs; [
       blueman
       brightnessctl
       cmake
@@ -18,13 +18,20 @@ in {
       imv
       playerctl
       libwebp
+      ripgrep-all
       ranger
       file
       ffmpeg
+      lsd
+      fd
       tree
       unzip
       vim
       wget
       ];
-  };
+    home.shellAliases = {
+        ls = "lsd";
+        grep = "rga";
+    };
+    };
 }

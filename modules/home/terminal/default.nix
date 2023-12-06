@@ -3,7 +3,7 @@
 {...}:{
   imports = [ 
     ./zsh.nix
-    ./better-tools.nix
+    ./tools.nix
     ./tmux.nix
     ./neovim
   ];
