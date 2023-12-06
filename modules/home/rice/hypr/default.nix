@@ -30,14 +30,8 @@ in {
               m: map (w: "${toString w},monitor:${m.name}") (m.workspaces)
             )
           (cfg.displays);
-        source = builtins.toString ./startup.conf;
-        source = builtins.toString ./theme.conf;
-        source = builtins.toString ./decoration.conf;
-        source = builtins.toString ./other.conf;
-        source = builtins.toString ./windowrules.conf;
-        source = builtins.toString ./binds.conf;
+          source = builtins.map builtins.toString [ ./startup.conf ./theme.conf ./decoration.conf ./other.conf ./windowrules.conf ./binds.conf ];
       };
-      extraConfig = builtins.readFile ./hyprland.conf;
       };
   };
 }
