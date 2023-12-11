@@ -65,3 +65,7 @@ for home manager:
 ```bash
 just home-manager
 ```
+
+## License
+
+[AGPL-3 License](LICENSE) © [jh-devv](https://jh-devv.com)
