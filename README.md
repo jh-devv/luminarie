@@ -10,13 +10,13 @@ Managed with Nix (NixOS) and Home Manager! :3
 
 ---
 
-## ↛ 📷 screens
+## ➔ 📷 screens
 
 ![Screenshot Showcase](assets/showcase.png)
 
 ---
 
-## ↛ 📝 info
+## ➔ 📝 info
 
 ### desktop
 
@@ -48,7 +48,7 @@ File Manager: Nautlilus
 
 ---
 
-## ↛ 💻 usage
+## ➔ 💻 usage
 
 before you use them, are you sure you are familiar with nix? ^w^
 
