@@ -77,7 +77,6 @@
       just
       lutgen
       osu-lazer-bin
-      popsicle
       steam
       trash-cli
       vscode
