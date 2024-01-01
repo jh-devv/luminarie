@@ -77,7 +77,6 @@
       just
       lutgen
       osu-lazer-bin
-      steam
       trash-cli
       vscode
       wine

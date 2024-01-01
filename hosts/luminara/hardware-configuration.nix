@@ -11,7 +11,7 @@
   boot.initrd.systemd.enable = true;
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "aesni_intel" "cryptd"];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "kvm-amd" "uinput" ];
   boot.extraModulePackages = [ ];
   boot.kernelParams = ["quiet"];
 
