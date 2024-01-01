@@ -10,13 +10,13 @@
     "mod": "dock",
 
     "modules-left": ["custom/nix", "hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["custom/media", "pulseaudio", "tray", "custom/powermenu"],
+    "modules-center": ["custom/media"],
+    "modules-right": ["pulseaudio", "clock", "tray", "custom/powermenu"],
 
     "custom/nix": {
         "format": " ",
         "tooltip": false,
-        "on-click": "rofi -show drun -show-icons"
+        "on-click": "rofi -show drun -shopkilw-icons"
     },
     
     "hyprland/workspaces": {
@@ -33,27 +33,30 @@
 
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-	    "format": "{:%H:%M} "
+	    "format": " {:%H:%M}"
     },
 
     "hyprland/window": {  
+        "max-length": 48,
         "format": "{}" 
     },
 
     "custom/media": {
-        "format": "⠀{}",
-        "max-length": 40,
-        "interval": 4,
-        "exec": "playerctl metadata --format '{{ artist }} - {{ title }}'",
+        "format": "{icon} <span>{}</span>",
+        "return-type": "json",
+        "max-length": 48,
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
         "on-click": "playerctl play-pause",
-        "on-click-right": "playerctl stop",
-        "smooth-scrolling-threshold": 4,
-        "on-scroll-up": "playerctl next",
-        "on-scroll-down": "playerctl previous"
+        "on-click-middle": "playerctl previous",
+        "on-click-right": "playerctl next",
+        "format-icons": {
+            "Playing": "<span>󰒮 󰐌 󰒭</span>",
+            "Paused": "<span>󰒮 󰏥 󰒭</span>"
+        }
     },
 
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "{icon} {volume}% {format_source}",
         "format-bluetooth": "{icon}⠀ {volume}%",
         "format-muted": "󰝟",
         "format-icons": {
@@ -78,7 +81,7 @@
     },
 
     "custom/powermenu": {
-        "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu",
+        "on-click": "rofi -show power-menu -modi power-menu:'rofi-power-menu --choices=shutdown/reboot/suspend/logout/lockscreen'",
         "format": ""
     }
 }

@@ -61,6 +61,15 @@ tooltip {
 
 #clock {
   padding-right: 1em;
+  color: @lavender;
+}
+
+#pulseaudio {
+  color: @lavender;
+}
+
+#custom-media {
+  color: @flamingo;
 }
 
 #custom-powermenu {
