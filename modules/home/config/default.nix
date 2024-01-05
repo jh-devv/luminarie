@@ -1,6 +1,10 @@
-{ lib, config, inputs, ... }:
 {
-  imports = [ 
+  lib,
+  config,
+  inputs,
+  ...
+}: {
+  imports = [
     ./rice.nix
     ./terminal.nix
   ];
@@ -8,7 +12,7 @@
   options.jh-devv.home = {
     wallpaper = lib.mkOption {
       type = lib.types.path;
-      
+
       description = "Configuration for settings the current wallpaper set on system boot";
     };
     displays = lib.mkOption {
@@ -41,9 +45,10 @@
                 default = [1 2 3 4 5 6 7 8 9 10];
               };
             };
-          });
-        default = [];
-        description = "Config for new displays";
-      };
+          }
+        );
+      default = [];
+      description = "Config for new displays";
+    };
   };
 }

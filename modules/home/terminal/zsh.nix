@@ -1,22 +1,26 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.jh-devv.home.terminal.zsh;
 in {
-  config = lib.mkIf cfg.enable { 
+  config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-        nitch
+      nitch
     ];
     programs.zsh = {
+      enable = true;
+      initExtra = ''
+        nitch
+      '';
+      syntaxHighlighting.enable = true;
+      enableAutosuggestions = true;
+      oh-my-zsh = {
         enable = true;
-        initExtra = ''
-          nitch
-        '';
-        syntaxHighlighting.enable = true;
-        enableAutosuggestions = true;
-        oh-my-zsh = {
-        enable = true;
-        plugins = [ "git" ];
-        };
+        plugins = ["git"];
+      };
     };
 
     programs = {
@@ -32,14 +36,14 @@ in {
     };
 
     programs.kitty = {
-        enable = true;
-        shellIntegration.enableZshIntegration = true;
-        font.name = "FiraCode Nerd Font Mono";
-        theme = "Catppuccin-Mocha";
+      enable = true;
+      shellIntegration.enableZshIntegration = true;
+      font.name = "FiraCode Nerd Font Mono";
+      theme = "Catppuccin-Mocha";
     };
 
     home.shellAliases = {
-        rm = "trash-put";
+      rm = "trash-put";
     };
   };
 }

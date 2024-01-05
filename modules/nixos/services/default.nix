@@ -1,8 +1,13 @@
-{ options, config, lib, pkgs, ... }:
-let
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.jh-devv.nixos.services;
 in {
-  imports = [ 
+  imports = [
     ./gnome.nix
   ];
   config = lib.mkIf cfg.enable {
@@ -11,7 +16,7 @@ in {
       openssh.enable = true;
       blueman.enable = true;
       gvfs.enable = true;
-      udev.packages = [ pkgs.yubikey-personalization ];
+      udev.packages = [pkgs.yubikey-personalization];
       flatpak.enable = true;
       pcscd.enable = true;
     };
@@ -22,6 +27,5 @@ in {
     };
 
     virtualisation.docker.enable = true;
-    
   };
 }

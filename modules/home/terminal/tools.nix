@@ -1,8 +1,12 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.jh-devv.home.terminal.tools;
 in {
-  config = lib.mkIf cfg.enable { 
+  config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       blueman
       brightnessctl
@@ -28,10 +32,10 @@ in {
       fd
       tree
       unzip
-      ];
+    ];
     home.shellAliases = {
-        ls = "lsd";
-        grep = "rga";
+      ls = "lsd";
+      grep = "rga";
     };
-    };
+  };
 }

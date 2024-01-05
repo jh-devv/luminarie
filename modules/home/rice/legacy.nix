@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.jh-devv.home.rice.legacy;
 in {
   config = lib.mkIf cfg.enable {
@@ -7,6 +11,5 @@ in {
       source = ./legacy;
       recursive = true;
     };
-
   };
 }

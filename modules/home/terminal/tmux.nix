@@ -1,14 +1,18 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.jh-devv.home.terminal.tmux;
 in {
-  config = lib.mkIf cfg.enable { 
+  config = lib.mkIf cfg.enable {
     programs.tmux = {
-        enable = true;
-        plugins = with pkgs; [
-            tmuxPlugins.better-mouse-mode
-        ];
-        shell = "${pkgs.zsh}/bin/zsh";
-        };
+      enable = true;
+      plugins = with pkgs; [
+        tmuxPlugins.better-mouse-mode
+      ];
+      shell = "${pkgs.zsh}/bin/zsh";
     };
+  };
 }

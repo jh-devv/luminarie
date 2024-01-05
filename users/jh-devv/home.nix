@@ -27,7 +27,7 @@
       # })
       inputs.self.overlays.modifications
       inputs.self.overlays.additions
-   ];
+    ];
     # Configure your nixpkgs instance
     config = {
       # Disable if you don't want unfree packages
@@ -67,29 +67,29 @@
   };
 
   home.packages = with pkgs; [
-      ani-cli
-      cava
-      firefox-wayland
-      gradience
-      gimp
-      inkscape
-      imagemagick
-      just
-      lutgen
-      osu-lazer-bin
-      trash-cli
-      vscode
-      wine
-      yubikey-manager-qt
-      yubioath-flutter
-      opentofu
-      zola
-      gparted
-      p7zip
+    ani-cli
+    cava
+    firefox-wayland
+    gradience
+    gimp
+    inkscape
+    imagemagick
+    just
+    lutgen
+    osu-lazer-bin
+    trash-cli
+    vscode
+    wine
+    yubikey-manager-qt
+    yubioath-flutter
+    opentofu
+    zola
+    gparted
+    p7zip
   ];
 
   nixpkgs.config.firefox.speechSynthesisSupport = true;
-  
+
   xdg.mimeApps.enable = true;
   xdg.mimeApps.defaultApplications = {
     "text/html" = "firefox.desktop";
@@ -100,7 +100,6 @@
     "application/zip" = "org.gnome.FileRoller.desktop";
     "text/plain" = "org.gnome.gedit.desktop";
   };
-
 
   # Enable home-manager
   programs.home-manager.enable = true;

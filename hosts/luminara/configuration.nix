@@ -18,7 +18,7 @@
     ./hardware-configuration.nix
   ];
 
-    nixpkgs = {
+  nixpkgs = {
     # You can add overlays here
     overlays = [
       # Or define it inline, for example:
@@ -65,14 +65,14 @@
   };
 
   # Shell
-  environment.shells = with pkgs; [ zsh ];
+  environment.shells = with pkgs; [zsh];
   programs.zsh.enable = true;
 
   # User Accounts Configuration
   users.users.jh-devv = {
     shell = pkgs.zsh;
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ];
+    extraGroups = ["wheel" "docker"];
   };
 
   # Networking Configuration
@@ -80,7 +80,7 @@
     hostName = "luminara";
     networkmanager.enable = true;
   };
-  
+
   time.timeZone = "Europe/Helsinki";
 
   services.xserver.layout = "fi";

@@ -1,5 +1,9 @@
-{ lib, config, inputs, ... }:
 {
+  lib,
+  config,
+  inputs,
+  ...
+}: {
   options.jh-devv.home.rice = {
     theme.gtk = {
       enable = lib.mkEnableOption "GTK";

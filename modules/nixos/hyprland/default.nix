@@ -1,9 +1,14 @@
-{ inputs, options, config, lib, pkgs, ... }:
-let
+{
+  inputs,
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.jh-devv.nixos.hyprland;
 in {
   config = lib.mkIf cfg.enable {
-
     environment.systemPackages = with pkgs; [
       cliphist
       kitty
@@ -25,18 +30,18 @@ in {
     sound.enable = true;
     security.rtkit.enable = true;
     services.pipewire = {
-        enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
-        jack.enable = true;
-      };
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+    };
 
     # Enable Hyprland
 
     programs.hyprland = {
-        enable = true;
-        xwayland.enable = true; 
+      enable = true;
+      xwayland.enable = true;
     };
 
     # XDG Portal.
@@ -70,9 +75,7 @@ in {
           TimeoutStopSec = 10;
         };
       };
-    }; 
-
-
+    };
 
     # Environment Variables Configuration
     environment.sessionVariables = {
@@ -81,7 +84,7 @@ in {
 
     # Fonts Configuration
     fonts.packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono"]; })
+      (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
       # Add more fonts here if needed
     ];
 
@@ -91,6 +94,5 @@ in {
         auth include login
       '';
     };
-
   };
 }

@@ -7,15 +7,18 @@
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
 
-modifications = final: prev: {
-  rofi-power-menu = prev.rofi-power-menu.overrideAttrs (oldAttrs: rec {
-    patches = (oldAttrs.patches or [ ]) ++ [
-      ./patches/swaylock.patch
-    ];
-      installPhase = oldAttrs.installPhase + ''
+  modifications = final: prev: {
+    rofi-power-menu = prev.rofi-power-menu.overrideAttrs (oldAttrs: rec {
+      patches =
+        (oldAttrs.patches or [])
+        ++ [
+          ./patches/swaylock.patch
+        ];
+      installPhase =
+        oldAttrs.installPhase
+        + ''
           ln -s ${prev.swaylock-effects.out}/bin/swaylock $out/bin/swaylock
-      '';
-  });
-};
-
+        '';
+    });
+  };
 }

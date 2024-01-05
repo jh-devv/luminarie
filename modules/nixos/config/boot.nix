@@ -1,5 +1,10 @@
-{ options, config, lib, pkgs, ... }:
 {
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.jh-devv.nixos = {
     boot.grub = {
       enable = lib.mkEnableOption "Grub";
@@ -9,7 +14,7 @@
       windowManager = lib.mkOption {
         type = lib.types.package;
         description = "The window manager to be used with gdm";
-    };
+      };
     };
   };
 }

@@ -1,5 +1,11 @@
-{ options, config, lib, pkgs, inputs, ... }:
-let
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: let
   cfg = config.jh-devv.nixos.boot;
 in {
   config = lib.mkIf cfg.grub.enable {
@@ -10,7 +16,7 @@ in {
         efiSysMountPoint = "/boot";
       };
       grub = {
-        devices = [ "nodev" ];
+        devices = ["nodev"];
         enable = true;
         efiSupport = true;
         # Resolutions above "1920x1080" are not supported by the UEFI driver
@@ -39,11 +45,11 @@ in {
 
     services.xserver = lib.mkIf cfg.gdm.enable {
       enable = true;
-      displayManager.gdm = { 
+      displayManager.gdm = {
         enable = true;
-	      wayland = true;
+        wayland = true;
       };
-      displayManager.sessionPackages = [ cfg.gdm.windowManager ];
+      displayManager.sessionPackages = [cfg.gdm.windowManager];
       libinput.enable = true;
       excludePackages = [pkgs.xterm];
     };

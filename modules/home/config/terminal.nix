@@ -1,5 +1,8 @@
-{ lib, config, ... }:
 {
+  lib,
+  config,
+  ...
+}: {
   options.jh-devv.home.terminal = {
     zsh = {
       enable = lib.mkEnableOption "ZSH and plugins";

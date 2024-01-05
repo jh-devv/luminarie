@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.jh-devv.home.rice.rofi;
 in {
   config = lib.mkIf cfg.enable {
@@ -9,6 +13,6 @@ in {
       theme = ./theme.rasi;
     };
 
-    home.packages = [ pkgs.rofi-power-menu ];
+    home.packages = [pkgs.rofi-power-menu];
   };
 }

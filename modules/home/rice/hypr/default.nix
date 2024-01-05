@@ -1,5 +1,11 @@
-{ self, config, lib, pkgs, inputs, ... }:
-let
+{
+  self,
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: let
   cfg = config.jh-devv.home;
 in {
   config = lib.mkIf cfg.rice.hyprland.enable {
@@ -33,18 +39,18 @@ in {
       settings = {
         monitor =
           map
-            (
-              m: "${m.name},${m.hyprland}"
+          (
+            m: "${m.name},${m.hyprland}"
           )
           (cfg.displays);
         workspace =
           lib.lists.concatMap
-            (
-              m: map (w: "${toString w},monitor:${m.name}") (m.workspaces)
-            )
+          (
+            m: map (w: "${toString w},monitor:${m.name}") (m.workspaces)
+          )
           (cfg.displays);
-          source = builtins.map builtins.toString [ ./startup.conf ./theme.conf ./decoration.conf ./other.conf ./windowrules.conf ./binds.conf ];
+        source = builtins.map builtins.toString [./startup.conf ./theme.conf ./decoration.conf ./other.conf ./windowrules.conf ./binds.conf];
       };
-      };
+    };
   };
 }
