@@ -10,8 +10,11 @@ in {
       inherit pkgs;
       extraSpecialArgs = {inherit inputs;};
       modules = [
-        ../modules/home
         ./users/jh-devv
+        ../modules/home
+        ../modules/home/rice/hypr
+        ../modules/home/rice/legacy
+        ../modules/home/rice/rofi
       ];
     };
   });

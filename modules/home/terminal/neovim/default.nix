@@ -1,11 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: let
-  cfg = config.jh-devv.home.terminal.neovim;
-in {
+{pkgs, ...}: {
   programs.neovim = let
     toLua = str: "lua << EOF\n${str}\nEOF\n";
     toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
