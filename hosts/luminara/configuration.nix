@@ -1,6 +1,5 @@
 {
   inputs,
-  outputs,
   lib,
   config,
   pkgs,
@@ -27,8 +26,7 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
-      inputs.self.overlays.modifications
-      inputs.self.overlays.additions
+      inputs.self.overlays.default
     ];
     # Configure your nixpkgs instance
     config = {

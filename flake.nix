@@ -8,11 +8,9 @@
       imports = [
         ./hosts
         ./home
+        ./pkgs
+        ./pkgs/overlays
       ];
-
-      flake = {
-        overlays = import ./overlays {inherit inputs;};
-      };
     };
 
   inputs = {

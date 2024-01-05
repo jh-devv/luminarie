@@ -2,8 +2,6 @@
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
   inputs,
-  outputs,
-  lib,
   pkgs,
   ...
 }: {
@@ -25,8 +23,7 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
-      inputs.self.overlays.modifications
-      inputs.self.overlays.additions
+      inputs.self.overlays.default
     ];
     # Configure your nixpkgs instance
     config = {
