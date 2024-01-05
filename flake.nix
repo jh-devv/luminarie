@@ -7,21 +7,11 @@
 
       imports = [
         ./hosts
+        ./home
       ];
 
       flake = {
         overlays = import ./overlays {inherit inputs;};
-
-        homeConfigurations = {
-          "jh-devv@luminara" = inputs.home-manager.lib.homeManagerConfiguration {
-            pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-            extraSpecialArgs = {inherit inputs;};
-            modules = [
-              ./modules/home
-              ./users/jh-devv
-            ];
-          };
-        };
       };
     };
 
