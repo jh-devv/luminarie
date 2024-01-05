@@ -1,24 +1,32 @@
-{ options, config, lib, pkgs, ... }:
-let
-  cfg = config.jh-devv.nixos.services.gnome;
-in {
-  config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      glibc
-      glib
-      gnome.gnome-keyring
-      gnome.nautilus
-      gnome.gedit
-      gnome.file-roller
-      gtk3
-      polkit_gnome
-      libgnome-keyring
-      dconf
-      gnome.seahorse
-      ];
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    glib
+    gnome.nautilus
+    gnome.gedit
+    gnome.file-roller
+  ];
 
-    services.gnome.gnome-keyring.enable = true;
-    security.pam.services.gdm.enableGnomeKeyring = true;
+  programs = {
+    dconf.enable = true;
+    seahorse.enable = true;
+  };
 
+  services = {
+    # needed for GNOME services outside of GNOME Desktop
+    dbus.packages = [pkgs.gcr];
+
+    gnome.gnome-keyring.enable = true;
+  };
+
+  security.pam.services.gdm.enableGnomeKeyring = true;
+
+  services.xserver = {
+    enable = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
+    libinput.enable = true;
+    excludePackages = [pkgs.xterm];
   };
 }

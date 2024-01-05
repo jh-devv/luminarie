@@ -5,5 +5,5 @@ nixos:
   sudo nixos-rebuild switch --flake .#luminara
 
 home-manager:
-  home-manager switch  --flake .#jh-devv@luminara -b backup
+  home-manager switch --flake .#jh-devv@luminara -b backup
   hyprctl reload
