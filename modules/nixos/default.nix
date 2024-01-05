@@ -2,20 +2,19 @@
 # These should be stuff you would like to share with others, not your personal configurations.
 {pkgs, ...}: {
   imports = [
-    ./config
     ./boot
-    ./hyprland
-    ./programs
+    ./core
+    ./nix
     ./services
   ];
 
   # These are basically needed :3 (so you don't lock yourself out!)
   environment.systemPackages = with pkgs; [
-    git
-    vim
-    wget
     curl
+    git
     just
     man-pages
+    vim
+    wget
   ];
 }

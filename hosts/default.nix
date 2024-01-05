@@ -5,8 +5,11 @@ in {
     luminara = nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        ../modules/nixos
         ./luminara
+        ../modules/nixos
+        ../modules/nixos/hyprland
+        ../modules/nixos/programs/gaming.nix
+        ../modules/nixos/services/gnome.nix
       ];
     };
   };
