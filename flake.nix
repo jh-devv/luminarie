@@ -5,18 +5,12 @@
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
 
+      imports = [
+        ./hosts
+      ];
+
       flake = {
         overlays = import ./overlays {inherit inputs;};
-
-        nixosConfigurations = {
-          luminara = inputs.nixpkgs.lib.nixosSystem {
-            specialArgs = {inherit inputs;};
-            modules = [
-              ./modules/nixos
-              ./hosts/luminara
-            ];
-          };
-        };
 
         homeConfigurations = {
           "jh-devv@luminara" = inputs.home-manager.lib.homeManagerConfiguration {
