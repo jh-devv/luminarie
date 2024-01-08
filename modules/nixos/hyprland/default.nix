@@ -9,6 +9,7 @@
     libnotify
     libsecret
     libvirt
+    pamixer
     wl-clipboard
     wlr-randr
     xdg-utils

@@ -68,9 +68,9 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click-middle": "amixer set Master toggle",
-        "on-scroll-up": "amixer set Master 5%+",
-        "on-scroll-down": "amixer set Master 5%-",
+        "on-click-middle": "pamixer -t",
+        "on-scroll-up": "pamixer -i 5",
+        "on-scroll-down": "pamixer -d 5",
         "scroll-step": 1,
         "on-click": "pavucontrol",
         "ignored-sinks": ["Easy Effects Sink"]
