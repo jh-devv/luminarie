@@ -50,7 +50,7 @@ Editor: Neovim
 
 ```text
 Browser: Firefox
-File Manager: Nautlilus
+File Manager: Nautilus
 ```
 
 ---
