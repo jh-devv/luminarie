@@ -3,6 +3,7 @@
     gamemode
     gamescope
     mangohud
+    pkgsi686Linux.gperftools
   ];
 
   programs = {
