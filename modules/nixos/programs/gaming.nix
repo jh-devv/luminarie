@@ -3,7 +3,6 @@
     gamemode
     gamescope
     mangohud
-    steamtinkerlaunch
   ];
 
   programs = {
