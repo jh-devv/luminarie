@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    gedit
     glib
     gnome.nautilus
-    gnome.gedit
     gnome.file-roller
   ];
 
