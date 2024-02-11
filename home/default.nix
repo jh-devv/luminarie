@@ -12,9 +12,6 @@ in {
       modules = [
         ./users/jh-devv
         ../modules/home
-        ../modules/home/rice/hypr
-        ../modules/home/rice/legacy
-        ../modules/home/rice/rofi
       ];
     };
   });

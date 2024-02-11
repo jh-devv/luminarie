@@ -25,14 +25,4 @@
     "vm.max_map_count" = 16777216;
     "fs.file-max" = 524288;
   };
-
-  #services.greetd = {
-  #  enable = true;
-  #  settings = {
-  #    default_session = {
-  #      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd ${cfg.greetd.windowManager}";
-  #      user = "greeter";
-  #    };
-  #  };
-  #};
 }

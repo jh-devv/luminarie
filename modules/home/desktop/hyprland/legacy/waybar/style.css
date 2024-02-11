@@ -7,16 +7,16 @@ https://github.com/johnk1917/hyprland-dotfiles
 @import "theme.css";
 
 * {
-    border: none;
-    border-radius: 0px;
-    font-family: "JetBrainsMono Nerd Font";
-    font-size: 15px;
+  border: none;
+  border-radius: 0px;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 15px;
 }
 
 window#waybar {
-    background-color: @mantle;
-    border: 3px @crust;
-    border-radius: 10px;
+  background-color: @mantle;
+  border: 3px @crust;
+  border-radius: 10px;
 }
 
 #waybar.empty #window {
@@ -52,7 +52,7 @@ tooltip {
 }
 
 #workspaces button:hover {
-  background-color: rgba(31, 31, 45, 0.5)
+  background-color: rgba(31, 31, 45, 0.5);
 }
 
 #workspaces button.active {
@@ -73,18 +73,18 @@ tooltip {
 }
 
 #custom-powermenu {
-    background-color: @red;
-    color: @mantle;
-    font-size: 15px;
-    padding-right: calc(1em - 2px);
-    padding-left: 9px;
+  background-color: @red;
+  color: @mantle;
+  font-size: 15px;
+  padding-right: calc(1em - 2px);
+  padding-left: 9px;
 }
 
 #custom-nix {
-    background-color: @mantle;
-    color: @blue;
-    font-size: 25px;
-    margin: 1px;
-    padding-left: 9px;
-    border-radius: 60px;
+  background-color: @mantle;
+  color: @blue;
+  font-size: 25px;
+  margin: 1px;
+  padding-left: 9px;
+  border-radius: 60px;
 }

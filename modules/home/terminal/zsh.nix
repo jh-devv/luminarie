@@ -1,6 +1,22 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    gh
+    git
+    killall
+    jq
     nitch
+    mpv
+    imv
+    yt-dlp
+    libwebp
+    ripgrep-all
+    ranger
+    file
+    ffmpeg
+    lsd
+    fd
+    tree
+    unzip
   ];
 
   programs.zsh = {
@@ -39,5 +55,7 @@
 
   home.shellAliases = {
     rm = "trash-put";
+    ls = "lsd";
+    grep = "rga";
   };
 }

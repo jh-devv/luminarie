@@ -7,9 +7,6 @@ in {
       modules = [
         ./luminara
         ../modules/nixos
-        ../modules/nixos/hyprland
-        ../modules/nixos/programs/gaming.nix
-        ../modules/nixos/services/gnome.nix
       ];
     };
   };
