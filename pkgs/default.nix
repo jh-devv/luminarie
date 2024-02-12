@@ -1,7 +1,11 @@
-{inputs, ...}: {
-  perSystem = {pkgs, ...}: {
-    # Custom packages, that can be defined similarly to ones from nixpkgs
-    # You can build them using 'nix build .#example'
+{
+  systems = ["x86_64-linux"];
+
+  perSystem = {
+    pkgs,
+    inputs,
+    ...
+  }: {
     packages = {};
   };
 }
