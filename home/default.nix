@@ -10,6 +10,7 @@ in {
       inherit pkgs;
       extraSpecialArgs = {inherit inputs;};
       modules = [
+        inputs.nix-flatpak.homeManagerModules.nix-flatpak
         ./users/jh-devv
         ../modules/home
       ];

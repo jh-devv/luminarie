@@ -60,6 +60,8 @@
       inputs.flake-parts.follows = "flake-parts";
     };
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";

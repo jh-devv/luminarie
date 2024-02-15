@@ -12,6 +12,11 @@
       }
     ];
     session = "hyprland";
+    flatpak = {
+      enable = true;
+      groups = ["media"];
+      packages = ["org.prismlauncher.PrismLauncher"];
+    };
   };
 
   xdg.mimeApps = {

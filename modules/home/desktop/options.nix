@@ -8,6 +8,32 @@ with lib; let
   cfg = config.modules.home.desktop;
 in {
   options.modules.home.desktop = {
+    flatpak = {
+      enable = mkEnableOption ''
+        Enable installing Flatpak applications with Nix from Home Manager.
+      '';
+      packages = mkOption {
+        example = ["com.obsproject.Studio"];
+
+        type = types.listOf types.str;
+        default = [""];
+        description = ''
+          You can choose few packages to install with Flatpak here.
+           possible values: see Example.
+        '';
+      };
+      groups = mkOption {
+        example = ["media"];
+
+        type = types.listOf types.str;
+        default = [""];
+        description = ''
+          You can choose few package groups to install with Flatpak here.
+          Though, these are just mine and how I see them!
+           possible values: see Example.
+        '';
+      };
+    };
     session = mkOption {
       example = ["hyprland"];
 
