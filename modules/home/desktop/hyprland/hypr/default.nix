@@ -6,7 +6,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.home;
+  cfg = config.modules.home.desktop;
 in {
   config = mkIf ("hyprland" == cfg.session) {
     home.packages = with pkgs; [

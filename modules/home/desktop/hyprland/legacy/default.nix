@@ -4,7 +4,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.home;
+  cfg = config.modules.home.desktop;
 in {
   config = mkIf ("hyprland" == cfg.session) {
     home.file."${config.xdg.configHome}" = {

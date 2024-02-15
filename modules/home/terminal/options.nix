@@ -5,7 +5,7 @@
   ...
 }:
 with lib; {
-  options.modules.home = {
+  options.modules.home.terminal = {
     shell = mkOption {
       type = types.enum ["zsh"];
       default = "zsh";

@@ -5,7 +5,7 @@
   ...
 }:
 with lib; {
-  options.modules.nixos = {
+  options.modules.nixos.desktop = {
     session = mkOption {
       example = ["hyprland"];
 

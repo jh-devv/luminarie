@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.home;
+  cfg = config.modules.home.desktop;
 in {
-  options.modules.home = {
+  options.modules.home.desktop = {
     session = mkOption {
       example = ["hyprland"];
 

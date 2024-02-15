@@ -4,7 +4,7 @@
     homeDirectory = "/home/jh-devv";
   };
 
-  modules.home = {
+  modules.home.desktop = {
     displays = [
       {
         name = "DP-2";

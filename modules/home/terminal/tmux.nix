@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.home;
+  cfg = config.modules.home.terminal;
 in {
   config = mkIf (cfg.tmux.enable) {
     programs.tmux = {
