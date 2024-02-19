@@ -12,7 +12,7 @@ in {
     (mkIf
       (cfg.enable && builtins.elem "media" cfg.groups)
       {
-        modules.home.desktop.flatpak.packages = ["com.obsproject.Studio"];
+        modules.home.desktop.flatpak.packages = ["com.obsproject.Studio" "org.inkscape.Inkscape"];
       })
     (mkIf
       (cfg.enable)
