@@ -23,6 +23,7 @@ in {
           udev.packages = [pkgs.yubikey-personalization];
           flatpak.enable = true;
           pcscd.enable = true;
+          fwupd.enable = true;
         };
         programs.gnupg.agent = {
           enable = true;
