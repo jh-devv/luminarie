@@ -18,6 +18,7 @@ in {
       hyprpicker
       wl-clipboard
       playerctl
+      kew
 
       hyprpaper
       waybar
