@@ -4,6 +4,7 @@
     ./gtk.nix
     ./rofi
     ./hypr
+    ./waybar
     ./legacy
   ];
 }
