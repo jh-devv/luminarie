@@ -7,6 +7,7 @@ in {
       modules = [
         ./luminara
         ../modules/nixos
+        inputs.lanzaboote.nixosModules.lanzaboote
       ];
     };
   };

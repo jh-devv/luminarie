@@ -1,20 +1,25 @@
 {
+  pkgs,
+  lib,
+  ...
+}: {
   boot.loader = {
-    systemd-boot.enable = false;
-
     efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot";
     };
 
-    grub = {
-      devices = ["nodev"];
-      enable = true;
-      efiSupport = true;
-      # Resolutions above "1920x1080" are not supported by the UEFI driver
-      gfxmodeEfi = "1920x1080";
-      fontSize = 36;
+    systemd-boot = {
+      enable = lib.mkForce false;
+      consoleMode = "max";
     };
+
+    timeout = 1;
+  };
+
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/etc/secureboot";
   };
 
   boot.plymouth = {
@@ -25,4 +30,10 @@
     "vm.max_map_count" = 16777216;
     "fs.file-max" = 524288;
   };
+
+  environment.systemPackages = with pkgs; [
+    sbctl
+    efibootmgr
+    e2fsprogs.bin
+  ];
 }
