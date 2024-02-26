@@ -15,6 +15,11 @@ in {
         modules.home.desktop.flatpak.packages = ["com.obsproject.Studio" "org.inkscape.Inkscape"];
       })
     (mkIf
+      (cfg.enable && builtins.elem "text" cfg.groups)
+      {
+        modules.home.desktop.flatpak.packages = ["com.logseq.Logseq"];
+      })
+    (mkIf
       (cfg.enable)
       {
         services.flatpak = {

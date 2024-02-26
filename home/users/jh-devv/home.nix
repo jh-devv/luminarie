@@ -14,32 +14,18 @@
     session = "hyprland";
     flatpak = {
       enable = true;
-      groups = ["media"];
+      groups = ["media" "text"];
       packages = ["org.prismlauncher.PrismLauncher"];
     };
   };
 
   home.packages = with pkgs; [
-    ani-cli
     cava
     firefox-wayland
-    gradience
-    gimp
-    inkscape
-    imagemagick
-    just
-    lutgen
-    osu-lazer-bin
     trash-cli
     vscode
-    wine
     yubikey-manager-qt
     yubioath-flutter
-    opentofu
-    zola
-    gparted
-    p7zip
-    fractal
   ];
 
   # Nicely reload system units when changing configs
