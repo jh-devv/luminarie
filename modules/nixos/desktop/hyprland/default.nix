@@ -43,6 +43,7 @@ in {
       enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-hyprland
+        xdg-desktop-portal-gtk
       ];
     };
 
@@ -50,12 +51,8 @@ in {
     security.polkit.enable = true;
 
     # Enable GNOME PolKit agent
-    # Please figure out hyprland config in home manager owo
     systemd.user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
-      #wantedBy = [ "graphical-session.target" ];
-      #wants = [ "graphical-session.target" ];
-      #after = [ "graphical-session.target" ];
       serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
