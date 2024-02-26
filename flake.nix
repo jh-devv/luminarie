@@ -22,6 +22,7 @@
           packages = [
             pkgs.alejandra
             pkgs.git
+            pkgs.just
             pkgs.nodePackages.prettier
           ];
           name = "luminara";
