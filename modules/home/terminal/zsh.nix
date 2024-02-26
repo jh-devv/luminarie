@@ -6,7 +6,6 @@
     jq
     nitch
     mpv
-    imv
     yt-dlp
     libwebp
     ripgrep-all
