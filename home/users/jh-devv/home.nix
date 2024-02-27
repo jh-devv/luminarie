@@ -14,7 +14,7 @@
     session = "hyprland";
     flatpak = {
       enable = true;
-      groups = ["media" "text"];
+      groups = ["media"];
       packages = ["org.prismlauncher.PrismLauncher"];
     };
   };
@@ -22,6 +22,7 @@
   home.packages = with pkgs; [
     cava
     firefox-wayland
+    logseq
     trash-cli
     vscode
     yubikey-manager-qt

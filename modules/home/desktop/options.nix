@@ -23,7 +23,7 @@ in {
         '';
       };
       groups = mkOption {
-        example = ["media" "text"];
+        example = ["media"];
 
         type = types.listOf types.str;
         default = [""];
