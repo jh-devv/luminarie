@@ -25,7 +25,6 @@
     logseq
     trash-cli
     vscode
-    yubikey-manager-qt
     yubioath-flutter
   ];
 
