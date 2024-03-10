@@ -1,79 +1,115 @@
-<h1 align="center">jh-devv/luminara</h1>
+<!-- markdownlint-disable MD033 MD041 MD010 -->
 
-## ➔ 🗒 About
+<h3 align="center">
+	<img src="assets/flake.png" width="100" alt="Logo"/><br>
+	<img src="assets/transparent.png" height="30" width="0px"/ alt="">
+	Luminara
+	<img src="assets/transparent.png" height="30" width="0px"/ alt="">
+</h3>
 
-Hey! This is my flake for my NixOS setup `Luminara` ( ˶ˆ꒳ˆ˵ )
+<h6 align="center">
+  <a href="#contents">Contents</a>
+  ·
+  <a href="#usage">Usage</a>
+  ·
+  <a href="#licenses">Licenses</a>
+</h6>
 
-Managed with Nix (NixOS) and Home Manager! :3
+<p align="center">
+  <img src="assets/macchiato-palette.png" width="400" / alt="Catppuccin Macchiato Palette">
+</p>
 
-[🗃️ contents](#--contents) 📷 [screens](#--screens) 📝 [info](#--info) 💻
-[usage](#--usage)
+<p align="center">
+	<a href="https://github.com/jh-devv/luminara/stargazers">
+		<img alt="Stargazers" src="https://img.shields.io/github/stars/jh-devv/luminara?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41"></a>
+	<a href="https://github.com/jh-devv/luminara">
+		<img alt="Repo Size" src="https://img.shields.io/github/repo-size/jh-devv/luminara.svg?style=for-the-badge&logo=github&color=F2CDCD&logoColor=D9E0EE&labelColor=302D41"/></a>
+	<a href="https://github.com/jh-devv/luminara/issues">
+		<img alt="Issues" src="https://img.shields.io/github/issues/jh-devv/luminara?style=for-the-badge&logo=gitbook&color=B5E8E0&logoColor=D9E0EE&labelColor=302D41"></a>
+  <a href="https://github.com/jh-devv/luminara/tree/main/LICENSE">
+    <img alt="License" src="https://img.shields.io/badge/License-AGPL-907385605422448742?style=for-the-badge&logo=agpl&color=DDB6F2&logoColor=D9E0EE&labelColor=302D41"></a>
+  <br><a href="https://builtwithnix.org">
+      <img alt="Built with Nix" src="https://builtwithnix.org/badge.svg"></a>
+</p>
 
-## ➔ 🗃️ contents
-
-- [modules/nixos](modules): NixOS common configs
-- [modules/home](modules): HM common configs
-- [hosts](hosts): host-specific configuration
-- [home](home): user-specific configuration
-- [pkgs](pkgs): package definitions
-
-## ➔ 📷 screens
-
-![Screenshot Showcase](assets/showcase.png)
-
----
-
-## ➔ 📝 info
-
-### desktop
-
-```text
-OS: NixOS
-Compositor: Hyprland
-Bar: Waybar
-GTK Theme: Catppuccin GTK
-Icon Theme: Catppuccin Folders and Papirus
-Font: Fira Code/JetBrains Mono Nerd Font
-```
-
-### terminal
-
-```text
-Terminal: Kitty
-Shell: Zsh
-Fetch: Nitch
-Prompt: Starship
-Editor: Neovim
-```
-
-### apps
-
-```text
-Browser: Firefox
-File Manager: Nautilus
-```
+<p align="center">
+This is my flake for my NixOS setup `Luminara` ( ˶ˆ꒳ˆ˵ )
+</p>
 
 ---
 
-## ➔ 💻 usage
+&nbsp; ![Screenshot Showcase](/assets/showcase.png)
 
-before you use them, are you sure you are familiar with nix? ^w^
+### Contents
 
-first, be sure to edit `hosts/<host>` and edit the `flake.nix`, do the same with
-home manager `users/<user>`
+- [modules/nixos](/modules/nixos/): NixOS common configs
+- [modules/home](/modules/home/): HM common configs
+- [hosts](/hosts): host-specific configuration
+- [home](/home): user-specific configuration
+- [pkgs](/pkgs): package definitions
 
-for nixos:
+### Usage
 
-```bash
-just nixos
+> [!TIP] You can find an `just` build script that has the aliases for the most
+> used rebuild commands on the project root.
+
+#### ➔ NixOS
+
+> [!CAUTION] You will need to edit my
+> [host files](/home/jh-devv/luminara/hosts/luminara) to be suitable for your
+> system, for now; at least edit the `hardware-configuration.nix` file to suit
+> your needs or edit your disk table. Lastly, add your system to the flake by
+> adding it to [/hosts/default.nix](/hosts/default.nix)!
+
+- Format system using the NixOS installer ISO. In the future, when disko is in
+  use: You can use my premade ISOS for this!
+- Format partitions following your own `hardware-configuration.nix` or use
+  [disko](https://github.com/nix-community/disko).
+- Install system pointing the installer to the flake.
+
+- For the rebuild command, you can use just or as you probably know it is:
+
+```sh
+sudo nixos-rebuild switch --flake .#luminara
 ```
 
-for home manager:
+> [!TIP] In the future, when I have the time. I will make this flake use
+> [impermanence](https://github.com/nix-community/impermanence).
 
-```bash
-just home-manager
+- [ ] Switch to impermanence and use disko.
+- [ ] Publish ISOS and write GitHub actions for it.
+
+#### ➔ Home Manager
+
+> [!INFO] Make sure to first have Home Manager installed or use my NixOS flake!
+
+- The install command should be the same as the rebuild command, if not; check
+  the wiki!
+- Same as with NixOS, for the rebuild command, you can use just or the command:
+
+```sh
+sudo nixos-rebuild switch --flake .#luminara
 ```
 
-## License
+Remember to replace my `hostname` and `user` with yours!
+
+---
+
+### Licenses
+
+- The project's README has been inspired by the format and structure used by
+  [The Catppuccin Theme Project](https://github.com/catppuccin) and the original
+  can be found at
+  [https://raw.githubusercontent.com/catppuccin/catppuccin/main/README.md](catppuccin/README.md).
+  Additionally, the project is licensed under the MIT License, available
+  [here](https://raw.githubusercontent.com/catppuccin/catppuccin/main/LICENSE).
+
+#### ➔ Attributions
+
+- A heartfelt ❤️ thank you to [fufexan](https://github.com/fufexan) for
+  restructuring the code of this project!
+- I also extend my heartfelt thanks to the Nix community for their tireless
+  efforts and their from on their awesome Flakes. You can find some of them on
+  [their GitHub community organization page](https://github.com/nix-community)!
 
 [AGPL-3 License](LICENSE) © [jh-devv](https://jh-devv.com)

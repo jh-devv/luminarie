@@ -1,10 +1,10 @@
 {pkgs, ...}: {
   imports = [
     ./boot
-    ./core
     ./desktop
     ./nix
     ./services
+    ./shell
     ./programs
   ];
 }
