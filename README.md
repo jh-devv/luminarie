@@ -50,16 +50,13 @@ This is my flake for my NixOS setup `Luminara` ( ˶ˆ꒳ˆ˵ )
 
 ### Usage
 
-> [!TIP] You can find an `just` build script that has the aliases for the most
-> used rebuild commands on the project root.
+> [!TIP]
+> You can find an `just` build script that has the aliases for the most used rebuild commands on the project root.
 
 #### ➔ NixOS
 
-> [!CAUTION] You will need to edit my
-> [host files](/home/jh-devv/luminara/hosts/luminara) to be suitable for your
-> system, for now; at least edit the `hardware-configuration.nix` file to suit
-> your needs or edit your disk table. Lastly, add your system to the flake by
-> adding it to [/hosts/default.nix](/hosts/default.nix)!
+> [!CAUTION]
+> You will need to edit my [host files](/home/jh-devv/luminara/hosts/luminara) to be suitable for your system, for now; at least edit the `hardware-configuration.nix` file to suit your needs or edit your disk table. Lastly, add your system to the flake by adding it to [/hosts/default.nix](/hosts/default.nix)!
 
 - Format system using the NixOS installer ISO. In the future, when disko is in
   use: You can use my premade ISOS for this!
@@ -73,15 +70,16 @@ This is my flake for my NixOS setup `Luminara` ( ˶ˆ꒳ˆ˵ )
 sudo nixos-rebuild switch --flake .#luminara
 ```
 
-> [!TIP] In the future, when I have the time. I will make this flake use
-> [impermanence](https://github.com/nix-community/impermanence).
+> [!TIP]
+> In the future, when I have the time. I will make this flake use [impermanence](https://github.com/nix-community/impermanence).
 
 - [ ] Switch to impermanence and use disko.
 - [ ] Publish ISOS and write GitHub actions for it.
 
 #### ➔ Home Manager
 
-> [!INFO] Make sure to first have Home Manager installed or use my NixOS flake!
+> [!NOTE]
+> Make sure to first have Home Manager installed or use my NixOS flake!
 
 - The install command should be the same as the rebuild command, if not; check
   the wiki!
