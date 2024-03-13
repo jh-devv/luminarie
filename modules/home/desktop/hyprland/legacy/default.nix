@@ -6,7 +6,7 @@
 with lib; let
   cfg = config.modules.home.desktop;
 in {
-  config = mkIf ("hyprland" == cfg.session) {
+  config = mkIf (cfg.session == "hyprland") {
     home.file."${config.xdg.configHome}" = {
       # current folder but without the nix file
       source = lib.cleanSourceWith {

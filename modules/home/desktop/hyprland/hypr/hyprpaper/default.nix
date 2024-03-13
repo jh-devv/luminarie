@@ -8,7 +8,7 @@
 with lib; let
   cfg = config.modules.home.desktop;
 in {
-  config = mkIf ("hyprland" == cfg.session) {
+  config = mkIf (cfg.session == "hyprland") {
     home.packages = with pkgs; [
       hyprpaper
     ];

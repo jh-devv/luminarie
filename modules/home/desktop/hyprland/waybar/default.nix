@@ -7,7 +7,7 @@
 with lib; let
   cfg = config.modules.home.desktop;
 in {
-  config = mkIf ("hyprland" == cfg.session) {
+  config = mkIf (cfg.session == "hyprland") {
     programs.waybar = {
       enable = true;
       settings = [
@@ -81,7 +81,7 @@ in {
             spacing = 10;
           };
           "custom/powermenu" = {
-            "on-click" = "rofi -show power-menu -modi power-menu:'rofi-power-menu --choices=shutdown/reboot/suspend/logout/lockscreen'";
+            "on-click" = "rofi -show power-menu -modi power-menu:'rofi-power-menu'";
             format = "";
           };
         }

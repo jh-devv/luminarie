@@ -34,6 +34,28 @@ in {
         '';
       };
     };
+    power = {
+      lockscreen = {
+        enable = mkEnableOption "Enable automatic system lockscreen" // {default = true;};
+        timeout = mkOption {
+          default = 5;
+          example = 5;
+
+          type = types.int;
+          description = "Timeout for automatic system lockscreen (in minutes)";
+        };
+      };
+      hibernation = {
+        enable = mkEnableOption "Enable automatic system hibernation" // {default = true;};
+        timeout = mkOption {
+          default = 30;
+          example = 30;
+
+          type = types.int;
+          description = "Timeout for automatic system hibernation (in minutes)";
+        };
+      };
+    };
     session = mkOption {
       example = ["hyprland"];
 

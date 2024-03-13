@@ -8,7 +8,7 @@ with lib; let
   gtk = config.gtk;
   cfg = config.modules.home.desktop;
 in {
-  config = mkIf ("hyprland" == cfg.session) {
+  config = mkIf (cfg.session == "hyprland") {
     gtk = {
       enable = true;
 

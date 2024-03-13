@@ -11,6 +11,8 @@ in {
       extraSpecialArgs = {inherit inputs;};
       modules = [
         inputs.nix-flatpak.homeManagerModules.nix-flatpak
+        inputs.hyprland-hypridle.homeManagerModules.hypridle
+        inputs.hyprland-hyprlock.homeManagerModules.hyprlock
         ./users/jh-devv
         ../modules/home
       ];

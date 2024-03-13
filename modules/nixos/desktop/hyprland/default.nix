@@ -8,7 +8,7 @@
 with lib; let
   cfg = config.modules.nixos.desktop;
 in {
-  config = mkIf ("hyprland" == cfg.session) {
+  config = mkIf (cfg.session == "hyprland") {
     environment.systemPackages = with pkgs; [
       cliphist
       kitty

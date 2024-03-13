@@ -11,8 +11,9 @@ in {
   imports = [
     ./hyprpaper
     ./hyprlock
+    ./hypridle
   ];
-  config = mkIf ("hyprland" == cfg.session) {
+  config = mkIf (cfg.session == "hyprland") {
     home.packages = with pkgs; [
       blueman
       networkmanagerapplet
@@ -40,6 +41,10 @@ in {
           ./other.conf
           ./windowrules.conf
           ./binds.conf
+        ];
+
+        bind = (mkIf cfg.power.lockscreen.enable) [
+          "$mainMod, L, exec, hyprlock"
         ];
       };
     };
