@@ -48,7 +48,7 @@
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
-    font.name = "FiraCode Nerd Font Mono";
+    font.name = "JetBrainsMono Nerd Font";
     theme = "Catppuccin-Mocha";
   };
 

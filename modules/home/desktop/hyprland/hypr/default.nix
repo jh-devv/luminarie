@@ -10,6 +10,7 @@ with lib; let
 in {
   imports = [
     ./hyprpaper
+    ./hyprlock
   ];
   config = mkIf ("hyprland" == cfg.session) {
     home.packages = with pkgs; [

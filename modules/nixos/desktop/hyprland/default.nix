@@ -36,13 +36,13 @@ in {
     # Enable Hyprland
     programs.hyprland = {
       enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 
     # XDG Portal
     xdg.portal = {
       enable = true;
       extraPortals = with pkgs; [
-        xdg-desktop-portal-hyprland
         xdg-desktop-portal-gtk
       ];
     };
@@ -72,8 +72,5 @@ in {
       (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
       # Add more fonts here if needed
     ];
-
-    # Swaylock
-    security.pam.services.swaylock.text = "auth include login";
   };
 }
