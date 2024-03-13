@@ -29,7 +29,7 @@ in {
           "custom/nix" = {
             format = " ";
             tooltip = false;
-            "on-click" = "rofi -show drun -shopkilw-icons";
+            "on-click" = "rofi -show drun -show-icons";
           };
           "hyprland/workspaces" = {
             "disable-scroll" = true;
