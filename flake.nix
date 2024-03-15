@@ -6,32 +6,37 @@
       systems = ["x86_64-linux"];
 
       imports = [
+        inputs.pre-commit-hooks.flakeModule
+
         ./hosts
         ./home
         ./pkgs
         ./pkgs/overlays
-        ./pre-commit-hooks.nix
       ];
-
       perSystem = {
         config,
         pkgs,
         ...
       }: {
+        pre-commit = {
+          check.enable = true;
+          settings.excludes = ["flake.lock"];
+          settings.hooks = {
+            alejandra.enable = true;
+            deadnix.enable = true;
+            prettier.enable = true;
+            markdownlint.enable = true;
+          };
+        };
         devShells.default = pkgs.mkShell {
-          packages = [
-            pkgs.alejandra
-            pkgs.git
-            pkgs.just
-            pkgs.nodePackages.prettier
+          packages = with pkgs; [
+            git
+            just
           ];
-          name = "luminara";
-          DIRENV_LOG_FORMAT = "";
           shellHook = ''
             ${config.pre-commit.installationScript}
           '';
         };
-
         formatter = pkgs.alejandra;
       };
     };
