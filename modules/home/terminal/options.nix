@@ -1,9 +1,4 @@
-{
-  lib,
-  config,
-  inputs,
-  ...
-}:
+{lib, ...}:
 with lib; {
   options.modules.home.terminal = {
     shell = mkOption {
@@ -14,7 +9,6 @@ with lib; {
       '';
       example = "zsh";
     };
-    tmux.enable = mkEnableOption "Enable Tmux";
-    neovim.enable = mkEnableOption "Enable NeoVim";
+    nvim.enable = mkEnableOption "Enable nvim" // {default = true;};
   };
 }
