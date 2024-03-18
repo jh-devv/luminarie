@@ -3,36 +3,36 @@
     gh
     git
     killall
+    file
+    tree
+    ffmpeg
     jq
+    fd
+    lsd
+    ripgrep-all
     nitch
+    libwebp
     mpv
     yt-dlp
-    libwebp
-    ripgrep-all
-    ranger
-    file
-    ffmpeg
-    lsd
-    fd
-    tree
     unzip
+    ranger
   ];
 
-  programs.zsh = {
-    enable = true;
-    initExtra = ''
-      nitch
-    '';
-
-    syntaxHighlighting.enable = true;
-    enableAutosuggestions = true;
-    oh-my-zsh = {
-      enable = true;
-      plugins = ["git"];
-    };
-  };
-
   programs = {
+    zsh = {
+      enable = true;
+      initExtra = ''
+        nitch
+      '';
+
+      syntaxHighlighting.enable = true;
+      enableAutosuggestions = true;
+      oh-my-zsh = {
+        enable = true;
+        plugins = ["git"];
+      };
+    };
+
     starship = {
       enable = true;
       enableZshIntegration = true;
@@ -43,13 +43,13 @@
       enableZshIntegration = true; # see note on other shells below
       nix-direnv.enable = true;
     };
-  };
 
-  programs.kitty = {
-    enable = true;
-    shellIntegration.enableZshIntegration = true;
-    font.name = "JetBrainsMono Nerd Font";
-    theme = "Catppuccin-Mocha";
+    kitty = {
+      enable = true;
+      shellIntegration.enableZshIntegration = true;
+      font.name = "JetBrainsMono Nerd Font";
+      theme = "Catppuccin-Mocha";
+    };
   };
 
   home.shellAliases = {

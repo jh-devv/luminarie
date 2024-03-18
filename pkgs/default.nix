@@ -1,7 +1,7 @@
 {
   systems = ["x86_64-linux"];
 
-  perSystem = {...}: {
+  perSystem = _: {
     packages = {};
   };
 }

@@ -13,11 +13,11 @@ in {
         modules.home.desktop.flatpak.packages = ["com.obsproject.Studio" "org.inkscape.Inkscape" "org.gimp.GIMP"];
       })
     (mkIf
-      (cfg.enable)
+      cfg.enable
       {
         services.flatpak = {
           enable = true;
-          packages = cfg.packages;
+          inherit (cfg) packages;
         };
       })
   ];

@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  gtk = config.gtk;
+  inherit (config) gtk;
   cfg = config.modules.home.desktop;
 in {
   config = mkIf (cfg.session == "hyprland") {
@@ -26,18 +26,20 @@ in {
       };
     };
 
-    # Global cursor, applied to GTK as well
-    home.pointerCursor = {
-      name = "Catppuccin-Mocha-Lavender-Cursors";
-      package = pkgs.catppuccin-cursors.mochaLavender;
-      size = 24;
-      gtk.enable = true;
-      x11.enable = true;
-    };
+    home = {
+      pointerCursor = {
+        name = "Catppuccin-Mocha-Lavender-Cursors";
+        package = pkgs.catppuccin-cursors.mochaLavender;
+        size = 24;
+        gtk.enable = true;
+        x11.enable = true;
+      };
 
-    # This could probably be done with XDG theme directories uwu
-    home.file.".themes/Catppuccin-Mocha-Standard-Lavender-Dark".source = "${gtk.theme.package}/share/themes/${gtk.theme.name}";
-    home.file.".icons/Papirus-Dark".source = "${gtk.iconTheme.package}/share/icons/${gtk.iconTheme.name}";
+      file = {
+        ".themes/Catppuccin-Mocha-Standard-Lavender-Dark".source = "${gtk.theme.package}/share/themes/${gtk.theme.name}";
+        ".icons/Papirus-Dark".source = "${gtk.iconTheme.package}/share/icons/${gtk.iconTheme.name}";
+      };
+    };
 
     xdg.dataFile."flatpak/overrides/global".source = (pkgs.formats.ini {}).generate "global" {
       Context.filesystems = "~/.icons:ro;~/.themes:ro;/nix/store/:ro";

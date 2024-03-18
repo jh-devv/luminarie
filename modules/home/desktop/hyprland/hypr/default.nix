@@ -24,7 +24,7 @@ in {
       playerctl
       waybar
 
-      (inputs.hyprland-contrib.packages.${system}.grimblast)
+      inputs.hyprland-contrib.packages.${system}.grimblast
     ];
 
     wayland.windowManager.hyprland = {

@@ -8,7 +8,7 @@
 with lib; let
   cfg = config.modules.home.desktop;
 in {
-  config = mkIf ((cfg.session == "hyprland") && (cfg.power.lockscreen.enable)) {
+  config = mkIf ((cfg.session == "hyprland") && cfg.power.lockscreen.enable) {
     home.packages = with pkgs; [
       inputs.hyprland-hyprlock.packages.${pkgs.system}.hyprlock
     ];

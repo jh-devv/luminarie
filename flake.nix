@@ -26,6 +26,7 @@
             deadnix.enable = true;
             prettier.enable = true;
             markdownlint.enable = true;
+            statix.enable = true;
           };
         };
         devShells.default = pkgs.mkShell {
