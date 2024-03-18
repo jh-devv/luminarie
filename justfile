@@ -10,3 +10,6 @@ home-manager:
 
 clean:
   sudo nix-collect-garbage
+
+update:
+  nix flake update
