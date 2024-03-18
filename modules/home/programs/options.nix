@@ -1,9 +1,4 @@
-{
-  lib,
-  config,
-  inputs,
-  ...
-}:
+{lib, ...}:
 with lib; {
   options.modules.home = {
     programs = mkOption {

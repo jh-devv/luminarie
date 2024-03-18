@@ -1,3 +1,3 @@
-{inputs, ...}: {
-  flake.overlays.default = final: prev: {};
+{...}: {
+  flake.overlays.default = _final: _prev: {};
 }
