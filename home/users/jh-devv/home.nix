@@ -7,7 +7,7 @@
   modules.home.desktop = {
     displays = [
       {
-        name = "DP-2";
+        name = "HDMI-A-1";
         workspaces = [1 2 3 4 5 6 7 8 9 10];
       }
     ];
@@ -17,6 +17,10 @@
       groups = ["media"];
       packages = ["org.prismlauncher.PrismLauncher"];
     };
+    power = {
+      lockscreen.enable = true;
+      hibernation.enable = true;
+    };
   };
 
   home.packages = with pkgs; [
@@ -25,6 +29,7 @@
     logseq
     trash-cli
     vscode
+    fractal
     yubioath-flutter
   ];
 

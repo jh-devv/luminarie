@@ -36,7 +36,7 @@ in {
     };
     power = {
       lockscreen = {
-        enable = mkEnableOption "Enable automatic system lockscreen" // {default = true;};
+        enable = mkEnableOption "Enable automatic system lockscreen";
         timeout = mkOption {
           default = 5;
           example = 5;
@@ -46,7 +46,7 @@ in {
         };
       };
       hibernation = {
-        enable = mkEnableOption "Enable automatic system hibernation" // {default = true;};
+        enable = mkEnableOption "Enable automatic system hibernation";
         timeout = mkOption {
           default = 30;
           example = 30;

@@ -1,6 +1,7 @@
 {...}: {
   imports = [
-    ./hyprland
     ./options.nix
+    ./gamemode.nix
+    ./hyprland
   ];
 }

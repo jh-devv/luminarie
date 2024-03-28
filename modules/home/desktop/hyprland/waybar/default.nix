@@ -16,6 +16,8 @@ in {
           exclusive = true;
           passthrough = false;
 
+          output = map (screen: screen.name) cfg.displays;
+
           "gtk-layer-shell" = true;
 
           layer = "top";

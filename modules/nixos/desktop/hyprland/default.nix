@@ -8,6 +8,9 @@
 with lib; let
   cfg = config.modules.nixos.desktop;
 in {
+  imports = [
+    ./services.nix
+  ];
   config = mkIf (cfg.session == "hyprland") {
     environment.systemPackages = with pkgs; [
       cliphist

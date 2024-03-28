@@ -9,7 +9,7 @@ with lib; let
   cfg = config.modules.home.desktop;
   lock = "hyprlock";
 in {
-  config = mkIf (("hyprland" == cfg.session) && (cfg.power.lockscreen.enable || cfg.power.hibernation.enable)) {
+  config = mkIf ((cfg.session == "hyprland") && (cfg.power.lockscreen.enable || cfg.power.hibernation.enable)) {
     home.packages = with pkgs; [
       inputs.hyprland-hypridle.packages.${pkgs.system}.hypridle
     ];

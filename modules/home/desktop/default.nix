@@ -1,8 +1,9 @@
 {...}: {
   imports = [
-    ./hyprland
-    ./xdg.nix
-    ./flatpak.nix
     ./options.nix
+    ./xdg.nix
+    ./mpris.nix
+    ./flatpak.nix
+    ./hyprland
   ];
 }
