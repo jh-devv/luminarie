@@ -5,11 +5,18 @@ with lib; {
       example = ["zsh"];
 
       type = types.enum ["zsh" null];
-      default = "zsh";
       description = ''
         The shell you want to use.
           possible values: see Example.
       '';
     };
+    #security.yubikey = {
+    #  enable = mkEnableOption "Enable Yubikey PAM";
+    #
+    #  id = mkOption {
+    #    type = types.str;
+    #    description = "Yubikey device serial code";
+    #  };
+    #};
   };
 }

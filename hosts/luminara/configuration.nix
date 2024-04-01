@@ -3,6 +3,10 @@
     ./hardware-configuration.nix
   ];
 
+  modules.nixos = {
+    shell = "zsh";
+  };
+
   networking = {
     hostName = "luminara";
     networkmanager.enable = true;

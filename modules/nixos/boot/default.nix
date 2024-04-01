@@ -26,6 +26,7 @@
       "vm.max_map_count" = 16777216;
       "fs.file-max" = 524288;
     };
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   environment.systemPackages = with pkgs; [
