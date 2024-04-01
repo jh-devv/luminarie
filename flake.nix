@@ -43,8 +43,7 @@
     };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-staging-next.url = "github:NixOS/nixpkgs/staging-next";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
