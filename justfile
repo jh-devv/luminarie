@@ -5,11 +5,12 @@ nixos:
   sudo nixos-rebuild switch --flake .#luminara
 
 home-manager:
-  home-manager switch --flake .#jh-devv@luminara -b backup
+  home-manager switch --flake .#jh-devv@luminara
   hyprctl reload
 
 clean:
-  sudo nix-collect-garbage
+  sudo nix-collect-garbage -d
+  nix-collect-garbage -d
 
 update:
   nix flake update
