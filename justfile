@@ -12,14 +12,14 @@ default:
   @just --list
 
 rebuild action="nixos":
-  @just {{action}} {{host}} {{user}} {{origin}}
+  @just rebuild-{{action}} {{host}} {{user}} {{origin}}
 
 [private]
-nixos host user origin:
+rebuild-nixos host user origin:
   @sudo nixos-rebuild switch --flake {{origin}}#{{host}}
 
 [private]
-home-manager host user origin:
+rebuild-home-manager host user origin:
   @sudo -u {{user}} home-manager switch --flake {{origin}}#{{user}}@{{host}}
 
 clean:
