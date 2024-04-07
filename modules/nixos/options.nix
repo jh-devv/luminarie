@@ -10,13 +10,6 @@ with lib; {
           possible values: see Example.
       '';
     };
-    #security.yubikey = {
-    #  enable = mkEnableOption "Enable Yubikey PAM";
-    #
-    #  id = mkOption {
-    #    type = types.str;
-    #    description = "Yubikey device serial code";
-    #  };
-    #};
+    boot.secure-boot.enable = mkEnableOption "Enable secure-boot" // {default = true;};
   };
 }

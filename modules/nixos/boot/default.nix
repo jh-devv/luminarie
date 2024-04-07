@@ -1,8 +1,12 @@
 {
   pkgs,
   lib,
+  config,
   ...
-}: {
+}:
+with lib; let
+  cfg = config.modules.nixos.boot;
+in {
   boot = {
     loader = {
       efi = {
@@ -10,12 +14,12 @@
         efiSysMountPoint = "/boot";
       };
       systemd-boot = {
-        enable = lib.mkForce false;
+        enable = lib.mkForce (!cfg.secure-boot.enable);
         consoleMode = "max";
       };
       timeout = 1;
     };
-    lanzaboote = {
+    lanzaboote = mkIf cfg.secure-boot.enable {
       enable = true;
       pkiBundle = "/etc/secureboot";
     };
