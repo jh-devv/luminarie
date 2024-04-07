@@ -1,16 +1,30 @@
+#!/usr/bin/env -S just --justfile
+# An stupidly complex just script for nice rebuilding of the host!
+
+origin := '.'
+user   := `whoami`
+host   := `hostname`
+
+action := 'nixos'
+
+[private]
 default:
-  @echo $(tput bold)"This is your justfile. You can find the nixos/hm commands here! :3$(tput sgr0)"
+  @just --list
 
-nixos:
-  sudo nixos-rebuild switch --flake .#luminara
+rebuild action="nixos":
+  @just {{action}} {{host}} {{user}} {{origin}}
 
-home-manager:
-  home-manager switch --flake .#jh-devv@luminara
-  hyprctl reload
+[private]
+nixos host user origin:
+  @sudo nixos-rebuild switch --flake {{origin}}#{{host}}
+
+[private]
+home-manager host user origin:
+  @sudo -u {{user}} home-manager switch --flake {{origin}}#{{user}}@{{host}}
 
 clean:
-  sudo nix-collect-garbage -d
-  nix-collect-garbage -d
+  @sudo nix-collect-garbage -d
+  @sudp -u {{user}} nix-collect-garbage -d
 
-update:
-  nix flake update
+update input="":
+  @nix flake update {{input}}

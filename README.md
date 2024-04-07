@@ -1,4 +1,4 @@
-<!-- markdownlint-disable MD033 MD041 MD010 -->
+<!-- markdownlint-disable MD033 MD041 MD010 MD013 -->
 
 <h3 align="center">
 	<img src="assets/flake.png" width="100" alt="Logo"/><br>
@@ -51,7 +51,8 @@ This is my flake for my NixOS setup `Luminara` ( ˶ˆ꒳ˆ˵ )
 ### Usage
 
 > [!TIP]
-> You can find an `just` build script that has the aliases for the most used rebuild commands on the project root.
+> You can find an `just` build script that has the aliases for the most used rebuild commands on the project root. It defaults to trying to apply an configuration from the current directory with the same as your `hostname` and `username`.
+> This behavior can be overridden using `just host="<new host>" user="<new user> origin="<new origin>"` or manually from the file.
 
 #### ➔ NixOS
 
