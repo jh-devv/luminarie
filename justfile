@@ -24,7 +24,7 @@ rebuild-home-manager host user origin:
 
 clean:
   @sudo nix-collect-garbage -d
-  @sudp -u {{user}} nix-collect-garbage -d
+  @sudo -u {{user}} nix-collect-garbage -d
 
 update input="":
   @nix flake update {{input}}

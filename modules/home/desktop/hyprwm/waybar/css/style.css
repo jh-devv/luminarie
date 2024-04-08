@@ -54,20 +54,23 @@ tooltip {
 
 #clock {
   padding-right: 1em;
-  color: @lavender;
+  color: @mantle;
+  background-color: @maroon;
 }
 
 #pulseaudio {
-  color: @lavender;
+  color: @mantle;
+  background-color: @pink;
 }
 
 #custom-media {
-  color: @flamingo;
+  color: @mantle;
+  background-color: @lavender;
 }
 
 #custom-powermenu {
-  background-color: @red;
   color: @mantle;
+  background-color: @red;
   font-size: 15px;
   padding-right: calc(1em - 2px);
   padding-left: 9px;
