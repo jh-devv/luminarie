@@ -3,7 +3,7 @@
     ./qt.nix
     ./gtk.nix
     ./rofi
-    ./hypr
+    ./hyprland
     ./waybar
     ./legacy
   ];

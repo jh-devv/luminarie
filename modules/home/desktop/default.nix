@@ -4,6 +4,6 @@
     ./xdg.nix
     ./mpris.nix
     ./flatpak.nix
-    ./hyprland
+    ./hyprwm
   ];
 }
