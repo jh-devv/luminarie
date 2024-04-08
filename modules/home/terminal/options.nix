@@ -9,6 +9,7 @@ with lib; {
       '';
       example = "zsh";
     };
-    nvim.enable = mkEnableOption "Enable nvim" // {default = true;};
+    neovim.enable = mkEnableOption "Enable neovim";
+    mpv.enable = mkEnableOption "Enable mpv";
   };
 }
