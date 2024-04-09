@@ -6,13 +6,14 @@
       systems = ["x86_64-linux"];
 
       imports = [
+        inputs.flake-parts.flakeModules.easyOverlay
         inputs.pre-commit-hooks.flakeModule
 
         ./hosts
         ./home
         ./pkgs
-        ./pkgs/overlays
       ];
+
       perSystem = {
         config,
         pkgs,
