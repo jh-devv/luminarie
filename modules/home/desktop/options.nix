@@ -33,6 +33,19 @@ in {
            possible values: see Example.
         '';
       };
+      overrides = mkOption {
+        example = ''
+          {
+            com.visualstudio.code".Context.sockets = ["wayland" "!x11" "!fallback-x11"];
+            global.Environment.LC_ALL = "C.UTF-8";
+          };
+        '';
+        description = ''
+          Applies provided attributes into Flatpak overrides file.
+        '';
+        type = with types; attrsOf (attrsOf (attrsOf (either str (listOf str))));
+        default = { };
+      };
     };
     power = {
       lockscreen = {
