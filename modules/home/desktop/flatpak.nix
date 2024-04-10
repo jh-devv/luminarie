@@ -15,9 +15,16 @@ in {
     (mkIf
       cfg.enable
       {
+        modules.home.desktop.flatpak.overrides = {
+          global = {
+            # Force Wayland by default
+            # Context.sockets = ["wayland" "!x11" "!fallback-x11"];
+          };
+        };
         services.flatpak = {
           enable = true;
           inherit (cfg) packages;
+          inherit (cfg) overrides;
         };
       })
   ];

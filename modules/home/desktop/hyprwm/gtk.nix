@@ -40,12 +40,13 @@ in {
         ".icons/Papirus-Dark".source = "${gtk.iconTheme.package}/share/icons/${gtk.iconTheme.name}";
       };
     };
-
-    xdg.dataFile."flatpak/overrides/global".source = (pkgs.formats.ini {}).generate "global" {
-      Context.filesystems = "~/.icons:ro;~/.themes:ro;/nix/store/:ro";
-      Environment = {
-        GTK_THEME = gtk.theme.name;
-        ICON_THEME = gtk.iconTheme.name;
+    modules.home.desktop.flatpak.overrides = {
+      global = {
+        Context.filesystems = "~/.icons:ro;~/.themes:ro;/nix/store/:ro";
+        Environment = {
+          GTK_THEME = gtk.theme.name;
+          ICON_THEME = gtk.iconTheme.name;
+        };
       };
     };
   };
