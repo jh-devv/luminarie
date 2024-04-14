@@ -1,16 +1,10 @@
 {
   systems = ["x86_64-linux"];
 
-  perSystem = {
-    config,
-    pkgs,
-    ...
-  }: {
+  perSystem = {config, ...}: {
     overlayAttrs = {
-      inherit (config.packages) arm-image-installer;
+      inherit (config.packages);
     };
-    packages = {
-      arm-image-installer = pkgs.callPackage ./arm-image-installer.nix {};
-    };
+    packages = {};
   };
 }
