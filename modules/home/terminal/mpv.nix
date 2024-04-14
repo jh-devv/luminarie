@@ -13,7 +13,7 @@ in {
       scripts = with pkgs.mpvScripts; [mpris];
     };
     home = {
-      packages = [pkgs.playerctl];
+      packages = with pkgs; [playerctl cava];
       shellAliases = {
         mpvm = "mpv --vf=scale=350:-1 --loop-playlist=inf --shuffle";
       };

@@ -1,8 +1,11 @@
 {...}: {
   imports = [
     ./options.nix
-    ./xdg.nix
-    ./flatpak.nix
+    ./fractal.nix
+    ./firefox.nix
+    ./vscode.nix
+    ./flatpak
     ./hyprwm
+    ./xdg
   ];
 }

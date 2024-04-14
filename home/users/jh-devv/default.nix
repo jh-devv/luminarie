@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   home = {
     username = "jh-devv";
     homeDirectory = "/home/jh-devv";
@@ -8,7 +8,7 @@
     desktop = {
       displays = [
         {
-          name = "DP-2";
+          name = "HDMI-A-1";
           workspaces = [1 2 3 4 5 6 7 8 9 10];
         }
       ];
@@ -22,22 +22,16 @@
         lockscreen.enable = true;
         hibernation.enable = true;
       };
+      firefox.enable = true;
+      fractal.enable = true;
+      vscode.enable = true;
+      logseq.enable = true;
     };
     terminal = {
       neovim.enable = true;
       mpv.enable = true;
     };
   };
-
-  home.packages = with pkgs; [
-    cava
-    firefox-wayland
-    logseq
-    trash-cli
-    vscode
-    fractal
-    yubioath-flutter
-  ];
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

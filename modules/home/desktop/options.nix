@@ -8,6 +8,10 @@ with lib; let
   cfg = config.modules.home.desktop;
 in {
   options.modules.home.desktop = {
+    vscode.enable = mkEnableOption "Enable vscode";
+    logseq.enable = mkEnableOption "Enable logseq";
+    fractal.enable = mkEnableOption "Enable fractal";
+    firefox.enable = mkEnableOption "Enable firefox";
     flatpak = {
       enable = mkEnableOption ''
         Enable installing Flatpak applications with Nix from Home Manager.
@@ -44,7 +48,7 @@ in {
           Applies provided attributes into Flatpak overrides file.
         '';
         type = with types; attrsOf (attrsOf (attrsOf (either str (listOf str))));
-        default = { };
+        default = {};
       };
     };
     power = {
