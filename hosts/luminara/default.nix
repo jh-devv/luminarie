@@ -20,7 +20,8 @@
 
   time.timeZone = "Europe/Helsinki";
 
-  services.xserver.layout = "fi";
+  services.xserver.xkb.layout = "fi";
+  console.keyMap = "fi";
 
   system.stateVersion = "23.05";
 }
