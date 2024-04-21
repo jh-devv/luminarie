@@ -18,7 +18,6 @@ in {
       pcscd.enable = true;
       fwupd.enable = true;
 
-      # needed for GNOME services outside of GNOME Desktop
       dbus.packages = [pkgs.gcr];
 
       gnome.gnome-keyring.enable = true;
@@ -31,8 +30,6 @@ in {
         enableSSHSupport = true;
       };
     };
-
-    virtualisation.docker.enable = true;
 
     environment.systemPackages = with pkgs; [
       gedit

@@ -15,7 +15,7 @@
   users.users.jh-devv = {
     shell = pkgs.zsh;
     isNormalUser = true;
-    extraGroups = ["wheel" "docker"];
+    extraGroups = ["wheel"];
   };
 
   time.timeZone = "Europe/Helsinki";
