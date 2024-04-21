@@ -6,15 +6,9 @@
       systems = ["x86_64-linux"];
 
       imports = [
-        # Import basic flake modules
-
-        # Documntation says that it's not "easy" but it works?
         inputs.flake-parts.flakeModules.easyOverlay
-
-        # Pre commit hooks for the flake
         inputs.pre-commit-hooks.flakeModule
 
-        # Import other modules
         ./hosts
         ./home
         ./pkgs
@@ -50,10 +44,8 @@
     };
 
   inputs = {
-    # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Utilises for the flake
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -69,7 +61,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Hyprland flakes
     hyprland-hyprlock = {
       url = "github:hyprwm/hyprlock";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -80,7 +71,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Miscellaneous flakes
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     lanzaboote = {

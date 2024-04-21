@@ -7,11 +7,6 @@
 with lib; let
   cfg = config.modules.home.desktop;
 in {
-  imports = [
-    ./hyprpaper
-    ./hyprlock
-    ./hypridle
-  ];
   config = mkIf (cfg.session == "hyprland") {
     home.packages = with pkgs; [
       blueman

@@ -2,8 +2,11 @@
   imports = [
     ./qt.nix
     ./gtk.nix
-    ./rofi
     ./hyprland
+    ./hypridle
+    ./hyprpaper
+    ./hyprlock
+    ./rofi
     ./waybar
     ./legacy
   ];

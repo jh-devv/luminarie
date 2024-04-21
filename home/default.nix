@@ -5,17 +5,16 @@
 }: let
   inherit (inputs.home-manager.lib) homeManagerConfiguration;
 in {
-  flake.homeConfigurations = withSystem "x86_64-linux" ({pkgs, ...}: {
-    "jh-devv@luminara" = homeManagerConfiguration {
+  flake.homeConfigurations."jh-devv@luminara" = withSystem "x86_64-linux" ({pkgs, ...}:
+    homeManagerConfiguration {
       inherit pkgs;
       extraSpecialArgs = {inherit inputs;};
       modules = [
         inputs.nix-flatpak.homeManagerModules.nix-flatpak
         inputs.hyprland-hypridle.homeManagerModules.hypridle
         inputs.hyprland-hyprlock.homeManagerModules.hyprlock
-        ./users/jh-devv
+        ./jh-devv
         ../modules/home
       ];
-    };
-  });
+    });
 }
