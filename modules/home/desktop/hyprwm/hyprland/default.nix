@@ -2,7 +2,6 @@
   pkgs,
   config,
   lib,
-  inputs,
   ...
 }:
 with lib; let
@@ -23,8 +22,7 @@ in {
       wl-clipboard
       playerctl
       waybar
-
-      inputs.hyprland-contrib.packages.${system}.grimblast
+      grimblast
     ];
 
     wayland.windowManager.hyprland = {

@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   lib,
   config,
   ...
@@ -25,7 +24,6 @@ in {
       xorg.xhost
     ];
 
-    # Hardware and Environment Configuration
     hardware.bluetooth.enable = true;
 
     services.pipewire = {
@@ -36,24 +34,20 @@ in {
       jack.enable = true;
     };
 
-    # Enable Hyprland
     programs.hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 
-    # XDG Portal
     xdg.portal = {
       enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
+        xdg-desktop-portal-hyprland
       ];
     };
 
-    # Polkit
     security.polkit.enable = true;
 
-    # Enable GNOME PolKit agent
     systemd.user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
       serviceConfig = {
@@ -65,15 +59,12 @@ in {
       };
     };
 
-    # Environment Variables Configuration
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
     };
 
-    # Fonts Configuration
     fonts.packages = with pkgs; [
       (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
-      # Add more fonts here if needed
     ];
   };
 }
