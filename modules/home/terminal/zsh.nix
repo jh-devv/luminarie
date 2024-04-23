@@ -64,7 +64,6 @@ in {
     home.shellAliases = {
       rm = "trash-put";
       ls = "lsd";
-      grep = "rga";
     };
   };
 }

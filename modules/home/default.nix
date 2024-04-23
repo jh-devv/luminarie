@@ -11,7 +11,6 @@
       inputs.self.overlays.default
     ];
     config = {
-      firefox.speechSynthesisSupport = true;
       allowUnfree = true;
       allowUnfreePredicate = _: true;
     };

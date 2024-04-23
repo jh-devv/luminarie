@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   inputs,
   ...
@@ -11,7 +12,20 @@ in {
     vscode.enable = mkEnableOption "Enable vscode";
     logseq.enable = mkEnableOption "Enable logseq";
     fractal.enable = mkEnableOption "Enable fractal";
-    firefox.enable = mkEnableOption "Enable firefox";
+
+    firefox = {
+      enable = mkEnableOption "Enable firefox";
+      theme = mkOption {
+        example = pkgs.firefox-gnome-theme;
+
+        type = types.package;
+        default = pkgs.firefox-gnome-theme;
+        description = ''
+          An user theme you want to apply
+        '';
+      };
+    };
+
     flatpak = {
       enable = mkEnableOption ''
         Enable installing Flatpak applications with Nix from Home Manager.

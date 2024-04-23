@@ -10,6 +10,7 @@ in {
       inherit pkgs;
       extraSpecialArgs = {inherit inputs;};
       modules = [
+        inputs.arkenfox.hmModules.default
         inputs.nix-flatpak.homeManagerModules.nix-flatpak
         inputs.hyprland-hypridle.homeManagerModules.hypridle
         inputs.hyprland-hyprlock.homeManagerModules.hyprlock
