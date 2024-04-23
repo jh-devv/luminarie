@@ -1,8 +1,14 @@
 {
-  perSystem = {config, ...}: {
+  perSystem = {
+    config,
+    pkgs,
+    ...
+  }: {
     overlayAttrs = {
-      inherit (config.packages);
+      inherit (config.packages) firefox-gnome-theme;
     };
-    packages = {};
+    packages = {
+      firefox-gnome-theme = pkgs.callPackage ./firefox-gnome-theme.nix {};
+    };
   };
 }
