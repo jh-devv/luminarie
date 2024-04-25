@@ -5,10 +5,11 @@
     ...
   }: {
     overlayAttrs = {
-      inherit (config.packages) firefox-gnome-theme;
+      inherit (config.packages) firefox-gnome-theme dark-reader;
     };
     packages = {
       firefox-gnome-theme = pkgs.callPackage ./firefox-gnome-theme {};
+      dark-reader = pkgs.callPackage ./dark-reader {};
     };
   };
 }
