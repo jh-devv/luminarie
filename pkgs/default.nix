@@ -8,7 +8,7 @@
       inherit (config.packages) firefox-gnome-theme;
     };
     packages = {
-      firefox-gnome-theme = pkgs.callPackage ./firefox-gnome-theme.nix {};
+      firefox-gnome-theme = pkgs.callPackage ./firefox-gnome-theme {};
     };
   };
 }
