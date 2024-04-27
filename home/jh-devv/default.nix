@@ -22,12 +22,14 @@
         lockscreen.enable = true;
         hibernation.enable = true;
       };
-      firefox.enable = true;
-      fractal.enable = true;
-      vscode.enable = true;
-      logseq.enable = true;
+      packages = {
+        firefox.enable = true;
+        fractal.enable = true;
+        code.enable = true;
+        logseq.enable = true;
+      };
     };
-    terminal = {
+    terminal.packages = {
       neovim.enable = true;
       mpv.enable = true;
     };

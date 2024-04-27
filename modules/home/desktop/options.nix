@@ -9,26 +9,28 @@ with lib; let
   cfg = config.modules.home.desktop;
 in {
   options.modules.home.desktop = {
-    vscode.enable = mkEnableOption "Enable vscode";
-    logseq.enable = mkEnableOption "Enable logseq";
-    fractal.enable = mkEnableOption "Enable fractal";
+    # The packages snippet below generates mkEnableOptions for the listed packages.
+    # Though, you can still add more complex options for some packages using //.
+    packages =
+      lib.genAttrs ["code" "logseq" "fractal"] (k: {enable = mkEnableOption k;})
+      // {
+        firefox = {
+          enable = mkEnableOption "firefox";
+          theme.package = mkOption {
+            example = pkgs.firefox-gnome-theme;
 
-    firefox = {
-      enable = mkEnableOption "Enable firefox";
-      theme = mkOption {
-        example = pkgs.firefox-gnome-theme;
-
-        type = types.package;
-        default = pkgs.firefox-gnome-theme;
-        description = ''
-          An user theme you want to apply
-        '';
+            type = types.nullOr types.package;
+            default = pkgs.firefox-gnome-theme;
+            description = ''
+              An user theme you want to apply
+            '';
+          };
+        };
       };
-    };
 
     flatpak = {
       enable = mkEnableOption ''
-        Enable installing Flatpak applications with Nix from Home Manager.
+        installing Flatpak applications with Nix from Home Manager
       '';
       packages = mkOption {
         example = ["com.obsproject.Studio"];
@@ -67,7 +69,7 @@ in {
     };
     power = {
       lockscreen = {
-        enable = mkEnableOption "Enable automatic system lockscreen";
+        enable = mkEnableOption "automatic system lockscreen";
         timeout = mkOption {
           default = 5;
           example = 5;
@@ -77,7 +79,7 @@ in {
         };
       };
       hibernation = {
-        enable = mkEnableOption "Enable automatic system hibernation";
+        enable = mkEnableOption "automatic system hibernation";
         timeout = mkOption {
           default = 30;
           example = 30;

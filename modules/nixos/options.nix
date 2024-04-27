@@ -10,6 +10,6 @@ with lib; {
           possible values: see Example.
       '';
     };
-    boot.secure-boot.enable = mkEnableOption "Enable secure-boot" // {default = true;};
+    boot.secure-boot.enable = mkEnableOption "secure-boot" // {default = true;};
   };
 }

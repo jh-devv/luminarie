@@ -11,7 +11,7 @@ with lib; {
         Make sure to also enable it from Home Manager for the full experience!
       '';
     };
-    services.enable = mkEnableOption "Enable desktop services" // {default = true;};
-    programs.gamemode.enable = mkEnableOption "Enable gamemode configuration" // {default = true;};
+    services.enable = mkEnableOption "desktop services" // {default = true;};
+    packages.gamemode.enable = mkEnableOption "gamemode configuration";
   };
 }

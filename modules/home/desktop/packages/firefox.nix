@@ -5,10 +5,13 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.home.desktop.firefox;
+  cfg = config.modules.home.desktop.packages.firefox;
 in {
   config = mkIf cfg.enable {
-    home.file.".mozilla/firefox/${config.home.username}/chrome/${cfg.theme.pname}/".source = cfg.theme;
+    home.file = {
+      ".mozilla/firefox/${config.home.username}/chrome/".source =
+        mkIf (cfg.theme.package != null) cfg.theme.package;
+    };
     programs.firefox = {
       enable = true;
       policies = {
@@ -122,6 +125,7 @@ in {
               "urlhaus-1"
             ];
           };
+          filters = [''stackoverflow.com##.sm\:fd-column.flex__allitems6.d-flex.mx-auto.wmx9''];
         };
 
         FirefoxHome = {
@@ -198,13 +202,6 @@ in {
           isDefault = true;
           name = "${config.home.username}";
 
-          userChrome = ''
-            @import "${cfg.theme.pname}/userChrome.css";
-          '';
-          userContent = ''
-            @import "${cfg.theme.pname}/userContent.css";
-          '';
-
           search = {
             force = true;
             default = "Google";
@@ -253,7 +250,7 @@ in {
 
           arkenfox = {
             enable = true;
-            #Documentation:
+            # Documentation:
             # nix build "github:dwarfmaster/arkenfox-nixos#arkenfox-v122_0-doc-static"
 
             # STARTUP
@@ -282,7 +279,7 @@ in {
             # DISK AVOIDANCE
             "1000" = {
               enable = true;
-              "1001".enable = false;
+              "1001".enable = false; # Don't disable disk cache
             };
 
             # HTTPS (SSL/TLS / OCSP / CERTS / HPKP)
@@ -308,23 +305,22 @@ in {
 
             # RFP (resistFingerprinting)
             "4500" = {
-              "4501".enable = true;
-              "4503".enable = true;
-              "4512".enable = true;
-              "4513".enable = true;
+              enable = true;
+              # "4520".enable = false; # Don't disable WebGL (Web Graphics Library). You probably don't always want this, but yea.... who uses this shit anyway, since WebGPU is becoming more mainstream anyways?
             };
 
             # OPTIONAL OPSEC
             "5000" = {
-              "5004".enable = true;
-              "5007".enable = true;
-              "5008".enable = true;
-              "5016".enable = true;
-              "5018".enable = true;
+              "5004".enable = true; # Disable permissions manager from writing to disk [FF41+] [RESTART]
+              "5007".enable = true; # Exclude "Undo Closed Tabs" in Session Restore
+              "5008".enable = true; # Disable resuming session from crash
+              "5009".enable = true; # Disable "open with" in download dialog [FF50+]
+              "5016".enable = true; # Discourage downloading to desktop
+              "5018".enable = true; # Limit events that can cause a pop-up
             };
 
             # OPTIONAL HARDENING
-            "5500"."5505".enable = true;
+            "5500"."5505".enable = true; # Disable Ion and baseline JIT to harden against JS exploits
 
             # DONT TOUTCH
             "6000".enable = true;

@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.desktop.programs.gamemode;
+  cfg = config.modules.nixos.desktop.packages.gamemode;
 in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [

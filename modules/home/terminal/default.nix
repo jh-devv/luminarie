@@ -1,8 +1,7 @@
 {...}: {
   imports = [
     ./options.nix
+    ./packages.nix
     ./zsh.nix
-    ./nvim.nix
-    ./mpv.nix
   ];
 }

@@ -5,6 +5,7 @@
 
   modules.nixos = {
     shell = "zsh";
+    packages.gamemode.enable = true;
   };
 
   networking = {
