@@ -13,27 +13,20 @@
         }
       ];
       session = "hyprland";
-      flatpak = {
-        enable = true;
-        groups = ["media"];
-        packages = ["org.prismlauncher.PrismLauncher"];
-      };
       power = {
         lockscreen.enable = true;
         hibernation.enable = true;
       };
-      packages = {
-        firefox.enable = true;
-        fractal.enable = true;
-        code.enable = true;
-        logseq.enable = true;
-      };
-    };
-    terminal.packages = {
-      neovim.enable = true;
+      firefox.enable = true;
+      fractal.enable = true;
+      vscode.enable = true;
+      nautilus.enable = true;
+      gnome-text-editor.enable = true;
       mpv.enable = true;
     };
   };
+
+  programs.smapi.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

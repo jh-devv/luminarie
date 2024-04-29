@@ -5,9 +5,28 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.home.desktop.packages.firefox;
+  cfg = config.modules.home.desktop.firefox;
+  browser = "firefox.desktop";
 in {
   config = mkIf cfg.enable {
+    xdg.mimeApps = mkIf (config.modules.home.desktop.session != "") {
+      enable = true;
+      defaultApplications = {
+        "application/x-extension-htm" = [browser];
+        "application/x-extension-html" = [browser];
+        "application/x-extension-shtml" = [browser];
+        "application/x-extension-xht" = [browser];
+        "application/x-extension-xhtml" = [browser];
+        "application/xhtml+xml" = [browser];
+        "application/json" = [browser];
+        "text/html" = [browser];
+        "x-scheme-handler/about" = [browser];
+        "x-scheme-handler/ftp" = [browser];
+        "x-scheme-handler/http" = [browser];
+        "x-scheme-handler/https" = [browser];
+        "x-scheme-handler/unknown" = [browser];
+      };
+    };
     home.file = {
       ".mozilla/firefox/${config.home.username}/chrome/".source =
         mkIf (cfg.theme.package != null) cfg.theme.package;
@@ -73,7 +92,6 @@ in {
               };
             }
             (extension "ublock-origin" "uBlock0@raymondhill.net")
-            (extension "styl-us" "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}")
           ];
 
         "3rdparty".Extensions = {
@@ -85,10 +103,6 @@ in {
               uiAccentCustom0 = "#b4befe";
               cloudStorageEnabled = false;
             };
-            userFilters = ''
-              mail.proton.me##.button-promotion.items-center.flex.max-w-full.button-outline-norm.button-medium.button
-              mail.proton.me##.gap-5.items-center.flex-column.flex
-            '';
             selectedFilterLists = [
               "adguard-generic"
               "adguard-annoyance"
@@ -125,7 +139,6 @@ in {
               "urlhaus-1"
             ];
           };
-          filters = [''stackoverflow.com##.sm\:fd-column.flex__allitems6.d-flex.mx-auto.wmx9''];
         };
 
         FirefoxHome = {
@@ -175,7 +188,7 @@ in {
 
         SearchSuggestEnabled = false;
         ShowHomeButton = true;
-        StartDownloadsInTempDirectory = true;
+        StartDownloadsInTempDirectory = false;
         UserMessaging = {
           ExtensionRecommendations = false;
           FeatureRecommendations = false;
@@ -189,7 +202,6 @@ in {
         Preferences = {
           "browser.urlbar.suggest.topsites" = false;
           "general.smoothScroll" = true;
-          "widget.use-xdg-desktop-portal.file-picker" = 1;
         };
       };
       arkenfox = {
@@ -306,6 +318,7 @@ in {
             # RFP (resistFingerprinting)
             "4500" = {
               enable = true;
+              "4504".enable = false; # Disable RFP letterboxing
               # "4520".enable = false; # Don't disable WebGL (Web Graphics Library). You probably don't always want this, but yea.... who uses this shit anyway, since WebGPU is becoming more mainstream anyways?
             };
 

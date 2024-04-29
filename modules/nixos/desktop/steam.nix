@@ -5,14 +5,13 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.desktop.packages.gamemode;
+  cfg = config.modules.nixos.desktop.steam;
 in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       gamemode
       gamescope
       mangohud
-      pkgsi686Linux.gperftools
     ];
 
     programs = {

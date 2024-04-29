@@ -1,8 +1,8 @@
-{...}: {
+{lib, ...}:
+with lib; {
   imports = [
-    ./options.nix
     ./nix.nix
-    ./shell.nix
+    ./shell
     ./boot
     ./desktop
   ];

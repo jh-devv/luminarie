@@ -3,9 +3,10 @@
     ./hardware.nix
   ];
 
-  modules.nixos = {
-    shell = "zsh";
-    packages.gamemode.enable = true;
+  modules.nixos.desktop = {
+    session = "hyprland";
+
+    steam.enable = true;
   };
 
   networking = {

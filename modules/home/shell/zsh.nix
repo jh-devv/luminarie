@@ -5,26 +5,18 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.home.terminal;
+  cfg = config.modules.home.shell;
 in {
-  config = mkIf (cfg.shell == "zsh") {
+  config = mkIf (cfg.package == pkgs.zsh) {
     home.packages = with pkgs; [
+      coreutils
+      gnugrep
       gh
       git
-      killall
-      file
-      tree
-      ffmpeg
-      jq
-      fd
       lsd
       ripgrep-all
       nitch
-      libwebp
-      yt-dlp
       trash-cli
-      unzip
-      ranger
     ];
 
     programs = {

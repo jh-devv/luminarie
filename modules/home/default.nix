@@ -1,7 +1,7 @@
 {inputs, ...}: {
   imports = [
     ./desktop
-    ./terminal
+    ./shell
   ];
 
   programs.home-manager.enable = true;

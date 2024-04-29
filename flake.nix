@@ -6,7 +6,6 @@
       systems = ["x86_64-linux"];
 
       imports = [
-        inputs.flake-parts.flakeModules.easyOverlay
         inputs.pre-commit-hooks.flakeModule
 
         ./hosts
@@ -28,6 +27,7 @@
             prettier.enable = true;
             markdownlint.enable = true;
             statix.enable = true;
+            nil.enable = true;
           };
         };
         devShells.default = pkgs.mkShell {
@@ -68,6 +68,11 @@
 
     hyprland-hypridle = {
       url = "github:hyprwm/hypridle";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-smapi = {
+      url = "github:jh-devv/nix-smapi";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
