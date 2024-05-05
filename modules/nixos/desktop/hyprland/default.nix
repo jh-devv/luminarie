@@ -8,20 +8,21 @@ with lib; let
   cfg = config.modules.nixos.desktop;
 in {
   config = mkIf (cfg.session == "hyprland") {
-    modules.nixos.desktop.services = {
-      gnome = {
-        gdm.enable = true;
-        keyring.enable = true;
-        polkit.enable = true;
+    modules.nixos = {
+      services = {
+        gnome = {
+          gdm.enable = true;
+          keyring.enable = true;
+          polkit.enable = true;
+        };
+        audio.enable = true;
+        bluetooth.enable = true;
+        firmware.enable = true;
+        flatpak.enable = true;
+        printing.enable = true;
       };
-      audio.enable = true;
-      bluetooth.enable = true;
-      firmware.enable = true;
-      flatpak.enable = true;
-      printing.enable = true;
-      wayland.enable = true;
+      programs.wayland.enable = true;
     };
-
     programs.hyprland = {
       enable = true;
     };

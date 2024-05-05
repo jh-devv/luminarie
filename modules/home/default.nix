@@ -1,5 +1,7 @@
 {inputs, ...}: {
   imports = [
+    ./services
+    ./programs
     ./desktop
     ./shell
   ];

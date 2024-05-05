@@ -17,7 +17,7 @@ in {
           enable = true;
           consoleMode = "max";
         };
-        timeout = 1;
+        timeout = 3;
       };
     };
   };

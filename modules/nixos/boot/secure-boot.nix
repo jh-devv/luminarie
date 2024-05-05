@@ -9,7 +9,7 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     boot = {
-      loader.systemd-boot.enable = lib.mkForce (!cfg.enable);
+      loader.systemd-boot.enable = mkForce (!cfg.enable);
 
       lanzaboote = mkIf cfg.enable {
         enable = true;

@@ -11,36 +11,9 @@
         ./hosts
         ./home
         ./pkgs
-      ];
 
-      perSystem = {
-        config,
-        pkgs,
-        ...
-      }: {
-        pre-commit = {
-          check.enable = true;
-          settings.excludes = ["flake.lock"];
-          settings.hooks = {
-            alejandra.enable = true;
-            deadnix.enable = true;
-            prettier.enable = true;
-            markdownlint.enable = true;
-            statix.enable = true;
-            nil.enable = true;
-          };
-        };
-        devShells.default = pkgs.mkShell {
-          packages = with pkgs; [
-            git
-            just
-          ];
-          shellHook = ''
-            ${config.pre-commit.installationScript}
-          '';
-        };
-        formatter = pkgs.alejandra;
-      };
+        ./modules/dev
+      ];
     };
 
   inputs = {
@@ -68,11 +41,6 @@
 
     hyprland-hypridle = {
       url = "github:hyprwm/hypridle";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-smapi = {
-      url = "github:jh-devv/nix-smapi";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

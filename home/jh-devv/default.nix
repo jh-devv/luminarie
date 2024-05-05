@@ -1,4 +1,8 @@
 {
+  pkgs,
+  lib,
+  ...
+}: {
   home = {
     username = "jh-devv";
     homeDirectory = "/home/jh-devv";
@@ -17,16 +21,15 @@
         lockscreen.enable = true;
         hibernation.enable = true;
       };
-      firefox.enable = true;
-      fractal.enable = true;
-      vscode.enable = true;
-      nautilus.enable = true;
-      gnome-text-editor.enable = true;
-      mpv.enable = true;
+    };
+    programs = lib.genAttrs ["firefox" "fractal" "kitty" "mpv" "nautilus" "neovim" "newsboat" "text-editor" "vscode"] (_k: {enable = true;});
+    services = lib.genAttrs ["mpris-proxy"] (_k: {enable = true;});
+
+    shell = {
+      package = pkgs.zsh;
+      subtitutes.enable = true;
     };
   };
-
-  programs.smapi.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
