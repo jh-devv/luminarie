@@ -3,7 +3,7 @@
 <h3 align="center">
 	<img src="assets/flake.png" width="100" alt="Logo"/><br>
 	<img src="assets/transparent.png" height="30" width="0px"/ alt="">
-	Luminara
+	Luminarie
 	<img src="assets/transparent.png" height="30" width="0px"/ alt="">
 </h3>
 
@@ -20,20 +20,20 @@
 </p>
 
 <p align="center">
-	<a href="https://github.com/jh-devv/luminara/stargazers">
-		<img alt="Stargazers" src="https://img.shields.io/github/stars/jh-devv/luminara?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41"></a>
-	<a href="https://github.com/jh-devv/luminara">
-		<img alt="Repo Size" src="https://img.shields.io/github/repo-size/jh-devv/luminara.svg?style=for-the-badge&logo=github&color=F2CDCD&logoColor=D9E0EE&labelColor=302D41"/></a>
-	<a href="https://github.com/jh-devv/luminara/issues">
-		<img alt="Issues" src="https://img.shields.io/github/issues/jh-devv/luminara?style=for-the-badge&logo=gitbook&color=B5E8E0&logoColor=D9E0EE&labelColor=302D41"></a>
-  <a href="https://github.com/jh-devv/luminara/tree/main/LICENSE">
+	<a href="https://github.com/jh-devv/luminarie/stargazers">
+		<img alt="Stargazers" src="https://img.shields.io/github/stars/jh-devv/luminarie?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41"></a>
+	<a href="https://github.com/jh-devv/luminarie">
+		<img alt="Repo Size" src="https://img.shields.io/github/repo-size/jh-devv/luminarie.svg?style=for-the-badge&logo=github&color=F2CDCD&logoColor=D9E0EE&labelColor=302D41"/></a>
+	<a href="https://github.com/jh-devv/luminarie/issues">
+		<img alt="Issues" src="https://img.shields.io/github/issues/jh-devv/luminarie?style=for-the-badge&logo=gitbook&color=B5E8E0&logoColor=D9E0EE&labelColor=302D41"></a>
+  <a href="https://github.com/jh-devv/luminarie/tree/main/LICENSE">
     <img alt="License" src="https://img.shields.io/badge/License-AGPL-907385605422448742?style=for-the-badge&logo=agpl&color=DDB6F2&logoColor=D9E0EE&labelColor=302D41"></a>
   <br><a href="https://builtwithnix.org">
       <img alt="Built with Nix" src="https://builtwithnix.org/badge.svg"></a>
 </p>
 
 <p align="center">
-This is my flake for my NixOS setup `Luminara` ( ˶ˆ꒳ˆ˵ )
+Luminarie, the flake for my NixOS setups like `Sora` ( ˶ˆ꒳ˆ˵ )
 </p>
 
 ---
@@ -57,7 +57,7 @@ This is my flake for my NixOS setup `Luminara` ( ˶ˆ꒳ˆ˵ )
 #### ➔ NixOS
 
 > [!CAUTION]
-> You will need to edit my [host files](/home/jh-devv/luminara/hosts/luminara) to be suitable for your system, for now; at least edit the `hardware-configuration.nix` file to suit your needs or edit your disk table. Lastly, add your system to the flake by adding it to [/hosts/default.nix](/hosts/default.nix)!
+> You will need to edit my [host files](/home/jh-devv/luminarie/hosts/) to be suitable for your system, for now; at least edit the `hardware.nix` file to suit your needs or edit your disk table. Lastly, add your system to the flake by adding it to [/hosts/default.nix](/hosts/default.nix)!
 
 - Format system using the NixOS installer ISO. In the future, when disko is in
   use: You can use my premade ISOS for this!
@@ -68,7 +68,7 @@ This is my flake for my NixOS setup `Luminara` ( ˶ˆ꒳ˆ˵ )
 - For the rebuild command, you can use just or as you probably know it is:
 
 ```sh
-sudo nixos-rebuild switch --flake .#luminara
+sudo nixos-rebuild switch --flake .#sora
 ```
 
 > [!TIP]
@@ -87,7 +87,7 @@ sudo nixos-rebuild switch --flake .#luminara
 - Same as with NixOS, for the rebuild command, you can use just or the command:
 
 ```sh
-sudo nixos-rebuild switch --flake .#luminara
+home-manager switch --flake .#jh-devv@sora
 ```
 
 Remember to replace my `hostname` and `user` with yours!

@@ -1,5 +1,5 @@
 {
-  description = "NixOS and Home Manager configuration for luminara";
+  description = "luminarie, the flake for my NixOS setups like `Sora` ( ˶ˆ꒳ˆ˵ )";
 
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {

@@ -11,7 +11,7 @@
   };
 
   networking = {
-    hostName = "lumi";
+    hostName = "sora";
     networkmanager.enable = true;
   };
 
