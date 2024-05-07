@@ -1,7 +1,7 @@
 {
   imports = [
     ./options.nix
-    ./flatpak.nix
+    ./containers
     ./gnome
     ./hardware
   ];

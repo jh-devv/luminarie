@@ -18,10 +18,12 @@ in {
         audio.enable = true;
         bluetooth.enable = true;
         firmware.enable = true;
-        flatpak.enable = true;
         printing.enable = true;
       };
-      programs.wayland.enable = true;
+      programs = {
+        wayland.enable = true;
+        gamemode.enable = true;
+      };
     };
     programs.hyprland = {
       enable = true;

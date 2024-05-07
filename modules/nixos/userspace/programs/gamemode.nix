@@ -1,19 +1,12 @@
 {
-  pkgs,
   lib,
   config,
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.programs.steam;
+  cfg = config.modules.nixos.programs.gamemode;
 in {
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      gamemode
-      gamescope
-      mangohud
-    ];
-
     programs = {
       steam = {
         enable = true;

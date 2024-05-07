@@ -1,6 +1,7 @@
 {
   imports = [
     ./options.nix
-    ./hyprland
+    ./gamemode.nix
+    ./wayland.nix
   ];
 }

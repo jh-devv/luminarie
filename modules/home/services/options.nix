@@ -14,7 +14,6 @@ with lib; {
           default = [""];
           description = ''
             You can choose few packages to install with Flatpak here.
-              possible values: see Example.
           '';
         };
         groups = mkOption {
@@ -25,7 +24,6 @@ with lib; {
           description = ''
             You can choose few package groups to install with Flatpak here.
             Though, these are just mine and how I see them!
-              possible values: see Example.
           '';
         };
         overrides = mkOption {

@@ -9,19 +9,13 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      cliphist
-      kitty
       libnotify
       libsecret
       libvirt
-      pamixer
+      cliphist
       wl-clipboard
       wlr-randr
-      xdg-utils
+      kitty
     ];
-
-    environment.sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-    };
   };
 }

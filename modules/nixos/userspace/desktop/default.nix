@@ -1,7 +1,6 @@
 {
   imports = [
     ./options.nix
-    ./steam.nix
-    ./wayland.nix
+    ./session
   ];
 }

@@ -5,7 +5,7 @@
 }: let
   inherit (inputs.home-manager.lib) homeManagerConfiguration;
 in {
-  flake.homeConfigurations."jh-devv@sora" = withSystem "x86_64-linux" ({pkgs, ...}:
+  flake.homeConfigurations."jh-devv@aisu" = withSystem "x86_64-linux" ({pkgs, ...}:
     homeManagerConfiguration {
       inherit pkgs;
       extraSpecialArgs = {inherit inputs;};

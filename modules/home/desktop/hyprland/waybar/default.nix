@@ -92,7 +92,7 @@ in {
         ${builtins.readFile ./css/style.css}
       '';
     };
-    home.packages = [pkgs.playerctl];
+    home.packages = with pkgs; [playerctl pamixer];
     services.mpris-proxy.enable = true;
   };
 }

@@ -33,7 +33,7 @@
 </p>
 
 <p align="center">
-Luminarie, the flake for my NixOS setups like `Sora` ( ˶ˆ꒳ˆ˵ )
+Luminarie, the flake for my NixOS setups like `Aisu` ( ˶ˆ꒳ˆ˵ )
 </p>
 
 ---
@@ -68,14 +68,14 @@ Luminarie, the flake for my NixOS setups like `Sora` ( ˶ˆ꒳ˆ˵ )
 - For the rebuild command, you can use just or as you probably know it is:
 
 ```sh
-sudo nixos-rebuild switch --flake .#sora
+sudo nixos-rebuild switch --flake .#aisu
 ```
 
 > [!TIP]
 > In the future, when I have the time. I will make this flake use [impermanence](https://github.com/nix-community/impermanence).
 
 - [ ] Switch to impermanence and use disko.
-- [ ] Publish ISOS and write GitHub actions for it.
+- [ ] Publish ISOs and write GitHub actions for it.
 
 #### ➔ Home Manager
 
@@ -87,7 +87,7 @@ sudo nixos-rebuild switch --flake .#sora
 - Same as with NixOS, for the rebuild command, you can use just or the command:
 
 ```sh
-home-manager switch --flake .#jh-devv@sora
+home-manager switch --flake .#jh-devv@aisu
 ```
 
 Remember to replace my `hostname` and `user` with yours!

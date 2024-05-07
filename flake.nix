@@ -1,5 +1,5 @@
 {
-  description = "luminarie, the flake for my NixOS setups like `Sora` ( ˶ˆ꒳ˆ˵ )";
+  description = "Luminarie, the flake for my NixOS setups like `Aisu` ( ˶ˆ꒳ˆ˵ )";
 
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
@@ -47,6 +47,8 @@
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.3.0";
