@@ -9,14 +9,6 @@ in {
     homeManagerConfiguration {
       inherit pkgs;
       extraSpecialArgs = {inherit inputs;};
-      modules = [
-        inputs.arkenfox.hmModules.arkenfox
-
-        inputs.nix-flatpak.homeManagerModules.nix-flatpak
-        inputs.hyprland-hypridle.homeManagerModules.hypridle
-        inputs.hyprland-hyprlock.homeManagerModules.hyprlock
-        ./jh-devv
-        ../modules/home
-      ];
+      modules = [./jh-devv];
     });
 }

@@ -36,11 +36,15 @@ buildNpmPackage rec {
 
   installPhase = ''
     runHook preInstall
-    cp -r build $out/
+    mkdir -p $out/
+    cp build/release/${pname}-firefox.xpi $out/
     runHook postInstall
   '';
 
   meta = with lib; {
-    maintainers = with maintainers; [notashelf];
+    description = "The Dark Reader Chrome and Firefox extension.";
+    homepage = "https://github.com/darkreader/darkreader";
+    license = licenses.mit;
+    platforms = platforms.all;
   };
 }

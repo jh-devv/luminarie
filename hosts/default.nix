@@ -8,10 +8,6 @@ in {
   flake.nixosConfigurations.aisu = withSystem "x86_64-linux" (_:
     nixosSystem {
       specialArgs = {inherit inputs;};
-      modules = [
-        inputs.lanzaboote.nixosModules.lanzaboote
-        ./aisu
-        ../modules/nixos
-      ];
+      modules = [./aisu];
     });
 }

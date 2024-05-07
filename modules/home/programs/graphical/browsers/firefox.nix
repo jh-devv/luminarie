@@ -56,7 +56,6 @@ in {
         DisableTelemetry = true;
         DisableFormHistory = true;
         DisablePasswordReveal = true;
-        DisableSecurityBypass = true;
         DontCheckDefaultBrowser = true;
         HardwareAcceleration = true;
         OfferToSaveLogins = true;
@@ -75,11 +74,18 @@ in {
 
         ExtensionUpdate = false;
         ExtensionSettings = with builtins; let
-          extension = id: uuid: {
+          extension-mozilla = id: uuid: {
             name = uuid;
             value = {
               install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/${id}/latest.xpi";
-              installation_mode = "normal_installed";
+              installation_mode = "force_installed";
+            };
+          };
+          extension = path: uuid: {
+            name = uuid;
+            value = {
+              install_url = "file://${path}";
+              installation_mode = "force_installed";
             };
           };
         in
@@ -91,7 +97,8 @@ in {
                 blocked_install_message = "Please do not install from here, only from Nix. ≧◡≦";
               };
             }
-            (extension "ublock-origin" "uBlock0@raymondhill.net")
+            (extension-mozilla "ublock-origin" "uBlock0@raymondhill.net")
+            (extension "${pkgs.dark-reader}/${pkgs.dark-reader}-firefox.xpi" "uBlock0@raymondhill.net")
           ];
 
         "3rdparty".Extensions = {
@@ -239,8 +246,7 @@ in {
               };
               "NixOS Wiki" = {
                 urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
-                iconUpdateURL = "https://nixos.wiki/favicon.png";
-                updateInterval = 24 * 60 * 60 * 1000;
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
                 definedAliases = ["@nw"];
               };
               "Wikipedia (en)".metaData.alias = "@wiki";
