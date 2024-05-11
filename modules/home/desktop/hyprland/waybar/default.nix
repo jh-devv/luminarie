@@ -93,7 +93,7 @@ in {
         ${builtins.readFile ./css/style.css}
       '';
     };
-    home.packages = with pkgs; [playerctl pamixer];
+    systemd.user.services.waybar.Service.Environment = "PATH=$PATH:${makeBinPath [pkgs.playerctl pkgs.pamixer]}";
     services.mpris-proxy.enable = true;
   };
 }
