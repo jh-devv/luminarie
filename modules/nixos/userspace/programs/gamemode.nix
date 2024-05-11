@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 with lib; let
@@ -11,6 +12,7 @@ in {
       steam = {
         enable = true;
         gamescopeSession.enable = true;
+        extraCompatPackages = with pkgs; [proton-ge-bin];
       };
       gamemode.enable = true;
     };
