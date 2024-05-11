@@ -34,16 +34,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland-hyprlock = {
-      url = "github:hyprwm/hyprlock";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland-hypridle = {
-      url = "github:hyprwm/hypridle";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";

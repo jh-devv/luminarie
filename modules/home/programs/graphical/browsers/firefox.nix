@@ -74,17 +74,10 @@ in {
 
         ExtensionUpdate = false;
         ExtensionSettings = with builtins; let
-          extension-mozilla = id: uuid: {
+          extension = uuid: path: {
             name = uuid;
             value = {
-              install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/${id}/latest.xpi";
-              installation_mode = "force_installed";
-            };
-          };
-          extension = path: uuid: {
-            name = uuid;
-            value = {
-              install_url = "file://${path}";
+              install_url = path;
               installation_mode = "force_installed";
             };
           };
@@ -97,8 +90,8 @@ in {
                 blocked_install_message = "Please do not install from here, only from Nix. ≧◡≦";
               };
             }
-            (extension-mozilla "ublock-origin" "uBlock0@raymondhill.net")
-            (extension "${pkgs.dark-reader}/${pkgs.dark-reader}-firefox.xpi" "uBlock0@raymondhill.net")
+            (extension "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}" "https://addons.mozilla.org/en-US/firefox/downloads/latest/styl-us/latest.xpi")
+            (extension "uBlock0@raymondhill.net" "https://addons.mozilla.org/en-US/firefox/downloads/latest/ublock-origin/latest.xpi")
           ];
 
         "3rdparty".Extensions = {
@@ -321,12 +314,15 @@ in {
             # ETP (ENHANCED TRACKING PROTECTION)
             "2700".enable = true;
 
+            # FPP (fingerprintingProtection)
+            "4000".enable = true;
+
             # RFP (resistFingerprinting)
-            "4500" = {
-              enable = true;
-              "4504".enable = false; # Disable RFP letterboxing
-              # "4520".enable = false; # Don't disable WebGL (Web Graphics Library). You probably don't always want this, but yea.... who uses this shit anyway, since WebGPU is becoming more mainstream anyways?
-            };
+            #"4500" = {
+            #  enable = true;
+            #  "4504".enable = false; # Disable RFP letterboxing
+            #  # "4520".enable = false; # Don't disable WebGL (Web Graphics Library). You probably don't always want this, but yea.... who uses this shit anyway, since WebGPU is becoming more mainstream anyways?
+            #};
 
             # OPTIONAL OPSEC
             "5000" = {

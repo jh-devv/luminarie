@@ -4,6 +4,7 @@
     ./hypridle
     ./hyprpaper
     ./hyprlock
+    ./applets
     ./rofi
     ./waybar
     ./qt

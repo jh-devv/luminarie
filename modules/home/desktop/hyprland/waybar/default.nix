@@ -10,6 +10,7 @@ in {
   config = mkIf (cfg.session == "hyprland") {
     programs.waybar = {
       enable = true;
+      systemd.enable = true;
       settings = [
         {
           margin = "8px 15px -2px 15px";

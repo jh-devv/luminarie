@@ -1,8 +1,6 @@
 {
-  pkgs,
   config,
   lib,
-  inputs,
   ...
 }:
 with lib; let
@@ -10,28 +8,26 @@ with lib; let
   lock = "hyprlock";
 in {
   config = mkIf ((cfg.session == "hyprland") && (cfg.power.lockscreen.enable || cfg.power.hibernation.enable)) {
-    home.packages = with pkgs; [
-      inputs.hyprland-hypridle.packages.${pkgs.system}.hypridle
-    ];
-
     services.hypridle = {
       enable = true;
-      lockCmd = lock;
-      listeners = [
-        {
-          timeout = 500;
-          onTimeout = lock;
-          onResume = "";
-        }
-        {
-          timeout = 1000;
-          onTimeout = "systemctl suspend";
-          onResume = "";
-        }
-      ];
-      unlockCmd = "";
-      afterSleepCmd = "";
-      beforeSleepCmd = lock;
+      settings = {
+        lockCmd = lock;
+        listeners = [
+          {
+            timeout = 500;
+            onTimeout = lock;
+            onResume = "";
+          }
+          {
+            timeout = 1000;
+            onTimeout = "systemctl suspend";
+            onResume = "";
+          }
+        ];
+        unlockCmd = "";
+        afterSleepCmd = "";
+        beforeSleepCmd = lock;
+      };
     };
   };
 }
