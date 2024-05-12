@@ -18,6 +18,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -34,12 +35,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
-
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
+    arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.3.0";
       inputs.nixpkgs.follows = "nixpkgs";

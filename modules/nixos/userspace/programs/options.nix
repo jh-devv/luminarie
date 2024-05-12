@@ -1,4 +1,4 @@
 {lib, ...}:
 with lib; {
-  options.modules.nixos.programs = genAttrs ["gamemode" "wayland"] (k: {enable = mkEnableOption k;});
+  options.modules.nixos.programs = genAttrs ["steam" "wayland"] (k: {enable = mkEnableOption k;});
 }

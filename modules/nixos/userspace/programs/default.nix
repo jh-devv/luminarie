@@ -1,7 +1,7 @@
 {
   imports = [
     ./options.nix
-    ./gamemode.nix
+    ./steam.nix
     ./wayland.nix
   ];
 }

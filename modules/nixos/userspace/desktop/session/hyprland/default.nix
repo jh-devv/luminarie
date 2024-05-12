@@ -22,7 +22,7 @@ in {
       };
       programs = {
         wayland.enable = true;
-        gamemode.enable = true;
+        steam.enable = true;
       };
     };
     programs.hyprland = {
