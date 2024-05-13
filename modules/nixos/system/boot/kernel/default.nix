@@ -14,6 +14,20 @@ in {
         "fs.file-max" = 524288;
       };
       kernelPackages = pkgs.linuxPackages_latest;
+      kernelPatches = [
+        {
+          name = "amdgpu_res_cpu_visible";
+          patch = ./amdgpu_res_cpu_visible.patch;
+        }
+      ];
     };
+    security.pam.loginLimits = [
+      {
+        domain = "*";
+        type = "soft";
+        item = "nofile";
+        value = "16777216";
+      }
+    ];
   };
 }

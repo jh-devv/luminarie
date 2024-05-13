@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }:
 with lib; let
@@ -11,10 +10,8 @@ in {
     programs = {
       steam = {
         enable = true;
-        extraCompatPackages = with pkgs; [proton-ge-bin];
       };
       gamemode.enable = true;
     };
-    environment.systemPackages = with pkgs; [lutris];
   };
 }
