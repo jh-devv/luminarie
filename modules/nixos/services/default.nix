@@ -2,7 +2,9 @@
   imports = [
     ./options.nix
     ./containers
-    ./gnome
+    ./desktop-manager
     ./hardware
+    ./keyring
+    ./polkit
   ];
 }

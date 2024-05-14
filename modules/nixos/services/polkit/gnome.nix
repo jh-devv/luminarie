@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.services.gnome.polkit;
+  cfg = config.modules.nixos.services.polkit.gnome;
 in {
   config = mkIf cfg.enable {
     security.polkit.enable = true;

@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.services.gnome.keyring;
+  cfg = config.modules.nixos.services.keyring.gnome;
 in {
   config = mkIf cfg.enable {
     services = {

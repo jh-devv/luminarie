@@ -10,15 +10,15 @@ in {
   config = mkIf (cfg.session == "hyprland") {
     modules.nixos = {
       services = {
-        gnome = {
-          gdm.enable = true;
-          keyring.enable = true;
-          polkit.enable = true;
+        hardware = {
+          audio.enable = true;
+          bluetooth.enable = true;
+          firmware.enable = true;
+          printing.enable = true;
         };
-        audio.enable = true;
-        bluetooth.enable = true;
-        firmware.enable = true;
-        printing.enable = true;
+        keyring.gnome.enable = true;
+        polkit.gnome.enable = true;
+        desktop-manager.gdm.enable = true;
       };
       programs = {
         wayland.enable = true;

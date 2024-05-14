@@ -1,7 +1,13 @@
 {
   imports = [
     ./nix.nix
-    ./system
-    ./userspace
+    ./boot
+    ./desktop
+    ./language
+    ./networking
+    ./programs
+    ./services
+    ./shell
+    ./users
   ];
 }

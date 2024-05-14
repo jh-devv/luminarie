@@ -4,7 +4,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.services.bluetooth;
+  cfg = config.modules.nixos.services.hardware.bluetooth;
 in {
   config = mkIf cfg.enable {
     services.blueman.enable = true;

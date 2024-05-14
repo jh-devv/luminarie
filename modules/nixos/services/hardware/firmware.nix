@@ -4,7 +4,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.services.firmware;
+  cfg = config.modules.nixos.services.hardware.firmware;
 in {
   config = mkIf cfg.enable {
     services = {

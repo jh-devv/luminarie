@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.services.gnome.gdm;
+  cfg = config.modules.nixos.services.desktop-manager.gdm;
 in {
   config = mkIf cfg.enable {
     security.pam.services.gdm.enableGnomeKeyring = true;

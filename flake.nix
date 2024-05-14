@@ -11,8 +11,9 @@
         ./hosts
         ./home
         ./pkgs
+        ./overlays
 
-        ./modules/dev
+        ./devshell
       ];
     };
 
@@ -37,8 +38,8 @@
     };
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
-
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
+
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.3.0";
       inputs.nixpkgs.follows = "nixpkgs";

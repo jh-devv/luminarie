@@ -4,7 +4,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.services.audio;
+  cfg = config.modules.nixos.services.hardware.audio;
 in {
   config = mkIf cfg.enable {
     services.pipewire = {
