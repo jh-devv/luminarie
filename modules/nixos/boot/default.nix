@@ -4,6 +4,5 @@
     ./systemd.nix
     ./lanzaboote.nix
     ./plymouth.nix
-    ./kernel.nix
   ];
 }

@@ -1,4 +1,4 @@
-{config, ...}: {
+{pkgs, ...}: {
   modules.nixos = {
     language = {
       layout = "fi";
@@ -6,27 +6,23 @@
     };
 
     users = {
-      jh-devv = {
-        shell = config.modules.nixos.shell.package;
+      pi = {
         isNormalUser = true;
+        initialPassword = "raspberry";
         extraGroups = ["wheel"];
       };
     };
 
     networking = {
-      hostName = "aisu";
-      networkmanager.enable = true;
+      hostName = "beri";
     };
 
     desktop = {
-      session = "hyprland";
-    };
-
-    boot = {
-      systemd.enable = true;
-      lanzaboote.enable = true;
+      session = "gnome";
     };
   };
+
+  environment.systemPackages = with pkgs; [teamviewer];
 
   system.stateVersion = "23.05";
 }

@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   modulesPath,
   ...
 }: {
@@ -9,9 +10,12 @@
   ];
 
   boot = {
-    kernelModules = ["kvm-amd" "uinput"];
     extraModulePackages = [];
     kernelParams = ["quiet"];
+    kernelPackages = pkgs.linuxPackages_latest;
+
+    kernelModules = ["kvm-amd" "uinput"];
+    binfmt.emulatedSystems = ["aarch64-linux"];
 
     initrd = {
       systemd.enable = true;
@@ -23,6 +27,10 @@
           preLVM = true;
         };
       };
+    };
+    kernel.sysctl = {
+      "vm.max_map_count" = 16777216;
+      "fs.file-max" = 524288;
     };
   };
 

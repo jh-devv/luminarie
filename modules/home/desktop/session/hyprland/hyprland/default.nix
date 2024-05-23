@@ -15,10 +15,35 @@ in {
       grimblast
     ];
 
+    home.sessionVariables = rec {
+      XDG_DESKTOP_DIR = "$HOME/Desktop";
+      XDG_DOWNLOAD_DIR = "$HOME/Downloads";
+      XDG_DOCUMENTS_DIR = "$HOME/Documents";
+      XDG_MUSIC_DIR = "$HOME/Music";
+      XDG_PICTURES_DIR = "$HOME/Pictures";
+      XDG_SCREENHOTS_DIR = "$HOME/Pictures/Screenshots";
+      XDG_VIDEOS_DIR = "$HOME/Videos";
+      XDG_TEMPLATES_DIR = "$HOME/Templates";
+      XDG_PUBLICSHARE_DIR = "$HOME/Public";
+    };
+
     wayland.windowManager.hyprland = {
       enable = true;
 
-      systemd.enable = true;
+      systemd = {
+        enable = true;
+        variables = mkAfter [
+          "XDG_DESKTOP_DIR"
+          "XDG_DOWNLOAD_DIR"
+          "XDG_DOCUMENTS_DIR"
+          "XDG_MUSIC_DIR"
+          "XDG_PICTURES_DIR"
+          "XDG_SCREENSHOTS_DIR"
+          "XDG_VIDEOS_DIR"
+          "XDG_TEMPLATES_DIR"
+          "XDG_PUBLICSHARE_DIR"
+        ];
+      };
 
       settings = {
         monitor = map (m: "${m.name},${m.hyprland}") cfg.displays;

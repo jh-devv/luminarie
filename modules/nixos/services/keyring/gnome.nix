@@ -8,6 +8,7 @@ with lib; let
   cfg = config.modules.nixos.services.keyring.gnome;
 in {
   config = mkIf cfg.enable {
+    security.pam.services.gdm.enableGnomeKeyring = true;
     services = {
       dbus.packages = [pkgs.gcr];
       gnome.gnome-keyring.enable = true;

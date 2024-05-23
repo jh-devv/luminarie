@@ -12,7 +12,7 @@
     desktop = {
       displays = [
         {
-          name = "HDMI-A-1";
+          name = "DP-2";
           workspaces = [1 2 3 4 5 6 7 8 9 10];
         }
       ];
