@@ -21,6 +21,14 @@
     desktop = {
       session = "hyprland";
     };
+
+    boot = {
+      systemd.enable = true;
+      lanzaboote.enable = true;
+      kernel = {
+        patches.amdgpu.enable = true;
+      };
+    };
   };
 
   networking = {

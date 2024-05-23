@@ -2,8 +2,8 @@
   imports = [
     ./options.nix
     ./systemd.nix
-    ./secure-boot.nix
+    ./lanzaboote.nix
     ./plymouth.nix
-    ./kernel
+    ./kernel.nix
   ];
 }

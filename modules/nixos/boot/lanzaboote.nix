@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.boot.secure-boot;
+  cfg = config.modules.nixos.boot.lanzaboote;
 in {
   config = mkIf cfg.enable {
     boot = {
