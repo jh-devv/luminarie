@@ -1,33 +1,36 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 with lib; let
   cfg = config.modules.home.desktop;
-  lock = "hyprlock";
 in {
   config = mkIf ((cfg.session == "hyprland") && (cfg.power.lockscreen.enable || cfg.power.hibernation.enable)) {
     services.hypridle = {
       enable = true;
       settings = {
-        lockCmd = lock;
-        listeners = [
-          {
-            timeout = 500;
-            onTimeout = lock;
-            onResume = "";
-          }
-          {
-            timeout = 1000;
-            onTimeout = "systemctl suspend";
-            onResume = "";
-          }
-        ];
-        unlockCmd = "";
-        afterSleepCmd = "";
-        beforeSleepCmd = lock;
+        general = {
+          lock_cmd = "hyprlock";
+          before_sleep_cmd = "pidof hyprlock || hyprlock";
+          ignore_dbus_inhibit = false;
+        };
+        listener =
+          optionals cfg.power.lockscreen.enable [
+            {
+              timeout = cfg.power.lockscreen.timeout * 60;
+              onTimeout = "loginctl lock-session";
+            }
+          ]
+          ++ optionals cfg.power.suspend.enable [
+            {
+              timeout = cfg.power.suspend.timeout * 60;
+              onTimeout = "systemctl suspend";
+            }
+          ];
       };
     };
+    systemd.user.services.hypridle.Service.Environment = "PATH=$PATH:${makeBinPath [pkgs.hyprlock]}";
   };
 }

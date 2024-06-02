@@ -9,7 +9,7 @@
       jh-devv = {
         shell = config.modules.nixos.shell.package;
         isNormalUser = true;
-        extraGroups = ["wheel"];
+        extraGroups = ["wheel" "i2c"];
       };
     };
 
@@ -25,6 +25,11 @@
     boot = {
       systemd.enable = true;
       lanzaboote.enable = true;
+    };
+
+    services.hardware = {
+      smart-card.enable = true;
+      i2c.enable = true;
     };
   };
 

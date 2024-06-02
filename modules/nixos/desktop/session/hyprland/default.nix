@@ -13,8 +13,6 @@ in {
         hardware = {
           audio.enable = true;
           bluetooth.enable = true;
-          firmware.enable = true;
-          printing.enable = true;
         };
         keyring.gnome.enable = true;
         polkit.gnome.enable = true;

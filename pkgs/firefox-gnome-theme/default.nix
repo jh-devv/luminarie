@@ -15,7 +15,6 @@ stdenvNoCC.mkDerivation rec {
   };
 
   patches = [
-    # Apply Catppuccin Mocha Theming
     ./patches/catppuccin-mocha.patch
   ];
 

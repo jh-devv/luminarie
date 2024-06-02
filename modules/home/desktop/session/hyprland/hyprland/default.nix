@@ -15,7 +15,7 @@ in {
       grimblast
     ];
 
-    home.sessionVariables = rec {
+    home.sessionVariables = {
       XDG_DESKTOP_DIR = "$HOME/Desktop";
       XDG_DOWNLOAD_DIR = "$HOME/Downloads";
       XDG_DOCUMENTS_DIR = "$HOME/Documents";
@@ -187,16 +187,14 @@ in {
           "$mod, mouse:273, resizewindow"
         ];
 
-        gestures = {
-          workspace_swipe = "off";
-        };
-
         misc = {
           disable_hyprland_logo = true;
         };
 
         input = {
           kb_layout = "fi";
+          sensitivity = 0;
+          accel_profile = "flat";
         };
       };
     };

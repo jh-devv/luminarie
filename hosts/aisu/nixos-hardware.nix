@@ -10,17 +10,40 @@
   ];
 
   boot = {
-    extraModulePackages = [];
-    kernelParams = ["quiet"];
     kernelPackages = pkgs.linuxPackages_latest;
 
-    kernelModules = ["kvm-amd" "uinput"];
+    kernelModules = [
+      "kvm-amd"
+    ];
+
     binfmt.emulatedSystems = ["aarch64-linux"];
 
     initrd = {
-      systemd.enable = true;
-      availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "aesni_intel" "cryptd"];
-      kernelModules = ["dm-snapshot"];
+      systemd = {
+        enable = true;
+
+        units."dev-mapper-vg\\x2droot.device".text = ''
+          [Unit]
+          JobTimeoutSec=infinity
+        '';
+      };
+
+      availableKernelModules = [
+        "ahci"
+        "xhci_pci"
+        "thunderbolt"
+        "nvme"
+        "usbhid"
+        "usb_storage"
+
+        "aesni_intel"
+        "cryptd"
+      ];
+
+      kernelModules = [
+        "dm-snapshot"
+      ];
+
       luks.devices = {
         root = {
           device = "/dev/disk/by-uuid/b040ecb2-e127-4405-a351-4afd09da334b";
@@ -28,6 +51,7 @@
         };
       };
     };
+
     kernel.sysctl = {
       "vm.max_map_count" = 16777216;
       "fs.file-max" = 524288;
@@ -36,7 +60,7 @@
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/d2fe7e11-02fd-4c71-8f10-acb73a6932b9";
+      device = "/dev/mapper/vg-root";
       fsType = "btrfs";
     };
 
@@ -53,14 +77,9 @@
     }
   ];
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp11s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

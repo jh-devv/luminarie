@@ -6,6 +6,14 @@
 }:
 with lib; let
   cfg = config.modules.home.desktop;
+  depencencies = with pkgs; [
+    playerctl
+    pamixer
+    rofi
+    rofi-power-menu
+    systemd
+    getopt
+  ];
 in {
   config = mkIf (cfg.session == "hyprland") {
     programs.waybar = {
@@ -93,7 +101,8 @@ in {
         ${builtins.readFile ./css/style.css}
       '';
     };
-    systemd.user.services.waybar.Service.Environment = "PATH=$PATH:${makeBinPath [pkgs.playerctl pkgs.pamixer]}";
     services.mpris-proxy.enable = true;
+    systemd.user.services.waybar.Service.Environment = "PATH=$PATH:${makeBinPath depencencies}";
+    home.packages = depencencies;
   };
 }

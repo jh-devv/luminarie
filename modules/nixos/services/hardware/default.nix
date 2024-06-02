@@ -2,7 +2,8 @@
   imports = [
     ./audio.nix
     ./bluetooth.nix
-    ./firmware.nix
+    ./i2c.nix
+    ./smart-card.nix
     ./printing.nix
   ];
 }

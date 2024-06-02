@@ -18,6 +18,11 @@ in {
           type = types.int;
           description = "Timeout for automatic system lockscreen (in minutes)";
         };
+        wallpaper = mkOption {
+          type = types.path;
+          default = cfg.wallpaper;
+          description = "The local flake path of the wallpaper for the lockscreen.";
+        };
       };
       hibernation = {
         enable = mkEnableOption "automatic system hibernation";
@@ -44,7 +49,7 @@ in {
 
     wallpaper = mkOption {
       type = types.path;
-      description = "Configuration for settings the current wallpaper set on system boot";
+      description = "The local flake path of the wallpaper as default.";
       default = builtins.toString "${inputs.self}/assets/city.png";
     };
 
@@ -62,7 +67,7 @@ in {
               wallpaper = mkOption {
                 type = path;
                 default = cfg.wallpaper;
-                description = "The local Flake path of the wallpaper for the given display.";
+                description = "The local flake path of the wallpaper for the given display.";
               };
 
               hyprland = mkOption {
