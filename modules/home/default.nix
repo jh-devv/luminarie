@@ -1,8 +1,9 @@
 {inputs, ...}: {
   imports = [
+    ./options.nix
+    ./desktop
     ./services
     ./programs
-    ./desktop
     ./shell
   ];
 
@@ -14,7 +15,6 @@
     ];
     config = {
       allowUnfree = true;
-      allowUnfreePredicate = _: true;
     };
   };
 }

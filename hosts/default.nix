@@ -9,12 +9,13 @@ in {
     aisu = withSystem "x86_64-linux" (_:
       nixosSystem {
         specialArgs = {inherit inputs;};
-        modules = [./aisu];
-      });
-    beri = withSystem "aarch64-linux" (_:
-      nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [./beri];
+        modules = [
+          inputs.lanzaboote.nixosModules.lanzaboote
+          inputs.nixos-cosmic.nixosModules.default
+
+          ../modules/nixos
+          ./aisu
+        ];
       });
   };
 }

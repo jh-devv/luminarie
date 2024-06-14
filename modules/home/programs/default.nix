@@ -1,7 +1,10 @@
 {
   imports = [
-    ./options.nix
-    ./graphical
-    ./command-line
+    ./firefox
+    ./fractal
+    ./kitty
+    ./mpv
+    ./nautilus
+    ./vscode
   ];
 }

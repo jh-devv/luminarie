@@ -1,13 +1,13 @@
 {
   imports = [
+    ./options.nix
     ./nix.nix
     ./boot
     ./desktop
     ./language
     ./networking
-    ./programs
-    ./services
     ./shell
+    ./programs
     ./users
   ];
 }

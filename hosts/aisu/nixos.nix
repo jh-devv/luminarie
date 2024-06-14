@@ -9,7 +9,7 @@
       jh-devv = {
         shell = config.modules.nixos.shell.package;
         isNormalUser = true;
-        extraGroups = ["wheel" "i2c"];
+        extraGroups = ["wheel"];
       };
     };
 
@@ -18,19 +18,14 @@
       networkmanager.enable = true;
     };
 
-    desktop = {
-      session = "hyprland";
-    };
+    desktop.session.cosmic.enable = true;
 
     boot = {
       systemd.enable = true;
       lanzaboote.enable = true;
     };
 
-    services.hardware = {
-      smart-card.enable = true;
-      i2c.enable = true;
-    };
+    programs.steam.enable = true;
   };
 
   system.stateVersion = "23.05";

@@ -1,6 +1,5 @@
-{
-  imports = [
-    ./options.nix
-    ./users.nix
-  ];
+{config, ...}: {
+  config = {
+    users = {inherit (config.modules.nixos) users;};
+  };
 }

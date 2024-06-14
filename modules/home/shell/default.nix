@@ -1,7 +1,6 @@
 {
   imports = [
-    ./options.nix
     ./zsh
-    ./subtitutes
+    ./common
   ];
 }

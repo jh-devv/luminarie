@@ -135,24 +135,3 @@ index 4aa9c15..24259b2 100644
 -}
 +}
 \ No newline at end of file
-diff --git a/theme/parts/icons.css b/theme/parts/icons.css
-index 2c48da4..22c62f5 100644
---- a/theme/parts/icons.css
-+++ b/theme/parts/icons.css
-@@ -296,7 +296,7 @@ button.close::before {
- 	}
- }
- 
--/* Window buttons */
-+/* Window buttons
- :root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-close .toolbarbutton-icon {
- 	list-style-image: url("../icons/window-close-symbolic.svg") !important;
- }
-@@ -315,6 +315,7 @@ button.close::before {
- :root[tabsintitlebar][inFullscreen] #window-controls #restore-button .toolbarbutton-icon {
- 	list-style-image: url("../icons/view-restore-symbolic.svg") !important;
- }
-+*/
- 
- /* Sound icons */
- .tab-icon-overlay[soundplaying] {
