@@ -4,16 +4,16 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.nixos.desktop.session.cosmic;
-in {
+in
+{
   config = mkIf cfg.enable {
     services.displayManager.cosmic-greeter.enable = true;
     services.desktopManager.cosmic.enable = true;
 
-    environment.systemPackages = with pkgs; [
-      libnotify
-    ];
+    environment.systemPackages = with pkgs; [ libnotify ];
 
     # This sets the PATH for systemd user sessions to include necessary directories.
     # For example, this is needed to run xdg-open from an xdg-desktop-portal.

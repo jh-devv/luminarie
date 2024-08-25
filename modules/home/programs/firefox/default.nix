@@ -4,33 +4,36 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.home.programs.firefox;
   browser = "firefox.desktop";
-in {
+in
+{
   config = mkIf cfg.enable {
     xdg.mimeApps = {
       # optionalAttrs (options ? modules.home.desktop.session) {
       enable = true;
       defaultApplications = {
-        "application/x-extension-htm" = [browser];
-        "application/x-extension-html" = [browser];
-        "application/x-extension-shtml" = [browser];
-        "application/x-extension-xht" = [browser];
-        "application/x-extension-xhtml" = [browser];
-        "application/xhtml+xml" = [browser];
-        "application/json" = [browser];
-        "text/html" = [browser];
-        "x-scheme-handler/about" = [browser];
-        "x-scheme-handler/ftp" = [browser];
-        "x-scheme-handler/http" = [browser];
-        "x-scheme-handler/https" = [browser];
-        "x-scheme-handler/unknown" = [browser];
+        "application/x-extension-htm" = [ browser ];
+        "application/x-extension-html" = [ browser ];
+        "application/x-extension-shtml" = [ browser ];
+        "application/x-extension-xht" = [ browser ];
+        "application/x-extension-xhtml" = [ browser ];
+        "application/xhtml+xml" = [ browser ];
+        "application/json" = [ browser ];
+        "text/html" = [ browser ];
+        "x-scheme-handler/about" = [ browser ];
+        "x-scheme-handler/ftp" = [ browser ];
+        "x-scheme-handler/http" = [ browser ];
+        "x-scheme-handler/https" = [ browser ];
+        "x-scheme-handler/unknown" = [ browser ];
       };
     };
     home.file = {
-      ".mozilla/firefox/${config.home.username}/chrome/".source =
-        mkIf (cfg.theme.package != null) cfg.theme.package;
+      ".mozilla/firefox/${config.home.username}/chrome/".source = mkIf (
+        cfg.theme.package != null
+      ) cfg.theme.package;
     };
     programs.firefox = {
       enable = true;
@@ -74,15 +77,17 @@ in {
         };
 
         ExtensionUpdate = false;
-        ExtensionSettings = with builtins; let
-          extension = uuid: path: {
-            name = uuid;
-            value = {
-              install_url = path;
-              installation_mode = "force_installed";
+        ExtensionSettings =
+          with builtins;
+          let
+            extension = uuid: path: {
+              name = uuid;
+              value = {
+                install_url = path;
+                installation_mode = "force_installed";
+              };
             };
-          };
-        in
+          in
           listToAttrs [
             {
               name = "*";
@@ -233,12 +238,12 @@ in {
                   }
                 ];
                 icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                definedAliases = ["@np"];
+                definedAliases = [ "@np" ];
               };
               "NixOS Wiki" = {
-                urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
+                urls = [ { template = "https://nixos.wiki/index.php?search={searchTerms}"; } ];
                 icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                definedAliases = ["@nw"];
+                definedAliases = [ "@nw" ];
               };
               "Wikipedia (en)".metaData.alias = "@wiki";
               "Amazon.com".metaData.hidden = true;

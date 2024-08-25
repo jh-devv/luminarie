@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.home.shell.common;
-in {
+in
+{
   config = mkIf cfg.enable {
     home.shellAliases = {
       ls = "${getExe pkgs.lsd}";

@@ -1,5 +1,1 @@
-{
-  imports = [
-    ./steam
-  ];
-}
+{ imports = [ ./steam ]; }

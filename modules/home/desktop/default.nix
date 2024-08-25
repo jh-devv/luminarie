@@ -1,5 +1,1 @@
-{
-  imports = [
-    ./cosmic
-  ];
-}
+{ imports = [ ./cosmic ]; }

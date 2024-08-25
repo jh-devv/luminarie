@@ -1,4 +1,5 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   imports = [
     ./options.nix
     ./desktop
@@ -10,9 +11,7 @@
   programs.home-manager.enable = true;
 
   nixpkgs = {
-    overlays = [
-      inputs.self.overlays.default
-    ];
+    overlays = [ inputs.self.overlays.default ];
     config = {
       allowUnfree = true;
     };

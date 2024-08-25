@@ -4,9 +4,11 @@
   config,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.nixos.boot.lanzaboote;
-in {
+in
+{
   config = mkIf cfg.enable {
     boot = {
       loader.systemd-boot.enable = mkForce (!cfg.enable);

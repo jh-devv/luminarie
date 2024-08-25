@@ -1,5 +1,8 @@
-{config, ...}: {
+{ config, ... }:
+{
   config = {
-    users = {inherit (config.modules.nixos) users;};
+    users = {
+      inherit (config.modules.nixos) users;
+    };
   };
 }

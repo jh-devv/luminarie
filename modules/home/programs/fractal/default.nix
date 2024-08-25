@@ -4,10 +4,10 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.home.programs.fractal;
-in {
-  config = mkIf cfg.enable {
-    home.packages = with pkgs; [fractal];
-  };
+in
+{
+  config = mkIf cfg.enable { home.packages = with pkgs; [ fractal ]; };
 }

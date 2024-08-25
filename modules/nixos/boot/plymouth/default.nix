@@ -1,11 +1,9 @@
-{
-  lib,
-  config,
-  ...
-}:
-with lib; let
+{ lib, config, ... }:
+with lib;
+let
   cfg = config.modules.nixos.boot.plymouth;
-in {
+in
+{
   config = mkIf cfg.enable {
     boot = {
       plymouth.enable = true;

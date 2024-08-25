@@ -4,11 +4,13 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.nixos.shell;
-in {
+in
+{
   config = mkIf (cfg.package == pkgs.zsh) {
-    environment.shells = with pkgs; [zsh];
+    environment.shells = with pkgs; [ zsh ];
     programs.zsh.enable = true;
   };
 }

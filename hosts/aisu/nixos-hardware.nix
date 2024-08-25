@@ -4,19 +4,16 @@
   pkgs,
   modulesPath,
   ...
-}: {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
+}:
+{
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
 
-    kernelModules = [
-      "kvm-amd"
-    ];
+    kernelModules = [ "kvm-amd" ];
 
-    binfmt.emulatedSystems = ["aarch64-linux"];
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
 
     initrd = {
       systemd = {
@@ -40,9 +37,7 @@
         "cryptd"
       ];
 
-      kernelModules = [
-        "dm-snapshot"
-      ];
+      kernelModules = [ "dm-snapshot" ];
 
       luks.devices = {
         root = {

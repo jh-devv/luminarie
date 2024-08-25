@@ -1,11 +1,9 @@
-{
-  config,
-  lib,
-  ...
-}:
-with lib; let
+{ config, lib, ... }:
+with lib;
+let
   cfg = config.modules.home.programs.kitty;
-in {
+in
+{
   config = mkIf cfg.enable {
     programs.kitty = {
       enable = true;

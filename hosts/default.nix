@@ -1,14 +1,15 @@
-{
-  inputs,
-  withSystem,
-  ...
-}: let
+{ inputs, withSystem, ... }:
+let
   inherit (inputs.nixpkgs.lib) nixosSystem;
-in {
+in
+{
   flake.nixosConfigurations = {
-    aisu = withSystem "x86_64-linux" (_:
+    aisu = withSystem "x86_64-linux" (
+      _:
       nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+        };
         modules = [
           inputs.lanzaboote.nixosModules.lanzaboote
           inputs.nixos-cosmic.nixosModules.default
@@ -16,6 +17,7 @@ in {
           ../modules/nixos
           ./aisu
         ];
-      });
+      }
+    );
   };
 }

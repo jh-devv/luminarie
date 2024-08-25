@@ -1,11 +1,9 @@
-{
-  lib,
-  config,
-  ...
-}:
-with lib; let
+{ lib, config, ... }:
+with lib;
+let
   cfg = config.modules.nixos.boot.systemd;
-in {
+in
+{
   config = mkIf cfg.enable {
     boot = {
       loader = {

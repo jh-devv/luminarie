@@ -1,11 +1,9 @@
-{
-  config,
-  lib,
-  ...
-}:
-with lib; let
+{ config, lib, ... }:
+with lib;
+let
   cfg = config.modules.nixos.programs.steam;
-in {
+in
+{
   config = mkIf cfg.enable {
     programs = {
       steam.enable = true;

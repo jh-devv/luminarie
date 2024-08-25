@@ -1,9 +1,6 @@
+{ lib, pkgs, ... }:
+with lib;
 {
-  lib,
-  pkgs,
-  ...
-}:
-with lib; {
   options.modules.nixos = {
     desktop = {
       session = {
@@ -86,7 +83,8 @@ with lib; {
       };
     };
 
-    programs =
-      genAttrs ["steam"] (k: {enable = mkEnableOption k;});
+    programs = genAttrs [ "steam" ] (k: {
+      enable = mkEnableOption k;
+    });
   };
 }

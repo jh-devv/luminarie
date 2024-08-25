@@ -1,6 +1,8 @@
-{config, ...}: let
+{ config, ... }:
+let
   cfg = config.modules.nixos.language;
-in {
+in
+{
   config = {
     services.xserver.xkb.layout = cfg.layout;
     console.useXkbConfig = true;

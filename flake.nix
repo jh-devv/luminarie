@@ -1,9 +1,10 @@
 {
   description = "Luminarie, the flake for my NixOS setups like `Aisu` ( ˶ˆ꒳ˆ˵ )";
 
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux"];
+  outputs =
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
 
       imports = [
         inputs.pre-commit-hooks.flakeModule

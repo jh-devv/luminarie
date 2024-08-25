@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   modules.nixos = {
     language = {
       layout = "fi";
@@ -9,7 +10,7 @@
       jh-devv = {
         shell = config.modules.nixos.shell.package;
         isNormalUser = true;
-        extraGroups = ["wheel"];
+        extraGroups = [ "wheel" ];
       };
     };
 

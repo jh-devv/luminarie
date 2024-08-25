@@ -4,9 +4,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.home.desktop.session.cosmic;
-in {
+in
+{
   config = mkIf cfg.enable {
     qt = {
       enable = true;
@@ -25,8 +27,8 @@ in {
       libsForQt5.qtstyleplugin-kvantum
     ];
 
-    xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
-      General.theme = "Catppuccin-Mocha-Lavender";
-    };
+    xdg.configFile."Kvantum/kvantum.kvconfig".source =
+      (pkgs.formats.ini { }).generate "kvantum.kvconfig"
+        { General.theme = "Catppuccin-Mocha-Lavender"; };
   };
 }

@@ -4,10 +4,12 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   inherit (config) gtk;
   cfg = config.modules.home.desktop.session.cosmic;
-in {
+in
+{
   config = mkIf cfg.enable {
     gtk = {
       enable = true;
@@ -20,7 +22,7 @@ in {
       theme = {
         name = "catppuccin-mocha-lavender-standard";
         package = pkgs.catppuccin-gtk.override {
-          accents = ["lavender"];
+          accents = [ "lavender" ];
           variant = "mocha";
         };
       };

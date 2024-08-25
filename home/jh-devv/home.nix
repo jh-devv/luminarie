@@ -1,8 +1,5 @@
+{ pkgs, lib, ... }:
 {
-  pkgs,
-  lib,
-  ...
-}: {
   home = {
     username = "jh-devv";
     homeDirectory = "/home/jh-devv";
@@ -11,8 +8,22 @@
   modules.home = {
     desktop.session.cosmic.enable = true;
 
-    programs = lib.genAttrs ["firefox" "fractal" "kitty" "mpv" "nautilus" "vscode"] (_k: {enable = true;});
-    services = lib.genAttrs ["mpris-proxy"] (_k: {enable = true;});
+    programs =
+      lib.genAttrs
+        [
+          "firefox"
+          "fractal"
+          "kitty"
+          "mpv"
+          "nautilus"
+          "vscode"
+        ]
+        (_k: {
+          enable = true;
+        });
+    services = lib.genAttrs [ "mpris-proxy" ] (_k: {
+      enable = true;
+    });
 
     shell = {
       package = pkgs.zsh;

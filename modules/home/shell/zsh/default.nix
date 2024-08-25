@@ -4,9 +4,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.home.shell;
-in {
+in
+{
   config = mkIf (cfg.package == pkgs.zsh) {
     programs = {
       zsh = {
@@ -17,7 +19,7 @@ in {
         autosuggestion.enable = true;
         oh-my-zsh = {
           enable = true;
-          plugins = ["git"];
+          plugins = [ "git" ];
         };
       };
 

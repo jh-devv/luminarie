@@ -32,7 +32,10 @@ buildNpmPackage rec {
     runHook postPatch
   '';
 
-  npmBuildFlags = ["--" "--firefox"];
+  npmBuildFlags = [
+    "--"
+    "--firefox"
+  ];
 
   installPhase = ''
     runHook preInstall
