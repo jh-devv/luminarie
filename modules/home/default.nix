@@ -1,7 +1,6 @@
 { inputs, ... }:
 {
   imports = [
-    ./options.nix
     ./desktop
     ./services
     ./programs

@@ -12,6 +12,16 @@ let
   image-viewer = "mpv.desktop";
 in
 {
+  options.modules.home = {
+    programs =
+      genAttrs
+        [
+          "mpv"
+        ]
+        (k: {
+          enable = mkEnableOption k;
+        });
+  };
   config = mkIf cfg.enable {
     xdg.mimeApps = {
       # optionalAttrs (options ? modules.home.desktop.session) {

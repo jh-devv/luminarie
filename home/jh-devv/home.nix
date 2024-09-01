@@ -16,6 +16,7 @@
           "kitty"
           "mpv"
           "nautilus"
+          "stardrop"
           "vscode"
         ]
         (_k: {

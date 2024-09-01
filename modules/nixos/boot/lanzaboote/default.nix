@@ -9,6 +9,11 @@ let
   cfg = config.modules.nixos.boot.lanzaboote;
 in
 {
+  options.modules.nixos = {
+    boot = {
+      lanzaboote.enable = mkEnableOption "systemd";
+    };
+  };
   config = mkIf cfg.enable {
     boot = {
       loader.systemd-boot.enable = mkForce (!cfg.enable);

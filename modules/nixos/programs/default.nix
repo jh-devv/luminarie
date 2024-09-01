@@ -1,1 +1,3 @@
-{ imports = [ ./steam ]; }
+{
+  imports = [ ./steam ];
+}

@@ -4,6 +4,11 @@ let
   cfg = config.modules.nixos.boot.systemd;
 in
 {
+  options.modules.nixos = {
+    boot = {
+      systemd.enable = mkEnableOption "systemd";
+    };
+  };
   config = mkIf cfg.enable {
     boot = {
       loader = {

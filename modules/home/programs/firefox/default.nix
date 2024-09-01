@@ -10,6 +10,21 @@ let
   browser = "firefox.desktop";
 in
 {
+  options.modules.home = {
+    programs = {
+      firefox = {
+        enable = mkEnableOption "firefox";
+        theme.package = mkOption {
+          example = pkgs.firefox-gnome-theme;
+          type = types.nullOr types.package;
+          default = pkgs.firefox-gnome-theme;
+          description = ''
+            The user theme to apply to Firefox.
+          '';
+        };
+      };
+    };
+  };
   config = mkIf cfg.enable {
     xdg.mimeApps = {
       # optionalAttrs (options ? modules.home.desktop.session) {
@@ -220,16 +235,15 @@ in
           search = {
             force = true;
             default = "Google";
+
             engines = {
-              "Nix Packages" = {
+              "NixOS Packages" = {
+                definedAliases = [ "@np" ];
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
                 urls = [
                   {
                     template = "https://search.nixos.org/packages";
                     params = [
-                      {
-                        name = "type";
-                        value = "packages";
-                      }
                       {
                         name = "query";
                         value = "{searchTerms}";
@@ -237,13 +251,36 @@ in
                     ];
                   }
                 ];
-                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                definedAliases = [ "@np" ];
               };
-              "NixOS Wiki" = {
-                urls = [ { template = "https://nixos.wiki/index.php?search={searchTerms}"; } ];
+              "NixOS Options" = {
+                definedAliases = [ "@no" ];
                 icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                definedAliases = [ "@nw" ];
+                urls = [
+                  {
+                    template = "https://search.nixos.org/options";
+                    params = [
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+              };
+              "Home Manager Options" = {
+                definedAliases = [ "@hm" ];
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                urls = [
+                  {
+                    template = "https://home-manager-options.extranix.com";
+                    params = [
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
               };
               "Wikipedia (en)".metaData.alias = "@wiki";
               "Amazon.com".metaData.hidden = true;

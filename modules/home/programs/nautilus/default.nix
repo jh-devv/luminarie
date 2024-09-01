@@ -11,9 +11,18 @@ let
   zip-manager = "org.gnome.FileRoller.desktop";
 in
 {
+  options.modules.home = {
+    programs =
+      genAttrs
+        [
+          "nautilus"
+        ]
+        (k: {
+          enable = mkEnableOption k;
+        });
+  };
   config = mkIf cfg.enable {
     xdg.mimeApps = {
-      # mkIf (config.modules.home.desktop.session != "") {
       enable = true;
       defaultApplications = {
         "application/zip" = [ zip-manager ];

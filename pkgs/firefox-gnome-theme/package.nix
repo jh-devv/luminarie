@@ -14,7 +14,7 @@ stdenvNoCC.mkDerivation rec {
     hash = "sha256-MOE9NeU2i6Ws1GhGmppMnjOHkNLl2MQMJmGhaMzdoJM=";
   };
 
-  patches = [ ./patches/catppuccin-mocha.patch ];
+  patches = [ ./catppuccin-mocha.patch ];
 
   dontConfigure = true;
   dontBuild = true;
