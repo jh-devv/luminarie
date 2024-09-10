@@ -1,30 +1,16 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, pkgs, ... }:
 with lib;
 let
   cfg = config.modules.home.programs.mpv;
   video-player = "mpv.desktop";
   audio-player = "mpv.desktop";
   image-viewer = "mpv.desktop";
-in
-{
+in {
   options.modules.home = {
-    programs =
-      genAttrs
-        [
-          "mpv"
-        ]
-        (k: {
-          enable = mkEnableOption k;
-        });
+    programs = genAttrs [ "mpv" ] (k: { enable = mkEnableOption k; });
   };
   config = mkIf cfg.enable {
     xdg.mimeApps = {
-      # optionalAttrs (options ? modules.home.desktop.session) {
       enable = true;
       defaultApplications = {
         "video/*" = [ video-player ];
@@ -37,10 +23,7 @@ in
       scripts = with pkgs.mpvScripts; [ mpris ];
     };
     home = {
-      packages = with pkgs; [
-        playerctl
-        cava
-      ];
+      packages = with pkgs; [ playerctl cava ];
       shellAliases = {
         mpvm = "mpv --vf=scale=350:-1 --loop-playlist=inf --shuffle";
       };

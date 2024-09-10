@@ -1,15 +1,9 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, pkgs, ... }:
 with lib;
 let
   cfg = config.modules.home.programs.firefox;
   browser = "firefox.desktop";
-in
-{
+in {
   options.modules.home = {
     programs = {
       firefox = {
@@ -27,7 +21,6 @@ in
   };
   config = mkIf cfg.enable {
     xdg.mimeApps = {
-      # optionalAttrs (options ? modules.home.desktop.session) {
       enable = true;
       defaultApplications = {
         "application/x-extension-htm" = [ browser ];
@@ -46,9 +39,8 @@ in
       };
     };
     home.file = {
-      ".mozilla/firefox/${config.home.username}/chrome/".source = mkIf (
-        cfg.theme.package != null
-      ) cfg.theme.package;
+      ".mozilla/firefox/${config.home.username}/chrome/".source =
+        mkIf (cfg.theme.package != null) cfg.theme.package;
     };
     programs.firefox = {
       enable = true;
@@ -92,8 +84,7 @@ in
         };
 
         ExtensionUpdate = false;
-        ExtensionSettings =
-          with builtins;
+        ExtensionSettings = with builtins;
           let
             extension = uuid: path: {
               name = uuid;
@@ -102,17 +93,21 @@ in
                 installation_mode = "force_installed";
               };
             };
-          in
-          listToAttrs [
+          in listToAttrs [
             {
               name = "*";
               value = {
                 installation_mode = "blocked";
-                blocked_install_message = "Please do not install from here, only from Nix. ≧◡≦";
+                blocked_install_message =
+                  "Please do not install from here, only from Nix. ≧◡≦";
               };
             }
-            (extension "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}" "https://addons.mozilla.org/en-US/firefox/downloads/latest/styl-us/latest.xpi")
-            (extension "uBlock0@raymondhill.net" "https://addons.mozilla.org/en-US/firefox/downloads/latest/ublock-origin/latest.xpi")
+            (extension "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}"
+              "https://addons.mozilla.org/en-US/firefox/downloads/latest/styl-us/latest.xpi")
+            (extension "uBlock0@raymondhill.net"
+              "https://addons.mozilla.org/en-US/firefox/downloads/latest/ublock-origin/latest.xpi")
+            (extension "shinigamieyes@shinigamieyes"
+              "https://addons.mozilla.org/en-US/firefox/downloads/latest/shinigami-eyes/latest.xpi")
           ];
 
         "3rdparty".Extensions = {
@@ -239,48 +234,39 @@ in
             engines = {
               "NixOS Packages" = {
                 definedAliases = [ "@np" ];
-                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                urls = [
-                  {
-                    template = "https://search.nixos.org/packages";
-                    params = [
-                      {
-                        name = "query";
-                        value = "{searchTerms}";
-                      }
-                    ];
-                  }
-                ];
+                icon =
+                  "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                urls = [{
+                  template = "https://search.nixos.org/packages";
+                  params = [{
+                    name = "query";
+                    value = "{searchTerms}";
+                  }];
+                }];
               };
               "NixOS Options" = {
                 definedAliases = [ "@no" ];
-                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                urls = [
-                  {
-                    template = "https://search.nixos.org/options";
-                    params = [
-                      {
-                        name = "query";
-                        value = "{searchTerms}";
-                      }
-                    ];
-                  }
-                ];
+                icon =
+                  "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                urls = [{
+                  template = "https://search.nixos.org/options";
+                  params = [{
+                    name = "query";
+                    value = "{searchTerms}";
+                  }];
+                }];
               };
               "Home Manager Options" = {
                 definedAliases = [ "@hm" ];
-                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                urls = [
-                  {
-                    template = "https://home-manager-options.extranix.com";
-                    params = [
-                      {
-                        name = "query";
-                        value = "{searchTerms}";
-                      }
-                    ];
-                  }
-                ];
+                icon =
+                  "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                urls = [{
+                  template = "https://home-manager-options.extranix.com";
+                  params = [{
+                    name = "query";
+                    value = "{searchTerms}";
+                  }];
+                }];
               };
               "Wikipedia (en)".metaData.alias = "@wiki";
               "Amazon.com".metaData.hidden = true;
@@ -305,9 +291,7 @@ in
             # nix build "github:dwarfmaster/arkenfox-nixos#arkenfox-v122_0-doc-static"
 
             # STARTUP
-            "0100" = {
-              "0105".enable = true;
-            };
+            "0100" = { "0105".enable = true; };
 
             # GEOLOCATION
             "0200".enable = true;
@@ -366,16 +350,20 @@ in
 
             # OPTIONAL OPSEC
             "5000" = {
-              "5004".enable = true; # Disable permissions manager from writing to disk [FF41+] [RESTART]
-              "5007".enable = true; # Exclude "Undo Closed Tabs" in Session Restore
+              "5004".enable =
+                true; # Disable permissions manager from writing to disk [FF41+] [RESTART]
+              "5007".enable =
+                true; # Exclude "Undo Closed Tabs" in Session Restore
               "5008".enable = true; # Disable resuming session from crash
-              "5009".enable = true; # Disable "open with" in download dialog [FF50+]
+              "5009".enable =
+                true; # Disable "open with" in download dialog [FF50+]
               "5016".enable = true; # Discourage downloading to desktop
               "5018".enable = true; # Limit events that can cause a pop-up
             };
 
             # OPTIONAL HARDENING
-            "5500"."5505".enable = true; # Disable Ion and baseline JIT to harden against JS exploits
+            "5500"."5505".enable =
+              true; # Disable Ion and baseline JIT to harden against JS exploits
 
             # DONT TOUTCH
             "6000".enable = true;
