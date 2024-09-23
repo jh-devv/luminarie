@@ -9,7 +9,8 @@
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    # 6.11 has amdgpu kernel regression issues
+    kernelPackages = pkgs.linuxPackages_6_10;
 
     kernelModules = [ "kvm-amd" ];
 
