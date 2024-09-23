@@ -9,10 +9,7 @@
         check.enable = true;
         settings.excludes = [ "flake.lock" ];
         settings.hooks = {
-          nixfmt = {
-            enable = true;
-            package = pkgs.nixfmt-rfc-style;
-          };
+          nixfmt-rfc-style.enable = true;
           deadnix.enable = true;
           prettier.enable = true;
           statix.enable = true;

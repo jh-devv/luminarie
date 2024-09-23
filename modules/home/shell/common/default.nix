@@ -27,6 +27,8 @@ in
       nitch
       ripgrep-all
       trash-cli
+      zip
+      unzip
     ];
   };
 }
